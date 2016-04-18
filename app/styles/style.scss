@@ -1,0 +1,7 @@
+// Bootstrap Kitchen Sink
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+// Import SMACSS parts
+@import "base";
+@import "module";
+@import "layout";
