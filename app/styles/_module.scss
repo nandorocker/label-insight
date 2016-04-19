@@ -5,8 +5,10 @@
 	margin-bottom: 0;
 
 	header {
-		@include make-md-column(8);
-		@include make-md-column-offset(2);
+		@include make-md-column(10);
+		@include make-md-column-offset(1);
+		// @include make-lg-column(8);
+		// @include make-lg-column-offset(2);
 		text-align: center;
 		margin-bottom: $line-height-computed*3;
 	}

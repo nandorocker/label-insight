@@ -7,7 +7,28 @@ $brand-info:            #5bc0de;
 $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
 
+$grid-gutter-width:         40px;
+
 $jumbotron-font-size:            16px;
 $jumbotron-heading-font-size:    36px;
 $headings-font-weight:   		 700;
 $line-height-base:        1.818181818; // 20/11
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+// Small screen / tablet
+$container-tablet:             (680px + $grid-gutter-width);
+//** For `$screen-sm-min` and up.
+$container-sm:                 $container-tablet;
+
+// Medium screen / desktop
+$container-desktop:            (880px + $grid-gutter-width);
+//** For `$screen-md-min` and up.
+$container-md:                 $container-desktop;
+
+// Large screen / wide desktop
+$container-large-desktop:      (940px + $grid-gutter-width);
+//** For `$screen-lg-min` and up.
+$container-lg:                 $container-large-desktop;

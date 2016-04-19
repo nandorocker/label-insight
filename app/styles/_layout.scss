@@ -16,7 +16,7 @@
 			#373D46;
 
 		.content {
-			@include make-md-column(5);
+			@include make-md-column(6);
 			@include make-md-column-offset(6);
 		}
 	}
@@ -34,30 +34,42 @@
 		}
 
 		a.btn {
-			margin-top: $line-height-computed;
+			margin-top: $line-height-computed*2;
 		}
 	}
 
 	.product-left {
 			figure {
-				@include make-md-column(5);
-				@include make-md-column-offset(1);
+				@include make-sm-column(5);
+				@include make-md-column(6);
+				// @include make-lg-column(6);
+				// @include make-lg-column-offset(1);
 			}
 
 			.description {
-				@include make-md-column(5);
+				@include make-sm-column(7);
+				@include make-md-column(6);
+				// @include make-lg-column(5);
 			}
 		}
 
 	.product-right {
 		figure {
-			@include make-md-column(5);
+			@include make-sm-column(5);
+			@include make-sm-column-push(7);
+			@include make-md-column(6);
 			@include make-md-column-push(6);
+			// @include make-lg-column(5);
+			// @include make-lg-column-push(6);
 		}
 
 		.description {
-			@include make-md-column(5);
-			@include make-md-column-pull(4);
+			@include make-sm-column(7);
+			@include make-sm-column-pull(5);
+			@include make-md-column(6);
+			@include make-md-column-pull(6);
+			// @include make-lg-column(5);
+			// @include make-lg-column-pull(4);
 
 		}
 	}
