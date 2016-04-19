@@ -15,27 +15,46 @@
 
 .pane {
 	.product {
+		margin-top: $line-height-computed*3;
+		margin-bottom: $line-height-computed*3;
+
 		@include make-row();
-
-		margin: $line-height-computed*3 0;
-
-		figure {
-			@include make-md-column(5);
-			@include make-md-column-offset(1);
-		}
 
 		img {
 			@include img-responsive();
-			width: 80%;
+		}
+	}
+
+	.product-left {
+			figure {
+				@include make-md-column(5);
+				@include make-md-column-offset(1);
+			}
+
+			.description {
+				@include make-md-column(5);
+			}
+		}
+
+	.product-right {
+		figure {
+			@include make-md-column(5);
+			@include make-md-column-push(6);
 		}
 
 		.description {
-			@include make-md-column(5)
+			@include make-md-column(5);
+			@include make-md-column-pull(4);
+
 		}
 	}
 }
 
-
 .illustration-1A {
 	@include make-md-column(6);
+}
+
+#cpg, #retailers {
+	background: url("/images/section_separator.png") 0px 0px / 50% auto no-repeat;
+	border-top: #52BEAC solid 1px;
 }

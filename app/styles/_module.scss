@@ -1,11 +1,8 @@
-.jumbotron {
-	margin-bottom: 0;
-}
-
 // Panes (custom version of jumbotron)
 .pane {
 	@extend .jumbotron;
 	background: #fff;
+	margin-bottom: 0;
 
 	header {
 		@include make-md-column(8);
