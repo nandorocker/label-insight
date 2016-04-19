@@ -3,21 +3,28 @@ var onError = function(err) {
     console.log(err);
 }
 
-var gulp 		= require('gulp'),
-	gutil 		= require('gulp-util'),
-	del 		= require('del'), // to delete folders
-	pug 		= require('pug'),
-	gulpPug 	= require('gulp-pug'),
-	sass 		= require('gulp-sass'),
-	browserify 	= require('browserify'), // Does some magic shit I don't understand
-	source 		= require('vinyl-source-stream'), // Rquired for browserify
-	buffer 		= require('vinyl-buffer'), // Rquired for browserify
-	uglify 		= require('gulp-uglify'),
-	imagemin	= require('gulp-imagemin'), // Image minify
-	plumber		= require('gulp-plumber'), // Error Handling
-	notify		= require('gulp-notify'),
-	browserSync	= require('browser-sync').create(),
-	sourcemaps	= require('gulp-sourcemaps');
+//
+// G U L P  L O A D E R
+//
+var gulp 		 = require('gulp'),
+	gutil 		 = require('gulp-util'),
+	del 		 = require('del'), // to delete folders
+	pug 		 = require('pug'),
+	gulpPug 	 = require('gulp-pug'),
+	sass 		 = require('gulp-sass'),
+	browserify 	 = require('browserify'), // Does some magic shit I don't understand
+	source 		 = require('vinyl-source-stream'), // Rquired for browserify
+	buffer 		 = require('vinyl-buffer'), // Rquired for browserify
+	uglify 		 = require('gulp-uglify'),
+	imagemin	 = require('gulp-imagemin'), // Image minify
+	plumber		 = require('gulp-plumber'), // Error Handling
+	notify		 = require('gulp-notify'),
+	browserSync	 = require('browser-sync').create(),
+	sourcemaps	 = require('gulp-sourcemaps');
+
+//
+// V A R I A B L E S
+//
 
 // Sets environment variables through gulp-util
 // To invoke: $ gulp --env=prod
@@ -31,6 +38,16 @@ if (env === 'prod') {
 }
 if (env === 'dev') {
 }
+
+// Sourcemaps Options
+var sassOptions = {
+  errLogToConsole: true,
+  outputStyle: 'expanded'
+};
+
+//
+// G U L P  T A S K S
+//
 
 // Clean output dir first
 gulp.task('clean', function() {
@@ -82,12 +99,6 @@ gulp.task('styles', function(){
 	if (env === 'dev') {
 		config.outputStyle = 'map';
 	}
-
-	// Sourcemaps Options
-	var sassOptions = {
-	  errLogToConsole: true,
-	  outputStyle: 'expanded'
-	};
 
 	return gulp
 		.src(sourceDir + '/styles/**/*.{scss,sass}')
