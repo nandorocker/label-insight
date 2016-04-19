@@ -1,6 +1,13 @@
 // Bootstrap Overrides
 $font-family-sans-serif:		 "Open Sans", Helvetica, Arial, sans-serif;
-$jumbotron-font-size:            18px;
+
+$brand-primary:         #5DBDF2; // #337ab7
+$brand-success:         #5cb85c;
+$brand-info:            #5bc0de;
+$brand-warning:         #f0ad4e;
+$brand-danger:          #d9534f;
+
+$jumbotron-font-size:            16px;
 $jumbotron-heading-font-size:    36px;
 $headings-font-weight:   		 700;
 $line-height-base:        1.818181818; // 20/11

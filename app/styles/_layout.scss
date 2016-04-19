@@ -1,3 +1,12 @@
+// Global
+.btn {
+	&.round {
+		padding-left: 3em;
+		padding-right: 3em;
+		border-radius: 100px;
+	}
+}
+
 // Home
 .home {
 	.pane-top {
@@ -6,8 +15,8 @@
 			url("/images/bgGridBlue.png") repeat,
 			#373D46;
 
-		.content-main {
-			@include make-md-column(6);
+		.content {
+			@include make-md-column(5);
 			@include make-md-column-offset(6);
 		}
 	}
@@ -22,6 +31,10 @@
 
 		img {
 			@include img-responsive();
+		}
+
+		a.btn {
+			margin-top: $line-height-computed;
 		}
 	}
 
