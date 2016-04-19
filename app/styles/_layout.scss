@@ -1,0 +1,15 @@
+.top-panel {
+	background:
+		url("/images/illustration_1A.png") no-repeat,
+		url("/images/bgGridBlue.png") repeat,
+		#373D46;
+
+	.content-main {
+		@include make-md-column(6);
+		@include make-md-column-offset(6);
+	}
+}
+
+.illustration-1A {
+	@include make-md-column(6);
+}
