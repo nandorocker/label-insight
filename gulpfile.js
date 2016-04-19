@@ -16,7 +16,8 @@ var gulp 		= require('gulp'),
 	imagemin	= require('gulp-imagemin'), // Image minify
 	plumber		= require('gulp-plumber'), // Error Handling
 	notify		= require('gulp-notify'),
-	browserSync	= require('browser-sync').create();
+	browserSync	= require('browser-sync').create(),
+	sourcemaps	= require('gulp-sourcemaps');
 
 // Sets environment variables through gulp-util
 // To invoke: $ gulp --env=prod
@@ -82,10 +83,20 @@ gulp.task('styles', function(){
 		config.outputStyle = 'map';
 	}
 
-	return gulp.src(sourceDir + '/styles/**/*.{scss,sass}')
+	// Sourcemaps Options
+	var sassOptions = {
+	  errLogToConsole: true,
+	  outputStyle: 'expanded'
+	};
+
+	return gulp
+		.src(sourceDir + '/styles/**/*.{scss,sass}')
+		.pipe(sourcemaps.init())
 		.pipe(plumber({
 			errorHandler: onError
 		}))
+		.pipe(sass(sassOptions).on('error', sass.logError))
+	    .pipe(sourcemaps.write())
 		.pipe(sass(config))
 		.pipe(gulp.dest(outputDir + '/styles'))
 		.pipe(browserSync.stream())
