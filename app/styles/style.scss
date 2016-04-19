@@ -1,11 +1,11 @@
 // Import fonts
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
 
-// Bootstrap Overrides
-$font-family-sans-serif: "Open Sans", Helvetica, Arial, sans-serif !default;
+// Import Project Variables
+@import "project-variables";
 
 // Bootstrap Kitchen Sink
-@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "bootstrap";
 
 // Import SMACSS parts
 @import "base";
