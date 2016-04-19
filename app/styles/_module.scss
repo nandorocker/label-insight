@@ -1,4 +1,40 @@
+.jumbotron {
+	margin-bottom: 0;
+}
+
+// Panes (custom version of jumbotron)
+.pane {
+	@extend .jumbotron;
+	background: #fff;
+
+	header {
+		@include make-md-column(8);
+		@include make-md-column-offset(2);
+		text-align: center;
+		margin-bottom: $line-height-computed*3;
+	}
+}
+
+.pane-huge {
+	min-height: 94%;	/* Fallback for browsers do NOT support vh unit */
+	min-height: 94vh;
+}
+
+.pane-tall {
+	min-height: 86%;	/* Fallback for browsers do NOT support vh unit */
+	min-height: 86vh;
+}
+
 .background-blue {
-	// background: #373D46 url("/images/bgGridBlue.png") repeat;
+	background: #373D46 url("/images/bgGridBlue.png") repeat;
 	color: #fff;
+}
+
+span.avoid-wrap { 
+	display:inline-block;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
 }

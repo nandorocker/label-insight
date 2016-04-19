@@ -1,14 +1,40 @@
-.top-panel {
-	background:
-		url("/images/illustration_1A.png") no-repeat,
-		url("/images/bgGridBlue.png") repeat,
-		#373D46;
+// Home
+.home {
+	.pane-top {
+		background:
+			url("/images/illustration_1A.png") no-repeat,
+			url("/images/bgGridBlue.png") repeat,
+			#373D46;
 
-	.content-main {
-		@include make-md-column(6);
-		@include make-md-column-offset(6);
+		.content-main {
+			@include make-md-column(6);
+			@include make-md-column-offset(6);
+		}
 	}
 }
+
+.pane {
+	.product {
+		@include make-row();
+
+		margin: $line-height-computed*3 0;
+
+		figure {
+			@include make-md-column(5);
+			@include make-md-column-offset(1);
+		}
+
+		img {
+			@include img-responsive();
+			width: 80%;
+		}
+
+		.description {
+			@include make-md-column(5)
+		}
+	}
+}
+
 
 .illustration-1A {
 	@include make-md-column(6);
