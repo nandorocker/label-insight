@@ -39,12 +39,6 @@ if (env === 'prod') {
 if (env === 'dev') {
 }
 
-// Sourcemaps Options
-var sassOptions = {
-  errLogToConsole: true,
-  outputStyle: 'expanded'
-};
-
 //
 // G U L P  T A S K S
 //
@@ -102,12 +96,9 @@ gulp.task('styles', function(){
 
 	return gulp
 		.src(sourceDir + '/styles/**/*.{scss,sass}')
-		.pipe(sourcemaps.init())
 		.pipe(plumber({
 			errorHandler: onError
 		}))
-		.pipe(sass(sassOptions).on('error', sass.logError))
-	    .pipe(sourcemaps.write())
 		.pipe(sass(config))
 		.pipe(gulp.dest(outputDir + '/styles'))
 		.pipe(browserSync.stream())
