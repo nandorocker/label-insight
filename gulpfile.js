@@ -78,15 +78,18 @@ gulp.task('styles', function(){
 });
 
 // Process scripts
-gulp.task('scripts', function() {
+gulp.task('scripts', ['clean'], function() {
   // Minify and copy all JavaScript (except vendor scripts)
-  gulp.src(['bower_components/slicknav/dist/jquery.slicknav.min.js', 'bower_components/jquery/dist/jquery.min.js'])
+  gulp.src(sourceDir + "/scripts/**/*.js")
     .pipe(uglify())
     .pipe(gulp.dest(outputDir + '/scripts'));
 
   // Copy vendor files
-  gulp.src('client/js/vendor/**')
-    .pipe(gulp.dest('build/js/vendor'));
+  gulp.src([
+	  	'bower_components/slicknav/dist/jquery.slicknav.min.js',	// Slicknav
+	  	'bower_components/jquery/dist/jquery.min.js'				// Jquery
+  	])
+    .pipe(gulp.dest(outputDir + '/scripts/vendor'));
 });
 
 // Compress and minify images to reduce their file size
@@ -95,7 +98,7 @@ gulp.task('images', function() {
 		imgDst = outputDir + '/images';
 
 	return gulp.src(imgSrc)
-		.pipe(imagemin())
+		// .pipe(imagemin())
 		.pipe(gulp.dest(imgDst))
 		.pipe(notify({ message: 'Images task complete' }));
 });
