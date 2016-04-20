@@ -8,7 +8,7 @@
 }
 
 // Fix container width for mobile
-@include breakpoint(xs){
+@include mq($until: tablet){
 	.container {
 		padding-left: 40px;
 		padding-right: 40px;
@@ -21,11 +21,11 @@
 	color: #fff;
 
 	.logo {
-		@include breakpoint(xs) {
+		@include mq($until: tablet) {
 			text-align: center;
 			margin: $line-height-computed*2 0;
 		}
-		@include breakpoint(sm) {
+		@include mq($from: tablet) {
 			img {
 				@include img-responsive();
 			}
@@ -46,7 +46,7 @@
 // Home
 .home {
 	.pane-top {
-		@include breakpoint(xs){
+		@include mq($until: tablet){
 			background:
 				linear-gradient(
 				  rgba(55, 60, 70, 0.55), 
@@ -56,7 +56,7 @@
 				url("/images/bgGridBlue.png") repeat,
 				#373D46;
 		}
-		@include breakpoint(sm){
+		@include mq($from: tablet){
 			background:
 				linear-gradient(
 				  rgba(55, 60, 70, 0.55), 
@@ -66,13 +66,13 @@
 				url("/images/bgGridBlue.png") repeat,
 				#373D46;
 		}
-		@include breakpoint(md){
+		@include mq($from: desktop){
 			background:
 				url("/images/illustration_1A.png") left 0 bottom 0 / 60% no-repeat,
 				url("/images/bgGridBlue.png") repeat,
 				#373D46;
 		}
-		@include breakpoint(lg){
+		@include mq($from: wide){
 			background:
 				url("/images/illustration_1A.png") left 0 bottom 0 / 50% no-repeat,
 				url("/images/bgGridBlue.png") repeat,
@@ -95,7 +95,7 @@
 
 .pane {
 	.product {
-		@include breakpoint(sm) {
+		@include mq($from: tablet) {
 			margin-top: $line-height-computed*3;
 			margin-bottom: $line-height-computed*3;
 		}
@@ -108,7 +108,7 @@
 
 		a.btn {
 			margin-top: $line-height-computed*2;
-			@include breakpoint(xs) {
+			@include mq($until: tablet) {
 				display: block;
 				width: 100%;
 			}
@@ -152,13 +152,13 @@
 }
 
 .separator {
-	@include breakpoint(xs) {
+	@include mq($until: tablet) {
 		background: url("/images/section_separator.png") 0px 0px / 180% auto no-repeat;
 	}
-	@include breakpoint(sm) {
+	@include mq($from: tablet) {
 		background: url("/images/section_separator.png") 0px 0px / 100% auto no-repeat;
 	}
-	@include breakpoint(lg) {
+	@include mq($from: wide) {
 		background: url("/images/section_separator.png") 0px 0px / 50% auto no-repeat;
 	}
 	border-top: #52BEAC solid 1px;

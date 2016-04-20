@@ -8,6 +8,9 @@
 // Bootstrap Kitchen Sink
 @import "bootstrap";
 
+// SASS-mq (media queries)
+@import "../../bower_components/sass-mq/_mq.scss";
+
 // Import SMACSS parts
 @import "base";
 @import "module";
