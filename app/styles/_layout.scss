@@ -17,18 +17,24 @@
 
 // Footer
 .nav-footer {
-	background: #373D46 url("/images/section_separator_inverted.png") right 0px / 50% auto no-repeat;
+	background-color: #373D46;
 	color: #fff;
 
 	.logo {
-		@include make-sm-column(2);
-
-		img {
-			@include img-responsive();
+		@include breakpoint(xs) {
+			text-align: center;
+			margin: $line-height-computed*2 0;
 		}
+		@include breakpoint(sm) {
+			img {
+				@include img-responsive();
+			}
+		}
+		@include make-sm-column(2);
 	}
 
 	ul {
+		@include make-xs-column(4);
 		@include make-sm-column(2);
 		@extend .list-unstyled;
 	}
@@ -140,7 +146,15 @@
 	@include make-md-column(6);
 }
 
-#cpg, #retailers {
-	background: url("/images/section_separator.png") 0px 0px / 50% auto no-repeat;
+.separator {
+	@include breakpoint(xs) {
+		background: url("/images/section_separator.png") 0px 0px / 180% auto no-repeat;
+	}
+	@include breakpoint(sm) {
+		background: url("/images/section_separator.png") 0px 0px / 100% auto no-repeat;
+	}
+	@include breakpoint(lg) {
+		background: url("/images/section_separator.png") 0px 0px / 50% auto no-repeat;
+	}
 	border-top: #52BEAC solid 1px;
 }

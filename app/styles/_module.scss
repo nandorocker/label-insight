@@ -37,3 +37,29 @@ span.avoid-wrap {
   display: flex;
   align-items: center;
 }
+
+.separator {
+	@include breakpoint(xs) {
+		background: url("/images/section_separator.png") 0px 0px / 180% auto no-repeat;
+	}
+	@include breakpoint(sm) {
+		background: url("/images/section_separator.png") 0px 0px / 100% auto no-repeat;
+	}
+	@include breakpoint(lg) {
+		background: url("/images/section_separator.png") 0px 0px / 50% auto no-repeat;
+	}
+	border-top: #52BEAC solid 1px;
+}
+
+.separator-inverted {
+	@include breakpoint(xs) {
+		background: url("/images/section_separator_inverted.png") right 0px / 180% auto no-repeat;
+	}
+	@include breakpoint(sm) {
+		background: url("/images/section_separator_inverted.png") right 0px / 100% auto no-repeat;
+	}
+	@include breakpoint(lg) {
+		background: url("/images/section_separator_inverted.png") right 0px / 50% auto no-repeat;
+	}
+	border-top: #52BEAC solid 1px;
+}
