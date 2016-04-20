@@ -33,10 +33,13 @@
 		@include make-sm-column(2);
 	}
 
+	// Every UL is a column with border on the left
 	ul {
 		@include make-xs-column(4);
 		@include make-sm-column(2);
 		@extend .list-unstyled;
+
+		border-left: 1px solid #555;
 	}
 }
 
@@ -74,6 +77,11 @@
 				url("/images/illustration_1A.png") left 0 bottom 0 / 50% no-repeat,
 				url("/images/bgGridBlue.png") repeat,
 				#373D46;
+
+			h1 {
+				font-size: 48px;
+				font-weight: 600;
+			}
 		}
 
 		.content {
