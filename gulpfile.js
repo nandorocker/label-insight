@@ -12,9 +12,6 @@ var gulp 		 = require('gulp'),
 	pug 		 = require('pug'),
 	gulpPug 	 = require('gulp-pug'),
 	sass 		 = require('gulp-sass'),
-	browserify 	 = require('browserify'), // Does some magic shit I don't understand
-	source 		 = require('vinyl-source-stream'), // Rquired for browserify
-	buffer 		 = require('vinyl-buffer'), // Rquired for browserify
 	uglify 		 = require('gulp-uglify'),
 	imagemin	 = require('gulp-imagemin'), // Image minify
 	plumber		 = require('gulp-plumber'), // Error Handling
@@ -64,24 +61,6 @@ gulp.task('html', function(){
 		.pipe(notify({ message: 'HTML task complete' }));
 });
 
-// Process scripts
-gulp.task('js', function() {
-	return browserify('./app/scripts/main.js', { debug: env !== 'production' })
-		.bundle()
-		.on('error', function (e) {
-			gutil.log(e);
-		})
-		.pipe(plumber({
-			errorHandler: onError
-		}))
-		.pipe(source('bundle.js'))
-		.pipe(gulp.dest('.tmp/scripts'))
-		.pipe(buffer())
-		.pipe(env === 'prod' ? uglify() : gutil.noop())
-		.pipe(gulp.dest(outputDir + '/scripts'))
-		.pipe(notify({ message: 'JS task complete' }));
-});
-
 // Process styles
 gulp.task('styles', function(){
 	var config = {};
@@ -105,6 +84,17 @@ gulp.task('styles', function(){
 		.pipe(notify({ message: 'Styles task complete' }));
 });
 
+gulp.task('scripts', function() {
+  // Minify and copy all JavaScript (except vendor scripts)
+  gulp.src(['bower_components/slicknav/dist/jquery.slicknav.min.js', 'bower_components/jquery/dist/jquery.min.js'])
+    .pipe(uglify())
+    .pipe(gulp.dest(outputDir + '/scripts'));
+
+  // Copy vendor files
+  gulp.src('client/js/vendor/**')
+    .pipe(gulp.dest('build/js/vendor'));
+});
+
 // Compress and minify images to reduce their file size
 gulp.task('images', function() {
 	var imgSrc = sourceDir + '/images/**/*',
@@ -122,7 +112,6 @@ gulp.task('images', function() {
 // Gulp Watch
 gulp.task('watch', function() {
 	gulp.watch(sourceDir + '/**/*.pug', ['html']);
-	gulp.watch(sourceDir + '/scripts/**/*.js', ['js']);
 	gulp.watch(sourceDir + '/styles/**/*.{scss,sass}', ['styles']);
 	gulp.watch(sourceDir + '/**/*.{jpg,png,svg,ico}');
 });
@@ -135,12 +124,11 @@ gulp.task('serve', ['build'], function() {
 
 	gulp.watch(sourceDir + '/**/*.{jpg,png,svg,ico}', ['images']);
 	gulp.watch(sourceDir + '/styles/**/*.{scss,sass}', ['styles']);
-	gulp.watch(sourceDir + '/scripts/**/*.js', ['js']);
 	gulp.watch(sourceDir + '/**/*.pug', ['html']).on('change', browserSync.reload);
 });
 
 // Build
-gulp.task('build', ['clean', 'html', 'js', 'images', 'styles']);
+gulp.task('build', ['clean', 'html', 'scripts', 'images', 'styles']);
 
 // Default task
 gulp.task('default', ['serve']);
