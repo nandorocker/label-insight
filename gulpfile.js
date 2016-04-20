@@ -14,7 +14,6 @@ var gulp 		 = require('gulp'),
 	sass 		 = require('gulp-sass'),
 	uglify 		 = require('gulp-uglify'),
 	imagemin	 = require('gulp-imagemin'), // Image minify
-	plumber		 = require('gulp-plumber'), // Error Handling
 	notify		 = require('gulp-notify'),
 	browserSync	 = require('browser-sync').create(),
 	sourcemaps	 = require('gulp-sourcemaps');
@@ -50,9 +49,6 @@ gulp.task('clean', function() {
 // Process HTML
 gulp.task('html', function(){
 	return gulp.src(sourceDir + '/**/*.pug')
-		.pipe(plumber({
-			errorHandler: onError
-		}))
 		.pipe(gulpPug({
 			pug: pug,
 			pretty: true
@@ -75,15 +71,13 @@ gulp.task('styles', function(){
 
 	return gulp
 		.src(sourceDir + '/styles/**/*.{scss,sass}')
-		.pipe(plumber({
-			errorHandler: onError
-		}))
 		.pipe(sass(config))
 		.pipe(gulp.dest(outputDir + '/styles'))
 		.pipe(browserSync.stream())
 		.pipe(notify({ message: 'Styles task complete' }));
 });
 
+// Process scripts
 gulp.task('scripts', function() {
   // Minify and copy all JavaScript (except vendor scripts)
   gulp.src(['bower_components/slicknav/dist/jquery.slicknav.min.js', 'bower_components/jquery/dist/jquery.min.js'])
@@ -101,9 +95,6 @@ gulp.task('images', function() {
 		imgDst = outputDir + '/images';
 
 	return gulp.src(imgSrc)
-		.pipe(plumber({
-			errorHandler: onError
-		}))
 		.pipe(imagemin())
 		.pipe(gulp.dest(imgDst))
 		.pipe(notify({ message: 'Images task complete' }));
