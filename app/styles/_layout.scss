@@ -87,8 +87,10 @@
 
 .pane {
 	.product {
-		margin-top: $line-height-computed*3;
-		margin-bottom: $line-height-computed*3;
+		@include breakpoint(sm) {
+			margin-top: $line-height-computed*3;
+			margin-bottom: $line-height-computed*3;
+		}
 
 		@include make-row();
 
@@ -106,38 +108,33 @@
 	}
 
 	.product-left {
-			figure {
-				@include make-sm-column(5);
-				@include make-md-column(6);
-				// @include make-lg-column(6);
-				// @include make-lg-column-offset(1);
-			}
-
-			.description {
-				@include make-sm-column(7);
-				@include make-md-column(6);
-				// @include make-lg-column(5);
-			}
-		}
-
-	.product-right {
 		figure {
-			@include make-sm-column(5);
-			@include make-sm-column-push(7);
-			@include make-md-column(6);
-			@include make-md-column-push(6);
-			// @include make-lg-column(5);
-			// @include make-lg-column-push(6);
+			@include make-xs-column(8); 		// On mobile make images small and centered
+			@include make-xs-column-offset(2);
+			@include make-sm-column(6);
+			@include make-sm-column-offset(0);	// Reset offset
 		}
 
 		.description {
-			@include make-sm-column(7);
-			@include make-sm-column-pull(5);
-			@include make-md-column(6);
-			@include make-md-column-pull(6);
-			// @include make-lg-column(5);
-			// @include make-lg-column-pull(4);
+			@include make-xs-column(12);		// On mobile make row after image
+			@include make-sm-column(6);
+		}
+	}
 
+	.product-right {
+		figure {
+			@include make-xs-column(8);			// On mobile make images small and centered
+			@include make-xs-column-offset(2);
+			@include make-sm-column(6);
+			@include make-sm-column-push(6);
+			@include make-sm-column-offset(0);	// Reset Offset
+		}
+
+		.description {
+			@include make-xs-column(12);		// On mobile make row after image
+			@include make-sm-column(6);
+			@include make-sm-column-pull(6);
+			@include make-sm-column-offset(0);	// Reset Offset
 		}
 	}
 }
