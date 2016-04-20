@@ -7,6 +7,14 @@
 	}
 }
 
+// Fix container width for mobile
+@include breakpoint(xs){
+	.container {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+}
+
 // Footer
 .nav-footer {
 	background: #373D46 url("/images/section_separator_inverted.png") right 0px / 50% auto no-repeat;
@@ -29,14 +37,44 @@
 // Home
 .home {
 	.pane-top {
-		background:
-			url("/images/illustration_1A.png") no-repeat,
-			url("/images/bgGridBlue.png") repeat,
-			#373D46;
+		@include breakpoint(xs){
+			background:
+				linear-gradient(
+				  rgba(55, 60, 70, 0.55), 
+				  rgba(55, 60, 70, 0.55)
+				),
+				url("/images/illustration_1A.png") center bottom / 200% no-repeat,
+				url("/images/bgGridBlue.png") repeat,
+				#373D46;
+		}
+		@include breakpoint(sm){
+			background:
+				linear-gradient(
+				  rgba(55, 60, 70, 0.55), 
+				  rgba(55, 60, 70, 0.55)
+				),
+				url("/images/illustration_1A.png") center bottom / 80% no-repeat,
+				url("/images/bgGridBlue.png") repeat,
+				#373D46;
+		}
+		@include breakpoint(md){
+			background:
+				url("/images/illustration_1A.png") left 0 bottom 0 / 60% no-repeat,
+				url("/images/bgGridBlue.png") repeat,
+				#373D46;
+		}
+		@include breakpoint(lg){
+			background:
+				url("/images/illustration_1A.png") left 0 bottom 0 / 50% no-repeat,
+				url("/images/bgGridBlue.png") repeat,
+				#373D46;
+		}
 
 		.content {
 			@include make-md-column(6);
 			@include make-md-column-offset(6);
+			@include make-lg-column(7);
+			@include make-lg-column-offset(5);
 		}
 	}
 }
@@ -54,6 +92,10 @@
 
 		a.btn {
 			margin-top: $line-height-computed*2;
+			@include breakpoint(xs) {
+				display: block;
+				width: 100%;
+			}
 		}
 	}
 
