@@ -47,7 +47,7 @@ gulp.task('clean', function() {
 });
 
 // Process HTML
-gulp.task('html', function(){
+gulp.task('html', ['clean'], function(){
 	return gulp.src(sourceDir + '/**/*.pug')
 		.pipe(gulpPug({
 			pug: pug,
@@ -58,7 +58,7 @@ gulp.task('html', function(){
 });
 
 // Process styles
-gulp.task('styles', function(){
+gulp.task('styles', ['clean'], function(){
 	var config = {};
 
 	if (env === 'prod') {
@@ -93,7 +93,7 @@ gulp.task('scripts', ['clean'], function() {
 });
 
 // Compress and minify images to reduce their file size
-gulp.task('images', function() {
+gulp.task('images', ['clean'], function() {
 	var imgSrc = sourceDir + '/images/**/*',
 		imgDst = outputDir + '/images';
 
@@ -125,4 +125,4 @@ gulp.task('serve', ['build'], function() {
 gulp.task('build', ['clean', 'html', 'scripts', 'images', 'styles']);
 
 // Default task
-gulp.task('default', ['serve']);
+gulp.task('default', ['build','serve']);
