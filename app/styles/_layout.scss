@@ -102,6 +102,8 @@
 			@include make-md-column-offset(6);
 			@include make-lg-column(7);
 			@include make-lg-column-offset(5);
+
+			text-align: left;
 		}
 	}
 }
@@ -170,13 +172,12 @@
 //
 .product-detail {
 	.pane-top {
-		figure {
-			@include make-sm-column(4);
-			@include make-md-column(5);
-		}
-		.description {
-			@include make-sm-column(8);
-			@include make-md-column(7);
-		}
+		@include onethird-twothirds();
+	}
+}
+
+.how-it-works {
+	.step {
+		@include onethird-twothirds();
 	}
 }
