@@ -6,17 +6,16 @@ var onError = function(err) {
 //
 // G U L P  L O A D E R
 //
-var gulp 		 = require('gulp'),
-	gutil 		 = require('gulp-util'),
-	del 		 = require('del'), // to delete folders
-	pug 		 = require('pug'),
-	gulpPug 	 = require('gulp-pug'),
-	sass 		 = require('gulp-sass'),
-	uglify 		 = require('gulp-uglify'),
-	imagemin	 = require('gulp-imagemin'), // Image minify
-	notify		 = require('gulp-notify'),
+var gulp 		 = require('gulp'),				// Gulp core
+	gutil 		 = require('gulp-util'),		// Gulp utilities
+	del 		 = require('del'), 				// rm -rf
+	pug 		 = require('pug'),				// Formerly known as JADE
+	gulpPug 	 = require('gulp-pug'),			// Formerly known as JADE
+	sass 		 = require('gulp-sass'),		// SASS
+	uglify 		 = require('gulp-uglify'),		// For Javascript
+	imagemin	 = require('gulp-imagemin'), 	// Image minify
+	notify		 = require('gulp-notify'),		// For pretty notifications
 	browserSync	 = require('browser-sync').create(),
-	sourcemaps	 = require('gulp-sourcemaps');
 	merge		 = require('merge-stream');		// merge() command for tasks with multiple sources
 
 //
@@ -95,12 +94,9 @@ gulp.task('scripts', function() {
 
 // Compress and minify images to reduce their file size
 gulp.task('images', function() {
-	var imgSrc = sourceDir + '/images/**/*',
-		imgDst = outputDir + '/images';
-
-	return gulp.src(imgSrc)
+	return gulp.src(sourceDir + '/images/**/*')
 		.pipe(imagemin())
-		.pipe(gulp.dest(imgDst))
+		.pipe(gulp.dest(outputDir + '/images'))
 		.pipe(notify({ message: 'Images task complete' }));
 });
 
