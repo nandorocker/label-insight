@@ -98,7 +98,7 @@ gulp.task('images', function() {
 		imgDst = outputDir + '/images';
 
 	return gulp.src(imgSrc)
-		// .pipe(imagemin())
+		.pipe(imagemin())
 		.pipe(gulp.dest(imgDst))
 		.pipe(notify({ message: 'Images task complete' }));
 });
