@@ -47,7 +47,7 @@ gulp.task('clean', function() {
 });
 
 // Process HTML
-gulp.task('html', ['clean'], function(){
+gulp.task('html', function(){
 	return gulp.src(sourceDir + '/**/*.pug')
 		.pipe(gulpPug({
 			pug: pug,
@@ -58,7 +58,7 @@ gulp.task('html', ['clean'], function(){
 });
 
 // Process styles
-gulp.task('styles', ['clean'], function(){
+gulp.task('styles', function(){
 	var config = {};
 
 	if (env === 'prod') {
@@ -78,7 +78,7 @@ gulp.task('styles', ['clean'], function(){
 });
 
 // Process scripts
-gulp.task('scripts', ['clean'], function() {
+gulp.task('scripts', function() {
   // Minify and copy all JavaScript (except vendor scripts)
   gulp.src(sourceDir + "/scripts/**/*.js")
     .pipe(uglify())
@@ -93,7 +93,7 @@ gulp.task('scripts', ['clean'], function() {
 });
 
 // Compress and minify images to reduce their file size
-gulp.task('images', ['clean'], function() {
+gulp.task('images', function() {
 	var imgSrc = sourceDir + '/images/**/*',
 		imgDst = outputDir + '/images';
 
@@ -125,4 +125,4 @@ gulp.task('serve', ['build'], function() {
 gulp.task('build', ['clean', 'html', 'scripts', 'images', 'styles']);
 
 // Default task
-gulp.task('default', ['build','serve']);
+gulp.task('default', ['serve']);
