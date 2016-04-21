@@ -3,15 +3,7 @@ html
 		title Label Insight: The Brains Behind Grocery Data
 		link(rel="stylesheet" href="styles/style.css")
 	body.home
-		//- nav.navbar.navbar-inverse.navbar-fixed-top
-		//- 	//- logo here
-		//- 	ul.nav.navbar-nav
-		//- 		li: a(href="#") cpg brands
-		//- 		li: a(href="#") retailer
-		//- 		li: a(href="#") smartlabel
-		//- 		li: a(href="#") about
-		//- 		li: a(href="#") blog
-		//- 		li: a(href="#") login
+		include ./includes/_navigation.pug
 				
 		.pane.vertical-center.background-blue.pane-top.pane-huge
 			.container
@@ -74,4 +66,4 @@ html
 
 							p: a(href="#").btn.btn-primary.btn-lg.round Learn more
 
-		include ./includes/footer.pug
+		include ./includes/_footer.pug
