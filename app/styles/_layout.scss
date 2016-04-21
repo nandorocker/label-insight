@@ -1,19 +1,32 @@
+//
 // Global
+//
+
+// Customize Buttons
 .btn {
-	&.round {
-		padding-left: 3em;
-		padding-right: 3em;
-		border-radius: 100px;
+	min-width:15em;
+	margin-top: $line-height-computed;
+	padding-left: 3em;
+	padding-right: 3em;
+	border-radius: 100px;
+
+	@include mq($until: tablet) {
+		display: block;
+		width: 100%;
+	}
+
+	&.btn-primary {
+		margin-top: $line-height-computed*2;
 	}
 }
 
 // Fix container width for mobile
-@include mq($until: tablet){
-	.container {
-		padding-left: 40px;
-		padding-right: 40px;
-	}
-}
+// @include mq($until: tablet){
+// 	.container {
+// 		padding-left: 40px;
+// 		padding-right: 40px;
+// 	}
+// }
 
 // Footer
 .nav-footer {
@@ -84,7 +97,7 @@
 			}
 		}
 
-		.content {
+		.description {
 			@include make-md-column(6);
 			@include make-md-column-offset(6);
 			@include make-lg-column(7);
@@ -100,19 +113,7 @@
 			margin-bottom: $line-height-computed*3;
 		}
 
-		@include make-row();
-
-		img {
-			@include img-responsive();
-		}
-
-		a.btn {
-			margin-top: $line-height-computed*2;
-			@include mq($until: tablet) {
-				display: block;
-				width: 100%;
-			}
-		}
+		// @include make-row();
 	}
 
 	.product-left {
@@ -162,4 +163,20 @@
 		background: url("/images/section_separator.png") 0px 0px / 50% auto no-repeat;
 	}
 	border-top: #52BEAC solid 1px;
+}
+
+//
+// Product Detail Page
+//
+.product-detail {
+	.pane-top {
+		figure {
+			@include make-sm-column(4);
+			@include make-md-column(5);
+		}
+		.description {
+			@include make-sm-column(8);
+			@include make-md-column(7);
+		}
+	}
 }

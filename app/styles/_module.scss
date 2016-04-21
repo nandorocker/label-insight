@@ -1,33 +1,87 @@
 // Panes (custom version of jumbotron)
 .pane {
 	@extend .jumbotron;
+
 	background: #fff;
 	margin-bottom: 0;
+	padding-top: $line-height-computed*4;
+	padding-bottom: $line-height-computed*4;
 
 	header {
-		// @include make-md-column(10);
-		// @include make-md-column-offset(1);
-		// @include make-lg-column(12);
-		// @include make-lg-column-offset(0);
 		text-align: center;
-		margin-top: $line-height-computed*2;
+		// margin-top: $line-height-computed*2;
 		margin-bottom: $line-height-computed*4;
 	}
-}
 
-.pane-huge {
-	min-height: 94%;	/* Fallback for browsers do NOT support vh unit */
-	min-height: 94vh;
-}
+	// Make illustrations responsive
+	figure {
+		// text-align: center;
 
-.pane-tall {
-	min-height: 86%;	/* Fallback for browsers do NOT support vh unit */
-	min-height: 86vh;
+		img {
+			@include img-responsive();
+			margin-left: auto;
+		    margin-right: auto;
+			margin-bottom: $line-height-computed*2;
+		}
+	}
+
+	/* Predefined pane heights */
+	&.huge {
+		min-height: 94%;	/* Fallback for browsers do NOT support vh unit */
+		min-height: 94vh;
+	}
+
+	&.tall {
+		min-height: 86%;	/* Fallback for browsers do NOT support vh unit */
+		min-height: 86vh;
+	}
+
+	&.short {
+		min-height: 50%;	/* Fallback for browsers do NOT support vh unit */
+		min-height: 50vh;
+	}
+
+	/* Re-usable classes for 2-column and 3-column layouts */
+	&.two-column, &.three-column {
+		.column {
+			margin-top: $line-height-computed*2;
+			margin-bottom: $line-height-computed*2;
+			text-align: center;
+
+			.icon {
+				img {
+					width: 60%;
+				}
+			}
+
+			@include mq($from: tablet, $until: wide) {
+				.icon {
+					img {
+						width: 90%;
+					}
+				}
+			}
+		}
+	}
+
+	&.three-column {
+		.column {
+			@include make-xs-column(12);
+			@include make-sm-column(4);
+		}
+	}
 }
 
 .background-blue {
 	background: #373D46 url("/images/bgGridBlue.png") repeat;
 	color: #fff;
+	text-align: center;
+}
+
+.background-green {
+	background: #373D46 url("/images/bgGridGreen.png") repeat;
+	color: #fff;
+	text-align: center;
 }
 
 span.avoid-wrap { 
@@ -63,4 +117,22 @@ span.avoid-wrap {
 		background: url("/images/section_separator_inverted.png") right 0px / 50% auto no-repeat;
 	}
 	border-top: #52BEAC solid 1px;
+}
+
+// Responsive Video Containers
+.embed-container {
+	position: relative;
+	margin: $line-height-computed*2 0;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+	max-width: 100%;
+
+	iframe, object, embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 }

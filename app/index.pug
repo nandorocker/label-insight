@@ -1,19 +1,17 @@
 doctype html
 html
-	head
-		title Label Insight: The Brains Behind Grocery Data
-		link(rel="stylesheet" href="styles/style.css")
+	include ./includes/_head.pug
 	body.home
 		include ./includes/_navigation.pug
 				
-		.pane.vertical-center.background-blue.pane-top.pane-huge
+		section.pane.vertical-center.background-blue.pane-top.huge
 			.container
 				.row
-					.content
+					.description
 						h1 We Are The Brains #[span.avoid-wrap Behind Grocery Data.]
 						p Label Insight was founded with the mission to help consumers understand what’s in the products they use and consume. Today, our world class solution is transforming the way brands and retailers interact with and share product data.
 
-		#cpg.pane.pane-huge.separator
+		section#cpg.pane.huge.separator
 			.container
 				.row
 					header
@@ -40,7 +38,7 @@ html
 
 							p: a(href="#").btn.btn-primary.btn-lg.round Learn more
 
-		#retailers.pane.pane-huge.separator
+		section#retailers.pane.huge.separator
 			.container
 				.row
 					header
