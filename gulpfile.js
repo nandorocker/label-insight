@@ -46,7 +46,7 @@ gulp.task('clean', function() {
 
 // Process HTML
 gulp.task('html', function(){
-	return gulp.src(sourceDir + '/**/*.pug')
+	return gulp.src(sourceDir + '/**/!(_)*.pug')
 		.pipe(gulpPug({
 			pug: pug,
 			pretty: true
