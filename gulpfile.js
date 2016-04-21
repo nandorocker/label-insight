@@ -17,6 +17,7 @@ var gulp 		 = require('gulp'),
 	notify		 = require('gulp-notify'),
 	browserSync	 = require('browser-sync').create(),
 	sourcemaps	 = require('gulp-sourcemaps');
+	merge		 = require('merge-stream');		// merge() command for tasks with multiple sources
 
 //
 // V A R I A B L E S
@@ -41,9 +42,7 @@ if (env === 'dev') {
 
 // Clean output dir first
 gulp.task('clean', function() {
-	return del([
-		outputDir + '/**/*'
-	]);
+	return del(outputDir + '/**/*');
 });
 
 // Process HTML
@@ -79,17 +78,19 @@ gulp.task('styles', function(){
 
 // Process scripts
 gulp.task('scripts', function() {
-  // Minify and copy all JavaScript (except vendor scripts)
-  gulp.src(sourceDir + "/scripts/**/*.js")
-    .pipe(uglify())
-    .pipe(gulp.dest(outputDir + '/scripts'));
+	// Minify and copy all JavaScript (except vendor scripts)
+	var js = gulp.src(sourceDir + "/scripts/**/*.js")
+		.pipe(uglify())
+		.pipe(gulp.dest(outputDir + '/scripts'));
 
-  // Copy vendor files
-  gulp.src([
-	  	'bower_components/slicknav/dist/jquery.slicknav.min.js',	// Slicknav
-	  	'bower_components/jquery/dist/jquery.min.js'				// Jquery
-  	])
-    .pipe(gulp.dest(outputDir + '/scripts/vendor'));
+	// Copy vendor files
+	var vendor = gulp.src([
+	  	// 'bower_components/slicknav/dist/jquery.slicknav.min.js',	// Slicknav
+	  	// 'bower_components/jquery/dist/jquery.min.js'				// Jquery
+		])
+	.pipe(gulp.dest(outputDir + '/scripts/vendor'));
+
+	return merge(js,vendor);
 });
 
 // Compress and minify images to reduce their file size
@@ -105,6 +106,7 @@ gulp.task('images', function() {
 
 // Gulp Watch
 gulp.task('watch', function() {
+	gulp.watch(sourceDir + '/scripts/**/*.js', ['scripts']);
 	gulp.watch(sourceDir + '/**/*.pug', ['html']);
 	gulp.watch(sourceDir + '/styles/**/*.{scss,sass}', ['styles']);
 	gulp.watch(sourceDir + '/**/*.{jpg,png,svg,ico}');
@@ -113,16 +115,19 @@ gulp.task('watch', function() {
 // Development Server
 gulp.task('serve', ['build'], function() {
 	browserSync.init({
-		server: '.tmp'
+		server: outputDir
 	});
 
+	gulp.watch(sourceDir + '/scripts/**/*.js', ['scripts']);
 	gulp.watch(sourceDir + '/**/*.{jpg,png,svg,ico}', ['images']);
 	gulp.watch(sourceDir + '/styles/**/*.{scss,sass}', ['styles']);
 	gulp.watch(sourceDir + '/**/*.pug', ['html']).on('change', browserSync.reload);
 });
 
 // Build
-gulp.task('build', ['clean', 'html', 'scripts', 'images', 'styles']);
+gulp.task('build', ['clean'], function() {
+	return gulp.start(['html', 'scripts', 'images', 'styles']);
+});
 
 // Default task
 gulp.task('default', ['serve']);
