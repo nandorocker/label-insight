@@ -11,6 +11,7 @@ var gulp 		 = require('gulp'),				// Gulp core
 	del 		 = require('del'), 				// rm -rf
 	pug 		 = require('pug'),				// Formerly known as JADE
 	gulpPug 	 = require('gulp-pug'),			// Formerly known as JADE
+	filter		 = require('gulp-filter'),		// Filter for paths (using it to hide underscore folders)
 	sass 		 = require('gulp-sass'),		// SASS
 	uglify 		 = require('gulp-uglify'),		// For Javascript
 	imagemin	 = require('gulp-imagemin'), 	// Image minify
@@ -46,7 +47,10 @@ gulp.task('clean', function() {
 
 // Process HTML
 gulp.task('html', function(){
-	return gulp.src(sourceDir + '/**/!(_)*.pug')
+	return gulp.src(sourceDir + '/**/*.pug')
+		.pipe(filter(function (file) {
+            return !/\/_/.test(file.path) && !/^_/.test(file.relative);
+        }))
 		.pipe(gulpPug({
 			pug: pug,
 			pretty: true
