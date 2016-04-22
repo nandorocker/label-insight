@@ -1,3 +1,19 @@
+//- Common block: product header
+mixin productDetailPaneTop(imgID, productName, title, paragraph)
+	section.pane.pane-top
+		.container
+			.row
+				figure
+					img(src="/images/illustration_" + imgID + ".png")
+				.description
+					h4= productName
+					h1!= title
+					p!= paragraph
+
+					p.
+						#[a(href="/contact/request-demo").btn.btn-primary.btn-lg Request a Demo]
+						#[a(href="/about").btn Learn more about SmartLabel]
+
 //- Common block "request a demo"
 mixin requestADemo(title, paragraph)
 	section.pane.short.green-grid
