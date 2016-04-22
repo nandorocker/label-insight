@@ -58,7 +58,7 @@
 
 // Home
 .home {
-	.pane-top {
+	&.pane-top {
 		@include mq($until: tablet){
 			background:
 				linear-gradient(

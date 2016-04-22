@@ -48,6 +48,7 @@ gulp.task('clean', function() {
 // Process HTML
 gulp.task('html', function(){
 	return gulp.src(sourceDir + '/**/*.pug')
+		// Filter out files and folders beginning with _ (for includes etc)
 		.pipe(filter(function (file) {
             return !/\/_/.test(file.path) && !/^_/.test(file.relative);
         }))
