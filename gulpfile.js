@@ -52,8 +52,9 @@ gulp.task('html', function(){
             return !/\/_/.test(file.path) && !/^_/.test(file.relative);
         }))
 		.pipe(gulpPug({
-			pug: pug,
-			pretty: true
+			pug: 		pug,
+			basedir: 	sourceDir,	// make this this explicit for absolute paths on includes
+			pretty: 	true
 		}))
 		.pipe(gulp.dest(outputDir))
 		.pipe(notify({ message: 'HTML task complete' }));
