@@ -115,10 +115,12 @@ gulp.task('watch', function() {
 });
 
 // Development Server
-gulp.task('serve', ['build'], function() {
+gulp.task('serve', ['build'], function(done) {
 	browserSync.init({
+		open: false,
+		port: 9000,
 		server: outputDir
-	});
+	},done);
 
 	gulp.watch(sourceDir + '/scripts/**/*.js', ['scripts']);
 	gulp.watch(sourceDir + '/**/*.{jpg,png,svg,ico}', ['images']);
