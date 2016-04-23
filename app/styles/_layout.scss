@@ -20,13 +20,19 @@
 	}
 }
 
-// Fix container width for mobile
-// @include mq($until: tablet){
-// 	.container {
-// 		padding-left: 40px;
-// 		padding-right: 40px;
-// 	}
-// }
+// Hack to fix bootstrap's dl-horizontal style; should make my own using the grid
+@include mq($from: tablet) {
+	.dl-horizontal {
+		dt {
+		    white-space: normal;
+		    width: 200px; 
+		}
+
+		dd {
+			margin-left: 220px;
+		}
+	}
+}
 
 // Footer
 .nav-footer {

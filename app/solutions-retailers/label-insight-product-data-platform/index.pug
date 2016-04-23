@@ -1,0 +1,76 @@
+extends /_layouts/product-detail.pug
+
+block title
+	title Label Insight’s Product Data Platform
+
+block content
+	+productDetailPaneTop(
+		"3.3A",
+		"Label Insight’s Product Data Platform",
+		"Actionable insights<span class='avoid-wrap'>at your fingertips.</span>",
+		"Label Insight’s product data engine powers retail programs through custom attribution and analysis of retailer inventories. With more than 15,000 attributes per product, actionable insights into how product assortments meet the varied health, wellness, lifestyle, and sustainability concerns of consumers are only a click away.<br>Have we mentioned we’re the exclusive data partner of the FDA?"
+	)
+
+	section.pane.three-column.blue
+		.container
+			header
+				h1 The industry’s most accurate and granular taxonomy.
+			.row
+				.column
+					figure.icon
+						img(src="/images/icon_SampleA.png")
+					h3 Ingredient Attributes
+					p Label Insight has mapped all ingredients to each potential name - 10,000 unique ingredients with 250,000 names - making ingredients easy to understand. 
+
+				.column
+					figure.icon
+						img(src="/images/icon_SampleB.png")
+					h3 Nutrient Attributes
+					p Label Insight transforms nutrients into regulated attributes - such as per serve and per RACC analysis - in order to comply with the FDA, USDA, and industry initiatives.
+
+				.column
+					figure.icon
+						img(src="/images/icon_SampleC.png")
+					h3 Marketing Claim Attributes
+					p Label Insight captures all package text - such as country of origin and allergen warnings - and gives it context, accounting for the thousands of variations in which claims and copy appear on packaging. Label Insight captures everything in the form of universal attributes.
+
+	section.pane.gradient
+		.container
+			header
+				h1 How will Label Insight power your business?
+
+			dl.dl-horizontal
+				dt Health & Wellness
+				dd Label Insight makes it easy for retailers to understand which products in their inventory are appropriate for consumer’s lifestyle needs. easily communicate to their customers which products that they carry meet their specific needs, and where to find them in-store.·      Retailers use Label Insight’s product attribution data to make more informed decisions about their shelf mix to ensure that they have an optimal assortment of “Healthy products” in a given category.
+
+				dt Omni-channel
+				dd.
+					As the grocery world evolves to meet demand from shoppers for a seamless shopping experience across physical and digital channels, Label Insight helps to create an integrated user experience across all channels. Label Insight powers omni-channel programs through analysis of retailer inventories for over 15,000 attributes to make the inventory easily searchable for Shoppers
+ 
+					(Example Searchable Attributes: Diabetic Friendly, Certified Gluten-Free, Cage-Free, Artificial Color & Artificial Flavor Free, Paleo Friendly, FODMAP Free, Sustainably Sourced, Allergen Free, etc.)
+
+				dt Category Management
+				dd Label Insight helps to support a number of Category Management functions - such as SKU Rationalization,  Shelf Optimization, Category Reviews and POG Development - through enhancing the underlying product attributes.
+
+				dt Powering Shopper Insights
+				dd Label Insight delivers the “Why behind the Buy” through our product attribution, including the underlying attributes for best selling products  
+
+	section.pane.blue.two-column
+		.container
+			.row
+				.column
+					figure.icon
+						img(src="/images/icon_userLicense.png")
+					h3 User license
+					p Access our platform to view and sort data
+
+				.column
+					figure.icon
+						img(src="/images/icon_apiLicense.png")
+					h3 API License
+					p License raw data to integrate into into PIM, MDM or other internal systems 
+
+	+requestADemo(
+		"Start building consumer trust through transparency.",
+		"Let’s chat! We’ll walk you through a live SmartLabel page and run you through the steps you need to get started."
+	)
