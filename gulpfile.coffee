@@ -7,6 +7,7 @@ gulp = require('gulp')
 gutil = require('gulp-util')  					# Gulp utilities
 gulpIf = require('gulp-if')             # Run pipes conditionally
 del = require('del')  						  	  # rm -rf
+sourcemaps = require('gulp-sourcemaps') # sourcemaps for CSS
 plumber = require('gulp-plumber')       # plumber for error handling
 pug = require('pug')  						    	# Formerly known as JADE
 gulpPug = require('gulp-pug')  					# Formerly known as JADE
@@ -18,30 +19,22 @@ notify = require('gulp-notify') 				# For pretty notifications
 browserSync = require('browser-sync').create()
 merge = require('merge-stream') 				# merge() command for tasks with multiple sources
 cmq = require('gulp-group-css-media-queries') 	# Combines media queries
+autoprefixer = require('gulp-autoprefixer')     # Autoprefixes CSS for compatibility
 
 #
 # C O N F I G
 # ===========
 config =
+  # environment variables (for production)
+  production: gutil.env.production
+
   # default paths
   sourceDir: 'app'
   outputDir: '.tmp'
 
-  # environment variables (for production)
-  production: gutil.env.production
-
-#### Add these to config object later ###
-# default paths
-# sourceDir = 'app'
-# outputDir = '.tmp'
-#
-# env = gutil.env.env
-#
-# if env == 'prod'
-#   outputDir = 'dist'
-
-# if env == 'dev'
-# else
+# set output dir to 'dist' for production
+if config.production
+  config.outputDir = 'dist'
 
 #
 # G U L P  T A S K S
@@ -63,6 +56,7 @@ gulp.task 'html', ->
   .pipe(filter((file) ->
     !/\/_/.test(file.path) and !/^_/.test(file.relative)
   ))
+
   .pipe(gulpPug(
     pug: pug
     basedir: config.sourceDir
@@ -70,38 +64,33 @@ gulp.task 'html', ->
   .pipe(gulp.dest(config.outputDir))
   .pipe notify(message: 'HTML task complete')
 
-
-# Process styles
-# gulp.task 'styles', [ 'cmq' ], ->
+#
+# Styles
+#
 gulp.task 'styles', ->
-
   # SASS configuration parameters
-
-  # Include paths to components
-  sassConfig = includePaths: [
-    'bower_components/bootstrap-sass/assets/stylesheets'
-    'bower_components/sass-mq'
-  ]
-  sassConfig.outputStyle = 'map'
+  opStyle = 'map'
 
   # Compress stylesheets for production
   if config.production
-    sassConfig.outputStyle = 'compressed'
+    opStyle = 'compressed'
 
   gulp.src(config.sourceDir + '/styles/**/*.{scss,sass}')
-  .pipe(sass(sassConfig))
   .pipe(plumber())
+  .pipe(sourcemaps.init())
+  .pipe(sass({
+    includePaths: [
+      'bower_components/bootstrap-sass/assets/stylesheets'
+      'bower_components/sass-mq'
+    ]
+    outputStyle: opStyle
+    }))
+  .pipe(gulpIf(config.production, cmq()))
+  .pipe(gulpIf(config.production, autoprefixer()))
+  .pipe(sourcemaps.write())
   .pipe(gulp.dest(config.outputDir + '/styles'))
   .pipe(browserSync.stream())
   .pipe notify(message: 'Styles task complete')
-
-
-# Combine Media Queries
-gulp.task 'cmq', ->
-  gulp.src(config.outputDir + '/styles/**/*.css')
-  .pipe(cmq()).pipe(gulp.dest(config.outputDir + '/styles'))
-  .pipe notify(message: 'Media Queries Combined')
-
 
 # Copy fonts
 gulp.task 'fonts', ->
@@ -116,14 +105,16 @@ gulp.task 'scripts', ->
 
   # Minify and copy all JavaScript (except vendor scripts)
   js = gulp.src(config.sourceDir + '/scripts/**/*.js')
-  .pipe(uglify())
   .pipe(plumber())
+  .pipe(gulpIf(config.production, uglify()))
   .pipe(gulp.dest(config.outputDir + '/scripts'))
   
   # Copy vendor files
   vendor = gulp.src([])
   .pipe(plumber())
   .pipe(gulp.dest(config.outputDir + '/scripts/vendor'))
+
+  # Merge and return stream
   merge js, vendor
 
 
@@ -146,7 +137,6 @@ gulp.task 'watch', ->
   gulp.watch config.sourceDir + '/**/*.{jpg,png,svg,ico}', [ 'images' ]
   gulp.watch config.sourceDir + '/styles/**/*.{scss,sass}', [
     'styles'
-    'cmq'
   ]
   gulp.watch config.sourceDir + '/fonts/**/*', [ 'fonts' ]
   return
