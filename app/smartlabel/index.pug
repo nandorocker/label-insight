@@ -1,90 +1,91 @@
 extends /_layouts/product-detail.pug
 
 block title
-	title SmartSPEC™ for SmartLabel
+	title SmartLabel(™) Transparency Initiative
 
 block content
-	+productDetailPaneTop(
-		"2.2A",
-		"SmartSPEC™ for SmartLabel",
-		"Build consumer trust <span class='avoid-wrap'>through transparency.</span>",
-		"Consumers want more transparency from the products they use and consume. SmartLabel provides easy, instant access to detailed product information.<br>SmartSPEC provides a powerful set of tools to get your business up and running with SmartLabel faster, easier and more reliably."
-	)
+		section.pane.pane-top
+			.container
+				.row
+					figure
+						img(src="/images/illustration_2.2A.png")
+					.description
+						h4 SmartLabel (™) Transparency Initiative
+						h1 More Information for More Transparency
+						p.
+							This demand for transparency has created the need for a standard way for brands to share product information in a way that consumers can easily access and understand. The launch of the SmartLabel transparency initiative, led by the Grocery Manufacturers Association and Food Marketing Institute, meets this need giving consumers easy, instant access to detailed product information.
 
-	section.pane.green-grid
-		.container
-				h1 Meet SmartSPEC™, the most comprehensive SmartLabel solution on the market.
+						p.
+							Through online landing pages that can be accessed via smartphones, tablets and desktops, customers can access product information organized in a consistent fashion across products. Consumers will be able access detailed product information such as allergens, ingredient sourcing practices, third-party certifications, social compliance and sustainability programs, usage instructions, advisories & safe handling instructions as well as company and brand information. 
+
+						p.
+							Going beyond the product label makes sharing additional product information with consumers more attainable and sustainable for brands and retailers. The result is more information, and consequently, more transparency.
+
+						p.
+							#[a(href="/smartlabel/business-case-transparency").btn.btn-primary.btn-lg Understand Smartlabel]
+		
+		section#tweets.pane.blue-grid.tall
+			.container
+				header
+					h1 People are talking about #smartlabel
 				
-				.embed-responsive.embed-responsive-16by9
-					iframe(src="https://player.vimeo.com/video/160803542", width="640", height="360", frameborder="0", webkitallowfullscreen mozallowfullscreen allowfullscreen)
-				p.
-					SmartSPEC helps CPG companies quickly and easily participate in the SmartLabel transparency initiative. Our team of food data and technology experts have deep experience in the industry and and in-depth knowledge of the evolving details of the SmartLabel initiative and can guide you in the right direction.
+				// Tweets
+				.row
+					article.tweet
+						.col-xs-4.col-sm-2
+							img(src="http://placehold.it/96x96").img-responsive
+						.col-xs-8.col-sm-4
+							p Sostrongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed.
+							p #[a(href="/smartlabel/business-case-transparency") @username]
 
-	section.pane.three-column.gradient
-		.container
-			.row
-				.column
-					figure.icon
-						img(src="/images/icon_SampleA.png")
-					h3 Easier Input
-					p Label Insight automatically maps 100% of the required SmartLabel attributes and 90% of the voluntary attributes, removing the need to manually input data.
+					article.tweet
+						.col-xs-4.col-sm-2
+							img(src="http://placehold.it/96x96").img-responsive
+						.col-xs-8.col-sm-4
+							p So strongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed.
+							p #[a(href="/smartlabel/business-case-transparency") @username]
 
-				.column
-					figure.icon
-						img(src="/images/icon_SampleB.png")
-					h3 More robust output
-					p Label Insight offers an unmatched level of data, generating 15,000 attributes per product, providing the most comprehensive answers to the questions your customers seek.
+					article.tweet
+						.col-xs-4.col-sm-2
+							img(src="http://placehold.it/96x96").img-responsive
+						.col-xs-8.col-sm-4
+							p So strongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed.
+							p #[a(href="/smartlabel/business-case-transparency") @username]
+							
+					article.tweet
+						.col-xs-4.col-sm-2
+							img(src="http://placehold.it/96x96").img-responsive
+						.col-xs-8.col-sm-4
+							p So strongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed.
+							p #[a(href="/smartlabel/business-case-transparency") @username]
 
-				.column
-					figure.icon
-						img(src="/images/icon_SampleC.png")
-					h3 Rapid Turnaround
-					p Label Insight can turn around your SmartLabel pages within 24 hours of product flat submission.
+					
 
-	section#how_it_works.how-it-works.pane.blue
-		.container
-			header
-				h1 How it Works
-				p Label Insight’s turnkey solution takes you from package flat to to SmartLabel compliance in no time.
+		section#news.pane.gradient.huge
+			.container
+				header
+					h1 Smartlabel News
 
-			.step
-				figure
-				.description
-					h2 Step 1: Upload Package Flats
-					p Brands drag and drop package images into our platform and we extract, analyze and maps SmartLabel attributes
+				article.news-item
+					h4 March 05, 2016 by Press
+					h2 Vancouver Sun: Food companies turn to ‘clean labelling’
+					p Picky consumers want to know what they’re eating, without needing a science degree...
 
-			.step
-				figure
-				.description
-					h2 Step 2: Verify Digitized Data 
-					p Brand verifies SmartLabel data and adds any desired off-package information.
+				article.news-item
+					h4 March 05, 2016 by Press
+					h2 Vancouver Sun: Food companies turn to ‘clean labelling’
+					p Picky consumers want to know what they’re eating, without needing a science degree...
 
-			.step
-				figure
-				.description
-					h2 SmartLabel Landing Page Created
-					p Label Insight builds and maintains your landing pages according to SmartLabel specifications. Need a QR code? We can help with that too!
-	
-	section#extend.pane.two-column.gradient.separator
-		.container
-			header
-				h1 Extend your marketing beyond the packaging
-				p SmartSPEC enables CPG companies to highlight unique selling points and build equity by sharing attributes such as growing method and country of origin or additional nutrient attributes such as Diabetic Exchanges and Weight Watchers Point Values.
+				article.news-item
+					h4 March 05, 2016 by Press
+					h2 Vancouver Sun: Food companies turn to ‘clean labelling’
+					p Picky consumers want to know what they’re eating, without needing a science degree...
 
-			.row
-				.column
-					figure.icon
-						img(src="/images/icon_SampleA.png")
-					h3 Automatically account for allergen properties
-					p Accounting for the allergen properties of ingredients is a challenge.  Label Insight’s SmartLabel™ Solution recognizes ingredient properties to automatically display the culprit ingredients for the most common food allergens.
+				article.news-item
+					h4 March 05, 2016 by Press
+					h2 Vancouver Sun: Food companies turn to ‘clean labelling’
+					p Picky consumers want to know what they’re eating, without needing a science degree...
 
-				.column
-					figure.icon
-						img(src="/images/icon_SampleA.png")
-					h3 QR code to landing page management
-					p Through Label Insight’s partnership with Scanbuy we seamlessly manage your QR code process from start to finish, and Label Insight will build and maintains your landing pages according to SmartLabel specifications with 99.9% uptime.
-
-	+requestADemo(
-		"Start building consumer trust through transparency.",
-		"Let’s chat! We’ll walk you through a live SmartLabel page and run you through the steps you need to get started."
-	)
+				footer
+					p.
+							#[a(href="http://blog.labelinsight.com/topic/smartlabel-news").btn.btn-primary.btn-lg Read More on our Blog]

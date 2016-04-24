@@ -86,19 +86,16 @@
 	&.blue {
 		background: #373D46;
 		color: #fff;
-		text-align: center;
 	}
 
 	&.blue-grid {
 		background: #373D46 url("/images/bgGridBlue.png") repeat;
 		color: #fff;
-		text-align: center;
 	}
 
 	&.green-grid {
 		background: #373D46 url("/images/bgGridGreen.png") repeat;
 		color: #fff;
-		text-align: center;
 	}
 
 	&.gradient {
@@ -123,6 +120,10 @@
 				#fff;
 		}
 	}
+
+	&.inverted {
+		color: #fff;
+	}
 }
 
 span.avoid-wrap { 
@@ -136,13 +137,16 @@ span.avoid-wrap {
 
 .separator {
 	@include mq($until: tablet) {
-		background: url("/images/section_separator.png") 0px 0px / 180% auto no-repeat;
+		background: url("/images/section_separator.png") 0px 0px / 180% auto no-repeat,
+		#fff;
 	}
 	@include mq($from: tablet) {
-		background: url("/images/section_separator.png") 0px 0px / 100% auto no-repeat;
+		background: url("/images/section_separator.png") 0px 0px / 100% auto no-repeat,
+		#fff;
 	}
 	@include mq($from: wide) {
-		background: url("/images/section_separator.png") 0px 0px / 50% auto no-repeat;
+		background: url("/images/section_separator.png") 0px 0px / 50% auto no-repeat,
+		#fff;
 	}
 	border-top: #52BEAC solid 1px;
 }
