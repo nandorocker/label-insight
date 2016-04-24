@@ -7,6 +7,7 @@ gulp = require('gulp')
 gutil = require('gulp-util')  					# Gulp utilities
 gulpIf = require('gulp-if')             # Run pipes conditionally
 del = require('del')  						  	  # rm -rf
+plumber = require('gulp-plumber')       # plumber for error handling
 pug = require('pug')  						    	# Formerly known as JADE
 gulpPug = require('gulp-pug')  					# Formerly known as JADE
 filter = require('gulp-filter') 				# Filter for paths (using it to hide underscore folders)
@@ -56,6 +57,8 @@ gulp.task 'clean', ->
 # Process HTML
 gulp.task 'html', ->
   gulp.src(config.sourceDir + '/**/*.pug')
+  .pipe(plumber())
+
   # Filters out files and folders starting with underscore
   .pipe(filter((file) ->
     !/\/_/.test(file.path) and !/^_/.test(file.relative)
@@ -87,6 +90,7 @@ gulp.task 'styles', ->
 
   gulp.src(config.sourceDir + '/styles/**/*.{scss,sass}')
   .pipe(sass(sassConfig))
+  .pipe(plumber())
   .pipe(gulp.dest(config.outputDir + '/styles'))
   .pipe(browserSync.stream())
   .pipe notify(message: 'Styles task complete')
@@ -102,6 +106,7 @@ gulp.task 'cmq', ->
 # Copy fonts
 gulp.task 'fonts', ->
   gulp.src([ config.sourceDir + '/fonts/MonoSocialIconsFont-1.10.*' ])
+  .pipe(plumber())
   .pipe(gulp.dest(config.outputDir + '/fonts'))
   .pipe notify(message: 'Fonts task complete')
 
@@ -112,10 +117,12 @@ gulp.task 'scripts', ->
   # Minify and copy all JavaScript (except vendor scripts)
   js = gulp.src(config.sourceDir + '/scripts/**/*.js')
   .pipe(uglify())
+  .pipe(plumber())
   .pipe(gulp.dest(config.outputDir + '/scripts'))
   
   # Copy vendor files
   vendor = gulp.src([])
+  .pipe(plumber())
   .pipe(gulp.dest(config.outputDir + '/scripts/vendor'))
   merge js, vendor
 
@@ -123,6 +130,7 @@ gulp.task 'scripts', ->
 # Compress and minify images to reduce their file size
 gulp.task 'images', ->
   gulp.src(config.sourceDir + '/**/*.{jpg,png,svg,ico}')
+  .pipe(plumber())
   .pipe(gulpIf(config.production, imagemin()))
   .pipe(gulp.dest(config.outputDir))
   .pipe notify(message: 'Images task complete')
