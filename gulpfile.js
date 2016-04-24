@@ -1,10 +1,8 @@
-// Error Handling with Plumber
-var onError = function(err) {
-    console.log(err);
-}
+'use strict';
 
 //
 // G U L P  L O A D E R
+// ====================
 //
 var gulp 		 = require('gulp'),				// Gulp core
 	gutil 		 = require('gulp-util'),		// Gulp utilities
@@ -17,12 +15,16 @@ var gulp 		 = require('gulp'),				// Gulp core
 	imagemin	 = require('gulp-imagemin'), 	// Image minify
 	notify		 = require('gulp-notify'),		// For pretty notifications
 	browserSync	 = require('browser-sync').create(),
-	merge		 = require('merge-stream');		// merge() command for tasks with multiple sources
+	merge		 = require('merge-stream'),		// merge() command for tasks with multiple sources
+	cmq		 	 = require('gulp-group-css-media-queries'); // Combines media queries
 
 //
 // V A R I A B L E S
+// =================
 //
 
+// Environment Vars
+// ================
 // Sets environment variables through gulp-util
 // To invoke: $ gulp --env=prod
 var env = gutil.env.env;
@@ -31,13 +33,13 @@ var outputDir = '.tmp';
 
 if (env === 'prod') {
 	outputDir = 'dist';
-	console.log("hello");
 }
 if (env === 'dev') {
 }
 
 //
 // G U L P  T A S K S
+// ==================
 //
 
 // Clean output dir first
@@ -62,8 +64,15 @@ gulp.task('html', function(){
 });
 
 // Process styles
-gulp.task('styles', function(){
-	var config = {};
+gulp.task('styles', ['cmq'], function(){
+	// SASS configuration parameters
+	var config = {
+		// Include paths to bower components
+		includePaths: [
+			'bower_components/bootstrap-sass/assets/stylesheets',
+			'bower_components/sass-mq'
+		]
+	};
 
 	if (env === 'prod') {
 		config.outputStyle = 'compressed';
@@ -79,6 +88,23 @@ gulp.task('styles', function(){
 		.pipe(gulp.dest(outputDir + '/styles'))
 		.pipe(browserSync.stream())
 		.pipe(notify({ message: 'Styles task complete' }));
+});
+
+// Combine Media Queries
+gulp.task('cmq', function () {
+	return gulp.src(outputDir + "/styles/**/*.css")
+		.pipe(cmq())
+		.pipe(gulp.dest(outputDir + "/styles"))
+		.pipe(notify({ message: 'Media Queries Combined' }));
+});
+
+// Copy fonts
+gulp.task('fonts', function(){
+	return gulp.src([
+			sourceDir + '/fonts/MonoSocialIconsFont-1.10.*' // Mono Social Icons
+		])
+		.pipe(gulp.dest(outputDir + '/fonts'))
+		.pipe(notify({ message: 'Fonts task complete' }));
 });
 
 // Process scripts
@@ -100,18 +126,35 @@ gulp.task('scripts', function() {
 
 // Compress and minify images to reduce their file size
 gulp.task('images', function() {
-	return gulp.src(sourceDir + '/images/**/*')
+	return gulp.src(sourceDir + '/**/*.{jpg,png,svg,ico}')
 		.pipe(imagemin())
-		.pipe(gulp.dest(outputDir + '/images'))
+		.pipe(gulp.dest(outputDir))
 		.pipe(notify({ message: 'Images task complete' }));
 });
 
-// Gulp Watch
+//
+// Watcher
+// =======
+//
+
 gulp.task('watch', function() {
+	gulp.watch(sourceDir + '/**/*.pug', ['html']).on('change', browserSync.reload);
 	gulp.watch(sourceDir + '/scripts/**/*.js', ['scripts']);
-	gulp.watch(sourceDir + '/**/*.pug', ['html']);
-	gulp.watch(sourceDir + '/styles/**/*.{scss,sass}', ['styles']);
-	gulp.watch(sourceDir + '/**/*.{jpg,png,svg,ico}');
+	gulp.watch(sourceDir + '/**/*.{jpg,png,svg,ico}', ['images']);
+	gulp.watch(sourceDir + '/styles/**/*.{scss,sass}', ['styles','cmq']);
+	gulp.watch(sourceDir + '/fonts/**/*', ['fonts']);
+});
+
+// Gulp restart when gulpfile.js or config.js files are changed
+var spawn = require('child_process').spawn;
+gulp.task('watch:gulp', function() {
+    var p;
+    gulp.watch(['gulpfile.js', 'config.js'], function () {
+        if(p) {
+            p.kill();
+        }
+        p = spawn('gulp', ['build'], {stdio: 'inherit'});
+    });
 });
 
 // Development Server
@@ -121,17 +164,12 @@ gulp.task('serve', ['build'], function(done) {
 		port: 9000,
 		server: outputDir
 	},done);
-
-	gulp.watch(sourceDir + '/scripts/**/*.js', ['scripts']);
-	gulp.watch(sourceDir + '/**/*.{jpg,png,svg,ico}', ['images']);
-	gulp.watch(sourceDir + '/styles/**/*.{scss,sass}', ['styles']);
-	gulp.watch(sourceDir + '/**/*.pug', ['html']).on('change', browserSync.reload);
 });
 
 // Build
 gulp.task('build', ['clean'], function() {
-	return gulp.start(['html', 'scripts', 'images', 'styles']);
+	return gulp.start(['html', 'scripts', 'images', 'styles', 'fonts']);
 });
 
 // Default task
-gulp.task('default', ['serve']);
+gulp.task('default', ['serve', 'watch', 'watch:gulp']);
