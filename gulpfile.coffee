@@ -6,6 +6,7 @@
 gulp = require('gulp')
 gutil = require('gulp-util')  					# Gulp utilities
 gulpIf = require('gulp-if')             # Run pipes conditionally
+changed = require('gulp-changed')       # Only process tasks on changed files
 del = require('del')  						  	  # rm -rf
 sourcemaps = require('gulp-sourcemaps') # sourcemaps for CSS
 plumber = require('gulp-plumber')       # plumber for error handling
@@ -122,6 +123,7 @@ gulp.task 'scripts', ->
 gulp.task 'images', ->
   gulp.src(config.sourceDir + '/**/*.{jpg,png,svg,ico}')
   .pipe(plumber())
+  .pipe(changed(config.outputDir)) # Checks output dir for changes
   .pipe(gulpIf(config.production, imagemin()))
   .pipe(gulp.dest(config.outputDir))
   .pipe notify(message: 'Images task complete')
