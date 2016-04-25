@@ -123,7 +123,9 @@ gulp.task 'styles', ->
 # Task: Fonts
 #
 gulp.task 'fonts', ->
-  gulp.src([ config.sourceDir + '/fonts/MonoSocialIconsFont-1.10.*' ])
+  gulp.src([
+    'bower_components/bootstrap-sass/assets/fonts/**/*'
+  ])
 
   # Stop gulp from crashing on errors
   .pipe(plumber())
