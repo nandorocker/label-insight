@@ -67,8 +67,12 @@
 //
 .top-nav {
 	@extend .container;
-    position: fixed;
-    top: 5em;
+    position: absolute;
+    top: 3em;
+
+    @include mq($from: desktop) {
+	    top: 5em;
+	}
 
     // Center div horizontally with CSS3
     left: 50%;
