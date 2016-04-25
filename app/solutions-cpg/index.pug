@@ -3,8 +3,11 @@ extends /_layouts/product-category.pug
 block title
 	title Label Insight: Solutions for CPG
 
+block current_section
+	- var selected = 'cpg brands'
+
 block content
-	section.pane.huge
+	section.pane.huge.pane-top
 		.container
 			header
 				h1 Making CPG companies more insightful

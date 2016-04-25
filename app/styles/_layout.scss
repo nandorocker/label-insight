@@ -68,7 +68,8 @@
 .top-nav {
 	@extend .container;
     position: fixed;
-    top: 4em;
+    top: 5em;
+
     // Center div horizontally with CSS3
     left: 50%;
     transform: translate(-50%, 0);
@@ -91,27 +92,21 @@
 		}
 	}
 
+	// Customize the top nav-specific menu stuff
 	.menu {
-		@extend .list-inline;
-		position: relative;
-		width: 100%;
-		display: inline-block;
-
 		@include mq($from: desktop) {
 			// Right-align menu on desktop and greater
 			width: auto;
 			float: right;
 		}
 
-		li {
-			margin-left: 1em;
-			text-transform: uppercase;
-			// font-size: .85em;
-			font-weight: 700;
-		}
-
 		a, a:visited {
 			color: #6CB8E1;
+
+			// Selected menu item gets underline
+			&.selected {
+				border-bottom:#6CB8E1 solid 2px;
+			}
 		}
 	}
 }

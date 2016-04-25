@@ -1,9 +1,9 @@
-- var menu = {'cpg brands' : '/solutions-cpg', 'retailers' : '/solutions-retailers', 'smartlabel' : '/solutions-cpg/smartlabel', 'about' : '/about', 'blog' : '#', 'login' : '#'};
+- var menu = {'cpg brands' : '/solutions-cpg', 'retailers' : '/solutions-retailers', 'smartlabel' : '/solutions-cpg/smartspec-smartlabel', 'about' : '/about', 'blog' : '#', 'login' : '#'};
 
 nav#top_nav.top-nav
 	.row
 		figure.logo
-			if selected === 'home'
+			if selected === 'home' || selected === 'about'
 				img(src="/images/li_logo_horizontal_white.svg")
 			else 
 				a(href="/")

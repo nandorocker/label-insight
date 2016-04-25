@@ -123,12 +123,19 @@
 	&.inverted {
 		color: #fff;
 	}
+
+	&.pane-top {
+		padding-top: 10em;
+	}
 }
 
+
+// Manually define best place for titles to break when space too narrow
 span.avoid-wrap { 
 	display:inline-block;
 }
 
+// Center vertically in divs
 .vertical-center {
   display: flex;
   align-items: center;
@@ -163,7 +170,28 @@ span.avoid-wrap {
 	border-top: #52BEAC solid 1px;
 }
 
-// Responsive Video Containers
+//
+// Re-usable menu properties
+//
+.menu {
+	@extend .list-inline;
+	position: relative;
+	width: 100%;
+	display: inline-block;
+
+	// Define general font style for menus
+	li {
+		margin-left: 1em;
+		text-transform: uppercase;
+		font-weight: 700;
+
+		a {
+			padding-bottom: 1.2em;
+		}
+	}
+}
+
+// Customizes Boostrap's Responsive Video Containers
 .embed-responsive {
 	margin-top: $line-height-computed*2;
 	margin-bottom: $line-height-computed*2;
