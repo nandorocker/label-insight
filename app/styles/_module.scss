@@ -24,7 +24,7 @@
 			@include img-responsive();
 			margin-left: auto;
 		    margin-right: auto;
-			margin-bottom: $line-height-computed*2;
+			// margin-bottom: $line-height-computed*2;
 		}
 	}
 
@@ -125,7 +125,11 @@
 	}
 
 	&.pane-top {
-		padding-top: 10em;
+		padding-top: $line-height-computed*2;
+
+		@include mq($from: tablet) {
+			padding-top: $line-height-computed*6;
+		}
 	}
 }
 
@@ -174,19 +178,54 @@ span.avoid-wrap {
 // Re-usable menu properties
 //
 .menu {
-	@extend .list-inline;
+	display: block;
+	clear: both;
 	position: relative;
 	width: 100%;
-	display: inline-block;
+	list-style: none;
+	padding-left: 0;
+
+	@include mq($from: tablet){
+		display: table; // distribute items evenly on tablet screens
+		background-color: transparent;
+	}
+
+	@include mq($from: desktop) {
+		display: inline-block;
+		clear: none;
+	}
 
 	// Define general font style for menus
-	li {
-		margin-left: 1em;
+	> li {
+		display: block;
+		width: 100%;
+		margin-left: 0;
+		padding-top: $line-height-computed*0.75;
+		padding-bottom: $line-height-computed*0.75;
+		padding-left: 0;
 		text-transform: uppercase;
 		font-weight: 700;
+		border-top: 1px solid lighten($menu-link, 28%);
+
+		@include mq($from: tablet){
+			display: table-cell; // Spread menu items evenly using CSS3
+			width: percentage(100/6 * 0.01); // (100 / total menu items)%
+			margin-left: 1em;
+			padding-top: 0;
+			padding-left: 5px;
+			padding-right: 5px;
+			border: 0;
+		}
+
+		@include mq($from: desktop) {
+			display: inline-block;
+			width: auto;
+		}
 
 		a {
-			padding-bottom: 1.2em;
+			@include mq($from: tablet) {
+				padding-bottom: 1.2em;
+			}
 
 			&:hover, &:active {
 				text-decoration: none;

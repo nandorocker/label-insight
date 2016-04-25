@@ -3,11 +3,14 @@ extends /_layouts/product-detail.pug
 block title
 	title SmartLabel(™) Transparency Initiative
 
+block current_section
+	- var selected = 'smartlabel'
+
 block content
 		section.pane.pane-top
 			.container
 				.row
-					figure
+					figure.illustration
 						img(src="/images/illustration_2.2A.png")
 					.description
 						h4 SmartLabel (™) Transparency Initiative

@@ -64,30 +64,60 @@
 
 //
 // Navigation Menu
+// ===============
+// This is the top menu bar. It uses classes from the .menu class which is re-used in the about pages.
+// 
 //
-.top-nav {
-	@extend .container;
+#nav_top {
+	@include container-fixed();
     position: absolute;
-    top: 3em;
+	top: 0;
+	z-index: 999;
+	text-align: center;
+	width: 100%;
+	background-color: rgba(255,255,255,0.96);
+
+    @include mq($from: tablet){
+    	top: $line-height-computed*2;
+
+		// Center div horizontally with CSS3
+	    left: 50%;
+	    transform: translate(-50%, 0);
+	    width: $container-sm;
+	    background-color: transparent;
+    }
 
     @include mq($from: desktop) {
-	    top: 5em;
+	    top: $line-height-computed*3;
+	    width: $container-md;
 	}
 
-    // Center div horizontally with CSS3
-    left: 50%;
-    transform: translate(-50%, 0);
-	text-align: center;
+	header {
+		@include mq($from: tablet) {
+			margin-bottom: $line-height-computed*3;
+		}
+
+		@include mq($from: desktop) {
+			margin-bottom: 0;
+		}
+	}
 
 	.logo {
-		margin-bottom: 2em;
-		@include make-sm-column(4);
-		@include make-sm-column-offset(4);
+		margin-top: $line-height-computed*0.75;
+		margin-bottom: $line-height-computed*0.75;
+
+		@include make-xs-column(6);
+		@include make-sm-column-offset(3);
 		@include make-md-column(3);
 		@include make-md-column-offset(0);
 
 		img {
 			@include img-responsive();
+		}
+
+		@include mq($from: tablet) {
+			margin-top: 0;
+			margin-bottom: 0;
 		}
 
 		@include mq($from: desktop) {
@@ -96,8 +126,31 @@
 		}
 	}
 
+	//
+	// Hamburger button for mobile nav
+	//
+	.hamburger {
+		font-size: 1.4em;
+		margin-top: $line-height-computed*0.5;
+
+		@include make-xs-column(2);
+		@include make-xs-column-offset(4);
+
+		@include mq($from: tablet) {
+			display: none;
+		}
+	}
+
 	// Customize the top nav-specific menu stuff
 	.menu {
+		box-shadow: 0 -0.2em 0.8em 0.8em rgba(0,0,0,0.25);
+		display: none; // begin hidden on mobile
+
+		@include mq($from: tablet) {
+			box-shadow: none;
+			display: table; // return to "table" for even distribution of items
+		}
+
 		@include mq($from: desktop) {
 			// Right-align menu on desktop and greater
 			width: auto;
@@ -105,11 +158,11 @@
 		}
 
 		a, a:visited {
-			color: #6CB8E1;
+			color: $menu-link;
 
 			// Selected menu item gets underline
 			&.selected {
-				border-bottom:#6CB8E1 solid 2px;
+				border-bottom: $menu-link solid 2px;
 			}
 		}
 	}
@@ -168,19 +221,21 @@
 }
 
 .pane {
+	//
+	// Product displays
 	.product {
-		@include mq($from: tablet) {
-			margin-top: $line-height-computed*3;
-			margin-bottom: $line-height-computed*3;
-		}
+		display: inline-block;
+		margin-bottom: $line-height-computed;
 
-		// @include make-row();
+		@include make-row();
 	}
 
 	.product-left {
-		figure {
-			@include make-xs-column(8); 		// On mobile make images small and centered
-			@include make-xs-column-offset(2);
+		.illustration {
+			width: 85%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 0;
 			@include make-sm-column(6);
 			@include make-sm-column-offset(0);	// Reset offset
 		}
@@ -192,7 +247,7 @@
 	}
 
 	.product-right {
-		figure {
+		.illustration {
 			@include make-xs-column(8);			// On mobile make images small and centered
 			@include make-xs-column-offset(2);
 			@include make-sm-column(6);
@@ -219,6 +274,12 @@
 .product-detail {
 	.pane-top {
 		@include onethird-twothirds();
+
+		@include mq($until: tablet){
+			.description {
+				margin-top: $line-height-computed*2;
+			}
+		}
 	}
 }
 
