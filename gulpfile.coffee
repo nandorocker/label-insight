@@ -43,14 +43,18 @@ if config.production
 #
 
 
-# Clean output dir
+# Task: Clean output dir
 gulp.task 'clean', ->
   del config.outputDir + '/**/*'
 
 
-# Process HTML
+#
+# Task: HTML
+#
 gulp.task 'html', ->
   gulp.src(config.sourceDir + '/**/*.pug')
+
+  # Stop gulp from crashing on errors
   .pipe(plumber())
 
   # Filters out files and folders starting with underscore
@@ -62,11 +66,14 @@ gulp.task 'html', ->
     pug: pug
     basedir: config.sourceDir
     pretty: true))
+
   .pipe(gulp.dest(config.outputDir))
+
+  # Send out notification when done
   .pipe notify(message: 'HTML task complete')
 
 #
-# Styles
+# Task: Styles
 #
 gulp.task 'styles', ->
   # SASS configuration parameters
@@ -74,58 +81,100 @@ gulp.task 'styles', ->
 
   # Compress stylesheets for production
   if config.production
-    opStyle = 'compressed'
+    outputStyle = 'compressed'
 
   gulp.src(config.sourceDir + '/styles/**/*.{scss,sass}')
+
+  # Stop gulp from crashing on errors
   .pipe(plumber())
+
+  # Sourcemaps for CSS (step 1)
   .pipe(sourcemaps.init())
+
+  
   .pipe(sass({
+
+    # Include paths to components (add/remove manually)
     includePaths: [
       'bower_components/bootstrap-sass/assets/stylesheets'
       'bower_components/sass-mq'
     ]
-    outputStyle: opStyle
+
+    outputStyle: outputStyle
     }))
+
+  # Combines media queries (production)
   .pipe(gulpIf(config.production, cmq()))
+
+  # Autoprefixer for browser support (production)
   .pipe(gulpIf(config.production, autoprefixer()))
+
+  # Sourcemaps for CSS (step 2)
   .pipe(sourcemaps.write())
   .pipe(gulp.dest(config.outputDir + '/styles'))
+
+  # Updates browsers
   .pipe(browserSync.stream())
+
+  # Send out notification when done
   .pipe notify(message: 'Styles task complete')
 
-# Copy fonts
+#
+# Task: Fonts
+#
 gulp.task 'fonts', ->
   gulp.src([ config.sourceDir + '/fonts/MonoSocialIconsFont-1.10.*' ])
+
+  # Stop gulp from crashing on errors
   .pipe(plumber())
   .pipe(gulp.dest(config.outputDir + '/fonts'))
+
+  # Send out notification when done
   .pipe notify(message: 'Fonts task complete')
 
-
-# Process scripts
+#
+# Task: scripts
+#
 gulp.task 'scripts', ->
 
   # Minify and copy all JavaScript (except vendor scripts)
   js = gulp.src(config.sourceDir + '/scripts/**/*.js')
+
+  # Stop gulp from crashing on errors
   .pipe(plumber())
+
+  # Uglify scripts (production)
   .pipe(gulpIf(config.production, uglify()))
   .pipe(gulp.dest(config.outputDir + '/scripts'))
   
-  # Copy vendor files
+  # Copy vendor files to output dir
   vendor = gulp.src([])
+
+  # Stop gulp from crashing on errors
   .pipe(plumber())
   .pipe(gulp.dest(config.outputDir + '/scripts/vendor'))
 
   # Merge and return stream
   merge js, vendor
 
-
-# Compress and minify images to reduce their file size
+#
+# Task: Images
+#
 gulp.task 'images', ->
   gulp.src(config.sourceDir + '/**/*.{jpg,png,svg,ico}')
+
+  # Stop gulp from crashing on errors
   .pipe(plumber())
-  .pipe(changed(config.outputDir)) # Checks output dir for changes
+
+  # Checks output dir for changes
+  .pipe(changed(config.outputDir))
+
+  # Minify images (on production) 
   .pipe(gulpIf(config.production, imagemin()))
+
   .pipe(gulp.dest(config.outputDir))
+
+  # Send out notification when done
   .pipe notify(message: 'Images task complete')
 
 #
