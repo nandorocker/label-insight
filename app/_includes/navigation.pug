@@ -1,9 +1,18 @@
-//- nav
-//- 	//- logo here
-//- 	ul#menu.slicknav_menu
-//- 		li: a(href="#") cpg brands
-//- 		li: a(href="#") retailer
-//- 		li: a(href="#") smartlabel
-//- 		li: a(href="#") about
-//- 		li: a(href="#") blog
-//- 		li: a(href="#") login
+- var menu = {'cpg brands' : '/solutions-cpg', 'retailers' : '/solutions-retailers', 'smartlabel' : '/solutions-cpg/smartlabel', 'about' : '/about', 'blog' : '#', 'login' : '#'};
+
+nav#top_nav.top-nav
+	.row
+		figure.logo
+			if selected === 'home'
+				img(src="/images/li_logo_horizontal_white.svg")
+			else 
+				a(href="/")
+					img(src="/images/li_logo_horizontal.svg")
+
+		ul.menu
+			each val, key in menu
+				li
+					if selected === key
+						a.selected(href=val, title=key)= key
+					else
+						a(href=val, title=key)= key

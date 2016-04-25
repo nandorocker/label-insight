@@ -18,8 +18,7 @@
 	}
 
 	// Make illustrations responsive
-	figure {
-		// text-align: center;
+	.illustration {
 
 		img {
 			@include img-responsive();

@@ -62,6 +62,60 @@
 	}
 }
 
+//
+// Navigation Menu
+//
+.top-nav {
+	@extend .container;
+    position: fixed;
+    top: 4em;
+    // Center div horizontally with CSS3
+    left: 50%;
+    transform: translate(-50%, 0);
+	text-align: center;
+
+	.logo {
+		margin-bottom: 2em;
+		@include make-sm-column(4);
+		@include make-sm-column-offset(4);
+		@include make-md-column(3);
+		@include make-md-column-offset(0);
+
+		img {
+			@include img-responsive();
+		}
+
+		@include mq($from: desktop) {
+			// Resets margin on > desktop
+			margin-bottom: 0;
+		}
+	}
+
+	.menu {
+		@extend .list-inline;
+		position: relative;
+		width: 100%;
+		display: inline-block;
+
+		@include mq($from: desktop) {
+			// Right-align menu on desktop and greater
+			width: auto;
+			float: right;
+		}
+
+		li {
+			margin-left: 1em;
+			text-transform: uppercase;
+			// font-size: .85em;
+			font-weight: 700;
+		}
+
+		a, a:visited {
+			color: #6CB8E1;
+		}
+	}
+}
+
 // Home
 .home {
 	.pane-top {
