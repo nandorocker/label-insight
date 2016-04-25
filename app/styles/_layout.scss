@@ -204,12 +204,54 @@
 	}
 }
 
+// Leaders
+.leader {
+	@include make-sm-column(4);
+}
+
+// Employees
 .brain {
+	@include make-sm-column(2);
+
 	.description {
 		display: none;
 	}
 
-	li {
-		@include make-sm-column(2);
+}
+
+//
+// Partners Page
+//
+.partners {
+	@extend .container;
+}
+
+.partner {
+	display: inline-block;
+	margin-bottom: 4em;
+
+	h2 {
+		margin-top: 0;
+	}
+
+	.logo {
+		@include make-sm-column(4);
+	}
+
+	.description {
+		@include make-sm-column(8);
+	}
+
+	img {
+		@include img-responsive();
+	}
+}
+
+//
+// Careers Page
+//
+.careers {
+	&.pane-top {
+		background: url("/images/about_careers_top_bg.png");
 	}
 }

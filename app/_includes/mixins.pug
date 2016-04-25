@@ -17,6 +17,7 @@ mixin productDetailPaneTop(imgID, productName, title, paragraph, btn, btn_url, s
 						if sublink
 							a(href= sublink_url).btn #{sublink}
 
+
 //- Common block "request a demo"
 mixin paneFinalCloser(title, paragraph, btn, btn_url)
 	section.pane.short.green-grid
@@ -27,3 +28,14 @@ mixin paneFinalCloser(title, paragraph, btn, btn_url)
 
 				if btn
 					p: a(href=btn_url).btn.btn-primary.btn-lg #{btn}
+
+
+//- Partners blocks
+mixin partnerBlock(logo, name, description)
+	.partner
+		.logo
+			img(src="/images/logo_" + logo + ".png")
+
+		.description
+			h2= name
+			p!= description
