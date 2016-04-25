@@ -68,23 +68,36 @@
 // This is the top menu bar. It uses classes from the .menu class which is re-used in the about pages.
 // 
 //
+// nav#nav_top {
+// 	background-image: url('images/li_logo_horizontal.svg'); // logo on mobile menubar
+// 	background-size: 50%;
+// 	background-position: 20px 50%;
+// 	background-repeat: no-repeat;
+// 	background-color: rgba(255,255,255,0.94);
+// }
+
 #nav_top {
 	@include container-fixed();
-    position: absolute;
+    position: fixed; // menu follows on mobile
 	top: 0;
 	z-index: 999;
 	text-align: center;
 	width: 100%;
-	background-color: rgba(255,255,255,0.96);
+	background: #fff url('/images/li_logo_horizontal.svg') 20px 50% no-repeat;
+	background-size: 50%;
+	box-shadow: 0 0.4em 0.8em 0em rgba(0,0,0,0.25);
 
     @include mq($from: tablet){
     	top: $line-height-computed*2;
-
+		position: absolute; // make menu fixed after tablet
+		
 		// Center div horizontally with CSS3
 	    left: 50%;
 	    transform: translate(-50%, 0);
 	    width: $container-sm;
-	    background-color: transparent;
+	    
+	    background: none;
+	    box-shadow: none;
     }
 
     @include mq($from: desktop) {
@@ -93,7 +106,10 @@
 	}
 
 	header {
+		min-height: 3.5em;
+
 		@include mq($from: tablet) {
+			min-height: 0;
 			margin-bottom: $line-height-computed*3;
 		}
 
@@ -103,8 +119,8 @@
 	}
 
 	.logo {
-		margin-top: $line-height-computed*0.75;
-		margin-bottom: $line-height-computed*0.75;
+		// margin-top: $line-height-computed*0.75;
+		// margin-bottom: $line-height-computed*0.75;
 
 		@include make-xs-column(6);
 		@include make-sm-column-offset(3);
@@ -113,12 +129,19 @@
 
 		img {
 			@include img-responsive();
+			display: none;
+			margin-left: auto;
+			margin-right: auto;
+
+			@include mq($from: tablet) {
+				display: block;
+			}
 		}
 
-		@include mq($from: tablet) {
-			margin-top: 0;
-			margin-bottom: 0;
-		}
+		// @include mq($from: tablet) {
+		// 	margin-top: 0;
+		// 	margin-bottom: 0;
+		// }
 
 		@include mq($from: desktop) {
 			// Resets margin on > desktop
@@ -131,7 +154,7 @@
 	//
 	.hamburger {
 		font-size: 1.4em;
-		margin-top: $line-height-computed*0.5;
+		margin-top: 0.4em;
 
 		@include make-xs-column(2);
 		@include make-xs-column-offset(4);
@@ -143,11 +166,10 @@
 
 	// Customize the top nav-specific menu stuff
 	.menu {
-		box-shadow: 0 -0.2em 0.8em 0.8em rgba(0,0,0,0.25);
+		margin-bottom: 0;
 		display: none; // begin hidden on mobile
 
 		@include mq($from: tablet) {
-			box-shadow: none;
 			display: table; // return to "table" for even distribution of items
 		}
 
@@ -274,6 +296,9 @@
 .product-detail {
 	.pane-top {
 		@include onethird-twothirds();
+		h4 {
+			margin-top: 0;
+		}
 
 		@include mq($until: tablet){
 			.description {

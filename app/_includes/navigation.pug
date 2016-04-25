@@ -4,10 +4,10 @@ nav#nav_top
 	.row
 		header
 			figure.logo
-				if selected === 'home' || selected === 'about'
-					img(src="/images/li_logo_horizontal_white.svg")
-				else 
-					a(href="/")
+				a(href="/")
+					if selected === 'home' || selected === 'about'
+						img(src="/images/li_logo_horizontal_white.svg")
+					else 
 						img(src="/images/li_logo_horizontal.svg")
 
 			.hamburger
