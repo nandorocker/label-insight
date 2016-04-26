@@ -104,8 +104,8 @@ gulp.task 'styles', ->
     outputStyle: outputStyle
     }))
 
-  # Combines media queries (production)
-  .pipe(gulpIf(config.production, cmq()))
+  # Combines media queries
+  .pipe(cmq())
 
   # Autoprefixer for browser support (production)
   .pipe(gulpIf(config.production, autoprefixer()))
