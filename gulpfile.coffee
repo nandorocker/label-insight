@@ -21,6 +21,7 @@ browserSync = require('browser-sync').create()
 merge = require('merge-stream') 				# merge() command for tasks with multiple sources
 cmq = require('gulp-group-css-media-queries') 	# Combines media queries
 autoprefixer = require('gulp-autoprefixer')     # Autoprefixes CSS for compatibility
+cleanCss = require('gulp-clean-css')
 
 #
 # C O N F I G
@@ -108,6 +109,11 @@ gulp.task 'styles', ->
 
   # Autoprefixer for browser support (production)
   .pipe(gulpIf(config.production, autoprefixer()))
+
+  # Minify
+  .pipe(gulpIf(config.production, cleanCss({
+    compatibility: 'ie8'
+  })))
 
   # Sourcemaps for CSS (step 2)
   .pipe(sourcemaps.write())
