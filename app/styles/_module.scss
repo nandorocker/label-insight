@@ -1,7 +1,7 @@
 // Panes (custom version of jumbotron)
 .pane {
 	@extend .jumbotron;
-
+	@extend .vertical-center;
 	background: #fff;
 	margin-bottom: 0;
 	padding-top: $line-height-computed*3;
