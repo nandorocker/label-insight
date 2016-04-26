@@ -1,4 +1,4 @@
-- var menu = {'cpg brands' : '/solutions-cpg', 'retailers' : '/solutions-retailers', 'smartlabel' : '/solutions-cpg/smartspec-smartlabel', 'about' : '/about', 'blog' : '#', 'login' : '#'};
+- var menu = {"home" : "/", "cpg brands" : "/solutions-cpg", "retailers" : "/solutions-retailers", "smartlabel" : "/solutions-cpg/smartspec-smartlabel", "about" : "/about", "blog" : "#", "login" : "#"};
 
 nav#nav_top
 	.row
@@ -15,8 +15,13 @@ nav#nav_top
 					
 		ul#nav_collapse.menu
 			each val, key in menu
-				li
-					if selected === key
-						a.selected(href=val, title=key)= key
-					else
-						a(href=val, title=key)= key
+
+				if key === 'home'
+					li(class='nav-home')
+				else
+					li
+
+						if selected === key && key
+							a.selected(href=val, title=key)= key
+						else
+							a(href=val, title=key)= key
