@@ -104,6 +104,9 @@ gulp.task 'styles', ->
     outputStyle: outputStyle
     }))
 
+  # Sourcemaps for CSS (step 2)
+  .pipe(sourcemaps.write())
+
   # Combines media queries
   .pipe(cmq())
 
@@ -115,8 +118,6 @@ gulp.task 'styles', ->
     compatibility: 'ie8'
   })))
 
-  # Sourcemaps for CSS (step 2)
-  .pipe(sourcemaps.write())
   .pipe(gulp.dest(config.outputDir + '/styles'))
 
   # Updates browsers
