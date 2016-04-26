@@ -150,7 +150,9 @@ gulp.task 'scripts', ->
   .pipe(gulp.dest(config.outputDir + '/scripts'))
   
   # Copy vendor files to output dir
-  vendor = gulp.src([])
+  vendor = gulp.src([
+    'bower_components/jquery/dist/jquery.min.*'
+  ])
 
   # Stop gulp from crashing on errors
   .pipe(plumber())

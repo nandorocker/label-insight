@@ -68,13 +68,6 @@
 // This is the top menu bar. It uses classes from the .menu class which is re-used in the about pages.
 // 
 //
-// nav#nav_top {
-// 	background-image: url('images/li_logo_horizontal.svg'); // logo on mobile menubar
-// 	background-size: 50%;
-// 	background-position: 20px 50%;
-// 	background-repeat: no-repeat;
-// 	background-color: rgba(255,255,255,0.94);
-// }
 
 #nav_top {
 	@include container-fixed();
@@ -83,7 +76,7 @@
 	z-index: 999;
 	text-align: center;
 	width: 100%;
-	background: #fff url('/images/li_logo_horizontal.svg') 20px 50% no-repeat;
+	background: rgba(255,255,255,0.94) url('/images/li_logo_horizontal.svg') 20px 13px no-repeat;
 	background-size: 50%;
 	box-shadow: 0 0.4em 0.8em 0em rgba(0,0,0,0.25);
 
@@ -95,7 +88,7 @@
 	    left: 50%;
 	    transform: translate(-50%, 0);
 	    width: $container-sm;
-	    
+
 	    background: none;
 	    box-shadow: none;
     }
@@ -248,8 +241,6 @@
 	.product {
 		display: inline-block;
 		margin-bottom: $line-height-computed;
-
-		@include make-row();
 	}
 
 	.product-left {
@@ -324,6 +315,18 @@
 //
 // About Page
 //
+.about {
+	header {
+		text-align: left;
+	}
+
+	@include mq($until: tablet){
+		h1 {
+			font-size: $font-size-h3;
+		}
+	}
+}
+
 .about-stlouis {
 	background: url("/images/about_label_stlouis.png");
 	text-align: center;

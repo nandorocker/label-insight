@@ -125,7 +125,7 @@
 	}
 
 	&.pane-top {
-		padding-top: $line-height-computed*2;
+		padding-top: $line-height-computed*4;
 
 		@include mq($from: tablet) {
 			padding-top: $line-height-computed*8;
