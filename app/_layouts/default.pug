@@ -6,11 +6,12 @@
 
 //- Sections Array
 //- id / spelled out name / url
-- var sections = [{"id" : "home", "name" : "home", "url" : "/"},{"id" : "cpg", "name" : "cpg brands", "url" : "/solutions-cpg"}, {"id" : "retailers", "name" : "retailers", "url" : "/solutions-retailers"},{"id" : "smartlabel", "name" : "smartlabel", "url" : "/solutions-cpg/smartspec-smartlabel"},{"section" : "about", "name" : "about", "url" : "/about"},{"section" : "blog", "name" : "blog", "url" : "#"},{"section" : "login", "name" : "login", "url" : "#"}]
+- var sections = [{"id" : "home", "name" : "home", "url" : "/"},{"id" : "cpg", "name" : "cpg brands", "url" : "/solutions-cpg"}, {"id" : "retailers", "name" : "retailers", "url" : "/solutions-retailers"},{"id" : "smartlabel", "name" : "smartlabel", "url" : "/solutions-cpg/smartspec-smartlabel"},{"id" : "about", "name" : "about", "url" : "/about"},{"id" : "blog", "name" : "blog", "url" : "#"},{"section" : "login", "name" : "login", "url" : "#"}]
 
 //- Receive Variables from View
 block vars
 	- var current_section = 'home' //- Current section (default home)
+	- var page_type //- Adds a class to body for page type (home, product-category, product-detail)
 
 //- Include mixins
 include /_includes/mixins.pug
@@ -19,7 +20,7 @@ doctype html
 html
 	include /_includes/head.pug
 
-	body(class=current_section)
+	body(class=page_type)
 	
 		+navigation()
 
