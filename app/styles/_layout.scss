@@ -34,7 +34,9 @@
 	}
 }
 
+//
 // Footer
+//
 .nav-footer {
 	background-color: #373D46;
 	color: #fff;
@@ -56,7 +58,8 @@
 	ul {
 		@include make-xs-column(4);
 		@include make-sm-column(2);
-		@include list-unstyled();
+		list-style-type: none;
+		// @include list-unstyled();
 
 		// border-left: 1px solid #555;
 	}
