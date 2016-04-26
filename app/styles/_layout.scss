@@ -76,9 +76,8 @@
 	z-index: 999;
 	text-align: center;
 	width: 100%;
-	background: rgba(255,255,255,0.94) url('/images/li_logo_horizontal.svg') 20px 13px no-repeat;
-	background-size: 50%;
-	box-shadow: 0 0.4em 0.8em 0em rgba(0,0,0,0.25);
+	background: #fff; //rgba(255,255,255,0.96);
+	box-shadow: 0 0.4em 0.8em 0em rgba(0,0,0,0.2);
 
     @include mq($from: tablet){
     	top: $line-height-computed*2;
@@ -100,10 +99,17 @@
 
 	header {
 		min-height: 3.5em;
+		background: url('/images/li_logo_horizontal.svg') 20px 50% no-repeat;
+		background-size: 50%;
+
+		@include mq(mobileLandscape) {
+			background-size: 30%;
+		}
 
 		@include mq($from: tablet) {
 			min-height: 0;
 			margin-bottom: $line-height-computed*3;
+			background: none;
 		}
 
 		@include mq($from: desktop) {
@@ -148,6 +154,7 @@
 	.hamburger {
 		font-size: 1.4em;
 		margin-top: 0.4em;
+		text-align: right;
 
 		@include make-xs-column(2);
 		@include make-xs-column-offset(4);
@@ -177,7 +184,7 @@
 
 			// Selected menu item gets underline
 			&.selected {
-				border-bottom: $menu-link solid 2px;
+				border-bottom: $menu-link solid 3px;
 			}
 		}
 	}
@@ -258,6 +265,10 @@
 			margin-bottom: 0;
 			@include make-sm-column(6);
 			@include make-sm-column-offset(0);	// Reset offset
+
+			@include mq(mobileLandscape) {
+				width: 50%;
+			}
 		}
 
 		.description {
@@ -268,11 +279,16 @@
 
 	.product-right {
 		.illustration {
-			@include make-xs-column(8);			// On mobile make images small and centered
-			@include make-xs-column-offset(2);
+			width: 85%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 0;
 			@include make-sm-column(6);
 			@include make-sm-column-push(6);
-			@include make-sm-column-offset(0);	// Reset Offset
+
+			@include mq(mobileLandscape) {
+				width: 50%;
+			}
 		}
 
 		.description {
