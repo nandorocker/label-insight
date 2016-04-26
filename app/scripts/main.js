@@ -1,8 +1,10 @@
 (function(){
 
    // click on mobile nav to toggle
-	$('#nav_top').click(function() {
-		$('#nav_collapse').slideToggle()
-	});
+   if($(window).width() < 768) {
+   		$('#nav_top').click(function() {
+   			$('#nav_collapse').slideToggle()
+   		});
+   	}
 
 })(jQuery)
