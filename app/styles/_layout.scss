@@ -118,9 +118,6 @@
 	}
 
 	.logo {
-		// margin-top: $line-height-computed*0.75;
-		// margin-bottom: $line-height-computed*0.75;
-
 		@include make-xs-column(6);
 		@include make-sm-column-offset(3);
 		@include make-md-column(3);
@@ -137,12 +134,8 @@
 			}
 		}
 
-		// @include mq($from: tablet) {
-		// 	margin-top: 0;
-		// 	margin-bottom: 0;
-		// }
-
 		@include mq($from: desktop) {
+
 			// Resets margin on > desktop
 			margin-bottom: 0;
 		}
@@ -168,6 +161,13 @@
 	.menu {
 		margin-bottom: 0;
 		display: none; // begin hidden on mobile
+
+		@include mq(mobileLandscape) {
+			> li {
+				padding-top: 8px;
+				padding-bottom: 8px;
+			}
+		}
 
 		@include mq($from: tablet) {
 			display: table; // return to "table" for even distribution of items
