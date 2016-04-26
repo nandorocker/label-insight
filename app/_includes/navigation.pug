@@ -18,9 +18,12 @@ nav#nav_top
 
 				if key === 'home'
 					li(class='nav-home')
+						if selected === key && key
+							a.selected(href=val, title=key)= key
+						else
+							a(href=val, title=key)= key
 				else
 					li
-
 						if selected === key && key
 							a.selected(href=val, title=key)= key
 						else

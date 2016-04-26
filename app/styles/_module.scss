@@ -222,8 +222,8 @@ span.avoid-wrap {
 		}
 
 		@include mq($from: desktop) {
-			display: inline-block;
-			width: auto;
+			display: inline-block; // Resets for standard right-alignment
+			width: auto; // Resets for standard right-alignment
 		}
 
 		a {

@@ -191,6 +191,10 @@
 
 	// Hide the "home" nav item on everything but mobile
 	.nav-home {
+		@include mq(mobileLandscape){
+			display: block;
+		}
+
 		@include mq($from: tablet){
 			display: none;
 		}
