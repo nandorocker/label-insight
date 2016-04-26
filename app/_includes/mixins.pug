@@ -39,3 +39,26 @@ mixin partnerBlock(logo, name, description)
 		.description
 			h2= name
 			p!= description
+
+//- Navigation (mixin cause Jade doesn't support dynamic includes)
+mixin navigation()
+	nav#nav_top
+		.row
+			header
+				figure.logo
+					a(href="/")
+						if current_section === 'home' || current_section === 'about'
+							img(src="/images/li_logo_horizontal_white.svg")
+						else 
+							img(src="/images/li_logo_horizontal.svg")
+
+				.hamburger
+					span(class="glyphicon glyphicon-menu-hamburger" aria-hidden="true")
+						
+			ul#nav_collapse.menu
+				each item in sections
+					li(class="nav-" + item.id)
+						if current_section === item.id
+							a.selected(href=item.url, title=item.name)= item.name
+						else
+							a(href=item.url, title=item.name)= item.name

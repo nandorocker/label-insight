@@ -1,94 +1,94 @@
-extends /_layouts/product-detail.pug
+extends /_layouts/default.pug
 
 block title
 	title SmartLabel(™) Transparency Initiative
 
-block current_section
-	- var selected = 'smartlabel'
+block vars
+	- var current_section = 'smartlabel'
 
 block content
-		section.pane.pane-top
-			.container
-				.row
-					figure.illustration
-						img(src="/images/illustration_2.2A.png")
-					.description
-						h4 SmartLabel (™) Transparency Initiative
-						h1 More Information for More Transparency
-						p.
-							This demand for transparency has created the need for a standard way for brands to share product information in a way that consumers can easily access and understand. The launch of the SmartLabel transparency initiative, led by the Grocery Manufacturers Association and Food Marketing Institute, meets this need giving consumers easy, instant access to detailed product information.
-
-						p.
-							Through online landing pages that can be accessed via smartphones, tablets and desktops, customers can access product information organized in a consistent fashion across products. Consumers will be able access detailed product information such as allergens, ingredient sourcing practices, third-party certifications, social compliance and sustainability programs, usage instructions, advisories & safe handling instructions as well as company and brand information. 
-
-						p.
-							Going beyond the product label makes sharing additional product information with consumers more attainable and sustainable for brands and retailers. The result is more information, and consequently, more transparency.
-
-						p.
-							#[a(href="/smartlabel/business-case-transparency").btn.btn-primary.btn-lg Understand Smartlabel]
-		
-		section#tweets.pane.blue-grid.tall
-			.container
-				header
-					h1 People are talking about #smartlabel
-				
-				// Tweets
-				.row
-					article.tweet
-						.col-xs-4.col-sm-2
-							img(src="http://placehold.it/96x96").img-responsive
-						.col-xs-8.col-sm-4
-							p Sostrongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed.
-							p #[a(href="/smartlabel/business-case-transparency") @username]
-
-					article.tweet
-						.col-xs-4.col-sm-2
-							img(src="http://placehold.it/96x96").img-responsive
-						.col-xs-8.col-sm-4
-							p So strongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed.
-							p #[a(href="/smartlabel/business-case-transparency") @username]
-
-					article.tweet
-						.col-xs-4.col-sm-2
-							img(src="http://placehold.it/96x96").img-responsive
-						.col-xs-8.col-sm-4
-							p So strongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed.
-							p #[a(href="/smartlabel/business-case-transparency") @username]
-							
-					article.tweet
-						.col-xs-4.col-sm-2
-							img(src="http://placehold.it/96x96").img-responsive
-						.col-xs-8.col-sm-4
-							p So strongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed.
-							p #[a(href="/smartlabel/business-case-transparency") @username]
-
-					
-
-		section#news.pane.gradient.huge
-			.container
-				header
-					h1 Smartlabel News
-
-				article.news-item
-					h4 March 05, 2016 by Press
-					h2 Vancouver Sun: Food companies turn to ‘clean labelling’
-					p Picky consumers want to know what they’re eating, without needing a science degree...
-
-				article.news-item
-					h4 March 05, 2016 by Press
-					h2 Vancouver Sun: Food companies turn to ‘clean labelling’
-					p Picky consumers want to know what they’re eating, without needing a science degree...
-
-				article.news-item
-					h4 March 05, 2016 by Press
-					h2 Vancouver Sun: Food companies turn to ‘clean labelling’
-					p Picky consumers want to know what they’re eating, without needing a science degree...
-
-				article.news-item
-					h4 March 05, 2016 by Press
-					h2 Vancouver Sun: Food companies turn to ‘clean labelling’
-					p Picky consumers want to know what they’re eating, without needing a science degree...
-
-				footer
+	section.pane.pane-top
+		.container
+			.row
+				figure.illustration
+					img(src="/images/illustration_2.2A.png")
+				.description
+					h4 SmartLabel (™) Transparency Initiative
+					h1 More Information for More Transparency
 					p.
-							#[a(href="http://blog.labelinsight.com/topic/smartlabel-news").btn.btn-primary.btn-lg Read More on our Blog]
+						This demand for transparency has created the need for a standard way for brands to share product information in a way that consumers can easily access and understand. The launch of the SmartLabel transparency initiative, led by the Grocery Manufacturers Association and Food Marketing Institute, meets this need giving consumers easy, instant access to detailed product information.
+
+					p.
+						Through online landing pages that can be accessed via smartphones, tablets and desktops, customers can access product information organized in a consistent fashion across products. Consumers will be able access detailed product information such as allergens, ingredient sourcing practices, third-party certifications, social compliance and sustainability programs, usage instructions, advisories & safe handling instructions as well as company and brand information. 
+
+					p.
+						Going beyond the product label makes sharing additional product information with consumers more attainable and sustainable for brands and retailers. The result is more information, and consequently, more transparency.
+
+					p.
+						#[a(href="/smartlabel/business-case-transparency").btn.btn-primary.btn-lg Understand Smartlabel]
+	
+	section#tweets.pane.blue-grid.tall
+		.container
+			header
+				h1 People are talking about #smartlabel
+			
+			// Tweets
+			.row
+				article.tweet
+					.col-xs-4.col-sm-2
+						img(src="http://placehold.it/96x96").img-responsive
+					.col-xs-8.col-sm-4
+						p Sostrongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed.
+						p #[a(href="/smartlabel/business-case-transparency") @username]
+
+				article.tweet
+					.col-xs-4.col-sm-2
+						img(src="http://placehold.it/96x96").img-responsive
+					.col-xs-8.col-sm-4
+						p So strongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed.
+						p #[a(href="/smartlabel/business-case-transparency") @username]
+
+				article.tweet
+					.col-xs-4.col-sm-2
+						img(src="http://placehold.it/96x96").img-responsive
+					.col-xs-8.col-sm-4
+						p So strongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed.
+						p #[a(href="/smartlabel/business-case-transparency") @username]
+						
+				article.tweet
+					.col-xs-4.col-sm-2
+						img(src="http://placehold.it/96x96").img-responsive
+					.col-xs-8.col-sm-4
+						p So strongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed.
+						p #[a(href="/smartlabel/business-case-transparency") @username]
+
+				
+
+	section#news.pane.gradient.huge
+		.container
+			header
+				h1 Smartlabel News
+
+			article.news-item
+				h4 March 05, 2016 by Press
+				h2 Vancouver Sun: Food companies turn to ‘clean labelling’
+				p Picky consumers want to know what they’re eating, without needing a science degree...
+
+			article.news-item
+				h4 March 05, 2016 by Press
+				h2 Vancouver Sun: Food companies turn to ‘clean labelling’
+				p Picky consumers want to know what they’re eating, without needing a science degree...
+
+			article.news-item
+				h4 March 05, 2016 by Press
+				h2 Vancouver Sun: Food companies turn to ‘clean labelling’
+				p Picky consumers want to know what they’re eating, without needing a science degree...
+
+			article.news-item
+				h4 March 05, 2016 by Press
+				h2 Vancouver Sun: Food companies turn to ‘clean labelling’
+				p Picky consumers want to know what they’re eating, without needing a science degree...
+
+			footer
+				p.
+						#[a(href="http://blog.labelinsight.com/topic/smartlabel-news").btn.btn-primary.btn-lg Read More on our Blog]

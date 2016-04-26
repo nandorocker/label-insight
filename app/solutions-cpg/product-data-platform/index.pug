@@ -1,10 +1,10 @@
-extends /_layouts/product-detail.pug
+extends /_layouts/default.pug
 
 block title
 	title Label Insight’s Product Data Platform
 
-block current_section
-	- var selected = 'cpg brands'
+block vars
+	- var current_section = 'cpg brands'
 
 block content
 	+productDetailPaneTop(

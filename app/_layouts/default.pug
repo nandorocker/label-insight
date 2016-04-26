@@ -1,4 +1,17 @@
-//- This is the home template.
+//- 
+//- MASTER TEMPLATE
+//- 
+//- Jade doesn't support dynamic includes so partials aren't as clean.
+//- We replace some includes with mixins for that purpose.
+
+//- Sections Array
+//- id / spelled out name / url
+- var sections = [{"id" : "home", "name" : "home", "url" : "/"},{"id" : "cpg", "name" : "cpg brands", "url" : "/solutions-cpg"}, {"id" : "retailers", "name" : "retailers", "url" : "/solutions-retailers"},{"id" : "smartlabel", "name" : "smartlabel", "url" : "/solutions-cpg/smartspec-smartlabel"},{"section" : "about", "name" : "about", "url" : "/about"},{"section" : "blog", "name" : "blog", "url" : "#"},{"section" : "login", "name" : "login", "url" : "#"}]
+
+//- Receive Variables from View
+block vars
+	- var current_section = 'home' //- Current section (default home)
+
 //- Include mixins
 include /_includes/mixins.pug
 
@@ -6,8 +19,9 @@ doctype html
 html
 	include /_includes/head.pug
 
-	body.home
-		include /_includes/navigation.pug
+	body(class=current_section)
+	
+		+navigation()
 
 		block content
 
