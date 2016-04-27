@@ -4,10 +4,6 @@
 //- Jade doesn't support dynamic includes so partials aren't as clean.
 //- We replace some includes with mixins for that purpose.
 
-//- Sections Array
-//- id / spelled out name / url
-- var sections = [{"id" : "home", "name" : "home", "url" : "/"},{"id" : "cpg", "name" : "cpg brands", "url" : "/solutions-cpg"}, {"id" : "retailers", "name" : "retailers", "url" : "/solutions-retailers"},{"id" : "smartlabel", "name" : "smartlabel", "url" : "/solutions-cpg/smartspec-smartlabel"},{"id" : "about", "name" : "about", "url" : "/about"},{"id" : "blog", "name" : "blog", "url" : "#"},{"section" : "login", "name" : "login", "url" : "#"}]
-
 //- Receive Variables from View
 block vars
 	- var current_section = 'home' //- Current section (default home)
@@ -23,7 +19,7 @@ html
 	//- Adds classes for section and template type to body
 	body(class=page_type + " " + current_section)
 	
-		+navigation()
+		include /_includes/nav_top.pug
 
 		block content
 
