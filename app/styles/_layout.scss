@@ -360,16 +360,33 @@
 		}
 	}
 
+	// Contact page styles
+	//
 	.addresses {
+		// Styles contact list for two columns
+		> ul {
+			@include list-unstyled();
+			@include make-sm-column(6);
+			@include make-sm-column-offset(3);
+			@include make-sm-column-offset(0);
 
-		// Adds spacing between items
-		> ul > li {
-			margin-bottom: $line-height-computed*2;
+			> li {
+				// Spacing between list items (first level only)
+				margin-bottom: $line-height-computed*2;
+			}
 		}
 
+		// Social list
+		.social {
+			@include make-sm-column(6,0);
+			@include list-unstyled();
+		}
+
+		// Styles monosocialicons font
 		.symbol {
 			margin-right: 0.2em;
 			vertical-align: middle;
+			line-height: 1.4em;
 		}
 	}
 }
