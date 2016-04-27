@@ -176,7 +176,7 @@ span.avoid-wrap {
 }
 
 //
-// Re-usable menu properties
+// Re-usable menu properties (for <ul>)
 //
 .menu {
 	display: block;
@@ -186,11 +186,6 @@ span.avoid-wrap {
 	list-style: none;
 	padding-left: 0;
 
-	@include mq($from: tablet){
-		display: table; // distribute items evenly on tablet screens
-		background-color: transparent;
-	}
-
 	@include mq($from: desktop) {
 		display: inline-block;
 		clear: none;
@@ -198,25 +193,12 @@ span.avoid-wrap {
 
 	// Define general font style for menus
 	> li {
-		display: block;
-		width: 100%;
-		margin-left: 0;
-		padding-top: $line-height-computed*0.75;
-		padding-bottom: $line-height-computed*0.75;
+		display: inline-block;
+		margin-top: 0.5em;
+		margin-right: 1.1em;
 		padding-left: 0;
 		text-transform: uppercase;
 		font-weight: 700;
-		border-top: 1px solid lighten($menu-link, 28%);
-
-		@include mq($from: tablet){
-			display: table-cell; // Spread menu items evenly using CSS3
-			width: percentage(100/6 * 0.01); // (100 / total menu items)%
-			margin-left: 1em;
-			padding-top: 0;
-			padding-left: 5px;
-			padding-right: 5px;
-			border: 0;
-		}
 
 		@include mq($from: desktop) {
 			display: inline-block; // Resets for standard right-alignment
@@ -224,14 +206,35 @@ span.avoid-wrap {
 		}
 
 		a {
-			@include mq($from: tablet) {
-				padding-bottom: 1.2em;
-			}
-
 			&:hover, &:active {
 				text-decoration: none;
-				// color: #ccc;
 			}
+		}
+	}
+}
+
+// Module for collapsable menus
+.menu-collapse {
+
+	// Define general font style for menus
+	> li {
+		// Mobile: full-width items
+		display: block;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+
+		// Mobile gets them stacked menus
+		padding-top: $line-height-computed*0.75;
+		padding-bottom: $line-height-computed*0.75;
+		border-top: 1px solid lighten($menu-link, 28%);
+
+		@include mq($from: tablet){
+			margin-left: 1em;
+			padding-top: 0;
+			padding-left: 5px;
+			padding-right: 5px;
+			border: 0;
 		}
 	}
 }

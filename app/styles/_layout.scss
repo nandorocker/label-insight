@@ -164,37 +164,62 @@
 	.menu {
 		margin-bottom: 0;
 		display: none; // begin hidden on mobile
+		
+		@include mq($from: tablet){
+			display: table; // distribute items evenly on tablet screens (step 1)
+			background-color: transparent;
+		}
 
-		@include mq(mobileLandscape) {
-			> li {
+		// Customize menu items
+		> li {
+			@include mq($from: tablet){
+				display: table-cell; // distribute items evenly on tablet screens (step 2)
+				width: percentage(100/6 * 0.01); // (100 / total menu items)% distribute evenly (step 3)
+				margin-left: 1em;
+				padding-top: 0;
+				padding-left: 5px;
+				padding-right: 5px;
+				border: 0;
+			}
+
+			@include mq($from: desktop) {
+				display: inline-block; // Resets for standard right-alignment
+				width: auto; // Resets for standard right-alignment
+			}
+
+			@include mq(mobileLandscape) {
 				padding-top: 8px;
 				padding-bottom: 8px;
 			}
+
+			a, a:visited {
+				text-decoration: none;
+				color: $menu-link;
+
+				@include mq($from: tablet) {
+					padding-bottom: 1.2em;
+				}
+
+				// Selected menu item gets underline
+				&.selected {
+					border-bottom: $menu-link solid 3px;
+				}
+			}
+
+			a:hover, a:active {
+				text-decoration: none;
+				color: $menu-link-hover;
+			}
 		}
+		
 
 		@include mq($from: tablet) {
 			display: table; // return to "table" for even distribution of items
 		}
 
 		@include mq($from: desktop) {
-			// Right-align menu on desktop and greater
-			width: auto;
+			width: auto; // Resets for standard right-alignment
 			float: right;
-		}
-
-		a, a:visited {
-			text-decoration: none;
-			color: $menu-link;
-
-			// Selected menu item gets underline
-			&.selected {
-				border-bottom: $menu-link solid 3px;
-			}
-		}
-
-		a:hover, a:active {
-			text-decoration: none;
-			color: $menu-link-hover;
 		}
 	}
 
@@ -298,6 +323,7 @@
 			@include mq(mobileLandscape) {
 				width: 50%;
 			}
+
 		}
 
 		.description {
@@ -355,6 +381,7 @@
 
 		@include mq($until: tablet){
 			h1 {
+				// Make font a bit smaller for small screens
 				font-size: $font-size-h3;
 			}
 		}
