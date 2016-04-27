@@ -7,7 +7,7 @@
 	padding-top: $line-height-computed*3;
 	padding-bottom: $line-height-computed*3;
 
-	header {
+	.container > header {
 		clear: both;
 		text-align: center;
 		// margin-bottom: $line-height-computed*4;

@@ -562,3 +562,83 @@
 		}
 	}
 }
+
+// Pricing table
+//
+.pricing-box {
+	@include make-xs-column(12);
+	@include make-sm-column(4, 0.4em);
+	text-align: center;
+	margin-bottom: $line-height-computed*2;
+
+	> header {
+		background-color: $brand-green;
+		color: #fff;
+		width: 100%;
+		text-align: center;
+		margin-bottom: 0;
+		padding-top: 2em;
+		padding-bottom: 2em;
+		
+		@include mq($from: tablet) {
+			padding-bottom: 0;
+			height: 15em;
+		}
+
+		@include mq($from: desktop) {
+			padding-top: 4em;
+		}
+	}
+
+	section, a.cta {
+		width: 100%;
+		padding: $line-height-computed $line-height-computed*0.6;
+	}
+	
+	.details {
+		background-color: #E5E5E5;
+
+		@include mq($from: tablet) {
+			height: 48em;
+		}
+
+		@include mq($from: desktop) {
+			height: 38em;
+		}
+	}
+
+	.price {
+		background-color: $gray-lighter;
+	}
+
+	.cta {
+		display: inline-block;
+		text-transform: uppercase;
+		
+		@include mq(tablet) {
+			font-size: $font-size-h4;
+		}
+
+		&, a, a:visited {
+			background-color: $brand-primary;
+			color: #fff;
+		}
+
+		&:hover, &:active {
+			text-decoration: none;
+			background-color: $brand-primary-dark;
+		}
+	}
+
+	ul {
+		@include list-unstyled();
+
+		> li:not(:first-child) {
+			margin-top: $line-height-computed;
+		}
+	}
+
+	h1, h2, h3 {
+		margin: 0;
+	}
+}

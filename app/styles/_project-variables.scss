@@ -4,8 +4,9 @@
 $font-family-sans-serif:		 "Open Sans", Helvetica, Arial, sans-serif;
 
 $brand-primary:         #5DBDF2; // #337ab7
+$brand-primary-dark:    darken($brand-primary, 10%);
 $brand-green:			#52BEAC;
-$brand-light-green:		lighten(#52BEAC, 25%);
+$brand-light-green:		lighten($brand-green, 25%);
 $brand-success:         #5cb85c;
 $brand-info:            #5bc0de;
 $brand-warning:         #f0ad4e;
