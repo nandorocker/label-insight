@@ -244,3 +244,16 @@ span.avoid-wrap {
 	margin-top: $line-height-computed*2;
 	margin-bottom: $line-height-computed*2;
 }
+
+// MonoSocialIcons
+.symbol, a.symbol:before {
+    font-family: 'Mono Social Icons Font';
+    font-size: 3em;
+    text-rendering: optimizeLegibility;
+    font-smoothing: antialiased;
+}
+
+a.symbol:before {
+    content: attr(title);
+    margin-right: 1em;
+}
