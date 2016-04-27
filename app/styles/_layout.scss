@@ -183,6 +183,7 @@
 		}
 
 		a, a:visited {
+			text-decoration: none;
 			color: $menu-link;
 
 			// Selected menu item gets underline
@@ -190,14 +191,15 @@
 				border-bottom: $menu-link solid 3px;
 			}
 		}
+
+		a:hover, a:active {
+			text-decoration: none;
+			color: $menu-link-hover;
+		}
 	}
 
 	// Hide the "home" nav item on everything but mobile
 	.nav-home {
-		@include mq(mobileLandscape){
-			display: block;
-		}
-
 		@include mq($from: tablet){
 			display: none;
 		}
@@ -346,19 +348,35 @@
 // About Page
 //
 .about {
-	header {
-		text-align: left;
+	&.pane-top {
+		header {
+			text-align: left;
+		}
+
+		@include mq($until: tablet){
+			h1 {
+				font-size: $font-size-h3;
+			}
+		}
 	}
 
-	@include mq($until: tablet){
-		h1 {
-			font-size: $font-size-h3;
+	.addresses {
+
+		// Adds spacing between items
+		> ul > li {
+			margin-bottom: $line-height-computed*2;
+		}
+
+		.symbol {
+			margin-right: 0.2em;
+			vertical-align: middle;
 		}
 	}
 }
 
 .about-stlouis {
-	background: url("/images/about_label_stlouis.png");
+	background: url("/images/about_label_stlouis.png") no-repeat center center fixed;
+	background-size: cover;
 	text-align: center;
 }
 

@@ -20,7 +20,8 @@ doctype html
 html
 	include /_includes/head.pug
 
-	body(class=page_type)
+	//- Adds classes for section and template type to body
+	body(class=page_type + " " + current_section)
 	
 		+navigation()
 
