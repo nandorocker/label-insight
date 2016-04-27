@@ -4,15 +4,25 @@
 
 // Customize Buttons
 .btn {
-	min-width:15em;
 	margin-top: $line-height-computed;
-	padding-left: 3em;
-	padding-right: 3em;
 	border-radius: 100px;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 600;
 
 	@include mq($until: tablet) {
 		display: block;
-		width: 100%;
+		
+	}
+
+	@include mq($from: tablet) {
+		padding-left: 2em;
+		padding-right: 2em;
+	}
+
+	@include mq($from: desktop) {
+		padding-left: 3em;
+		padding-right: 3em;
 	}
 
 	&.btn-primary {

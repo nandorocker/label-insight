@@ -49,3 +49,7 @@ mixin navigation(items, id, classes)
 					a.selected(href=item.url, title=item.name)= item.name
 				else
 					a(href=item.url, title=item.name)= item.name
+
+//- Button
+mixin button(text, url)
+	a(href=url).btn.btn-primary.btn-lg= text
