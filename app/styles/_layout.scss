@@ -236,7 +236,7 @@
 	// Hide the "home" nav item on everything but mobile
 	.nav-home {
 		@include mq($from: tablet){
-			display: none;
+			display: none !important;
 		}
 	}
 }
@@ -347,6 +347,15 @@
 
 .illustration-1A {
 	@include make-md-column(6);
+}
+
+// Product Category Pages
+.product-category {
+	.pane {
+		header {
+			margin-bottom: $line-height-computed*4;
+		}
+	}
 }
 
 //
@@ -520,5 +529,36 @@
 .careers {
 	&.pane-top {
 		background: url("/images/about_careers_top_bg.png");
+	}
+}
+
+//
+// Developers Section
+// ==================
+// 
+.multi-step {
+	.step {
+		@include make-row();
+		border-top: 1px solid $brand-green;
+		padding-top: $line-height-computed;
+		padding-bottom: $line-height-computed*2;
+
+		> h2 {
+			@include make-sm-column(4);
+		}
+
+		.description {
+			@include make-sm-column(8);
+		}
+	}
+
+	.step-illustration {
+		@include make-sm-column(12);
+		display: inline-block;
+		margin-top: $line-height-computed*2;
+		border-top: 1px solid $gray-lighter;
+		img {
+			@include img-responsive();
+		}
 	}
 }

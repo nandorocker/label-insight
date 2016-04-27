@@ -185,7 +185,7 @@ gulp.task 'scripts', ->
 # Task: Images
 #
 gulp.task 'images', ->
-  gulp.src(config.sourceDir + '/**/*.{jpg,png,svg,ico}')
+  gulp.src(config.sourceDir + '/**/*.{jpg,png,svg,ico,gif}')
 
   # Stop gulp from crashing on errors
   .pipe(plumber(config.plumber))
@@ -210,7 +210,7 @@ gulp.task 'images', ->
 gulp.task 'watch', ->
   gulp.watch(config.sourceDir + '/**/*.pug', [ 'html' ]).on 'change', browserSync.reload
   gulp.watch config.sourceDir + '/scripts/**/*.js', [ 'scripts' ]
-  gulp.watch config.sourceDir + '/**/*.{jpg,png,svg,ico}', [ 'images' ]
+  gulp.watch config.sourceDir + '/**/*.{jpg,png,svg,ico,gif}', [ 'images' ]
   gulp.watch config.sourceDir + '/styles/**/*.{scss,sass}', [
     'styles'
   ]

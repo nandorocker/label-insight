@@ -7,14 +7,25 @@
 	padding-top: $line-height-computed*3;
 	padding-bottom: $line-height-computed*3;
 
-	@include mq($until: tablet) {
-		padding-bottom: $line-height-computed*4;
-	}
-
 	header {
 		clear: both;
 		text-align: center;
-		margin-bottom: $line-height-computed*4;
+		// margin-bottom: $line-height-computed*4;
+
+		@include mq($from: tablet) {
+			margin-bottom: $line-height-computed*4;
+		}
+	}
+
+	// For pages with indexes, use this inside <header>
+	.index {
+		@include list-unstyled();
+		@extend .list-inline;
+
+		> li {
+			padding-left: 2em;
+			padding-right: 2em;
+		}
 	}
 
 	// Make illustrations responsive
@@ -52,15 +63,29 @@
 	/* Re-usable classes for 2-column and 3-column layouts */
 	&.two-column, &.three-column {
 		.column {
-			// margin-bottom: $line-height-computed*2;
+			margin-bottom: $line-height-computed*4;
 			text-align: center;
 
 			&:not(:first-of-type) {
-				margin-top: $line-height-computed*5;
+				padding-top: $line-height-computed*2;
+				border-top: $brand-light-green solid 1px;
 
 				@include mq($from: tablet) {
-					margin-top: 0;
+					padding-top: 0;
+					margin-bottom: 0;
+					border: 0;
 				}
+			}
+		}
+
+		// Total hack to make buttons align at the bottom. Should revise.
+		.equal-height {
+			@include mq($from: tablet) {
+				min-height: 24.5em;
+			}
+
+			@include mq($from: desktop) {
+				min-height: 16em;
 			}
 		}
 
@@ -165,7 +190,7 @@ span.avoid-wrap {
 		background: url("/images/section_separator.png") 0px 0px / 50% auto no-repeat,
 		#fff;
 	}
-	border-top: #52BEAC solid 1px;
+	border-top: $brand-green solid 1px;
 }
 
 .separator-inverted {
@@ -251,6 +276,12 @@ span.avoid-wrap {
 	margin-bottom: $line-height-computed*2;
 }
 
+// Shortcut to Bootstrap table classes
+.table-big {
+	@extend .table-responsive;
+	@include make-sm-column(12);
+}
+
 // MonoSocialIcons
 .symbol, a.symbol:before {
     font-family: 'Mono Social Icons Font';
@@ -262,4 +293,19 @@ span.avoid-wrap {
 a.symbol:before {
     content: attr(title);
     margin-right: 1em;
+}
+
+// Link to go to the top
+.to-top {
+	@include clearfix();
+	width: 100%;
+	display: inline-block;
+	margin-top: 4em;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	text-align: center;
+
+		@include mq($from: tablet) {
+			text-align: right;
+		}
 }
