@@ -1,0 +1,55 @@
+extends /_layouts/default.pug
+
+block title
+	title Label Insight: Food Label Data for Developers
+
+block vars
+	- var page_type = 'page'
+
+block content
+	section.pane.pane-top.blue-grid.huge
+		.container
+			header
+				//- include /_includes/developers_nav.pug
+
+				h1 Food Label Data for Developers
+				p LabelAPI by Label Insight simplifies building nutrition-based applications.
+
+	section.pane.tall
+		.container
+			header
+				h1 Why should you use LabelAPI?
+				p LabelAPI takes the heavy lifting out of the data so that you can focus on creating great apps. Our existing methods serve a high degree of sophisticated functionality and you can test and play with every one of them on our Interactive Documentation page to see how they work without a lick of code. We even have downloadable starter apps so you can hit the ground running.
+
+	section.pane.three-column.gradient
+		.container
+			.row
+				.column
+					h3 How does Free sound?
+					p
+						| Zero dollars gets you enough calls to get your app built and tested. Once you launch there is an unlimited use administration fee of only $99 a month. Enterprise levels are at reasonable flat-rates.
+
+						+button("Our Pricing","/developers/pricing")
+				
+				.column
+					h3 A respected leader in data nutrition
+					p
+						| Label Insight is a trusted partner of the FDA, academic institutions, brands, and retailers. We bring instant cred to your app party.
+
+						+button("About Us","/about")
+
+
+				.column
+					h3 See our data in action
+					p
+						| New apps and sites are being powered by Label Insight every day. See what’s possible for you with our demo app.
+
+						+button("Our Demo App","https://labelinsight.com/about/team/")
+
+
+	+paneFinalCloser(
+		"Register and submit your products for free.",
+		"Contact us today to see our data in action and learn how Label Insight can help you meet your top initiatives.",
+		"Request a Demo",
+		"/contact/request-demo"
+	)

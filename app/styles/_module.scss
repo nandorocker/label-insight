@@ -52,12 +52,14 @@
 	/* Re-usable classes for 2-column and 3-column layouts */
 	&.two-column, &.three-column {
 		.column {
-			margin-bottom: $line-height-computed*2;
+			// margin-bottom: $line-height-computed*2;
 			text-align: center;
 
-			@include mq($until: tablet) {
-				&:not(:first-of-type) {
-					margin-top: $line-height-computed*2;
+			&:not(:first-of-type) {
+				margin-top: $line-height-computed*5;
+
+				@include mq($from: tablet) {
+					margin-top: 0;
 				}
 			}
 		}
