@@ -1,0 +1,56 @@
+extends /_layouts/default.pug
+
+block title
+	title Label Insight: Request a Demo
+
+block vars
+	- var current_section = 'about'
+	- var page_type = 'page'
+
+block content
+	section.pane.pane-top
+		.container
+			header
+				h1 Request a Demo
+
+			form.form-horizontal.request-demo
+				.form-group
+					label(for="industry").control-label My industry is
+					.fields
+						select(id="industry").form-control
+							option(value="" selected) Select industry...
+							option(value="cpg") CPG
+							option(value="retail") Retail
+
+				.form-group
+					label(for="firstName").control-label First Name
+					.fields
+						input(id="firstName" placeholder="First name")
+
+				.form-group
+					label(for="lastName").control-label Last Name
+					.fields
+						input(id="lastName" placeholder="First name")
+
+				.form-group
+					label(for="company").control-label Company
+					.fields
+						input(id="company" placeholder="Company")
+
+				.form-group
+					label(for="jobTitle").control-label Title/Job Position
+					.fields
+						input(id="jobTitle" placeholder="Title")
+
+				.form-group
+					label(for="phone").control-label Phone Number
+					.fields
+						input(id="phoneNumber" placeholder="Phone number")
+
+				.form-group
+					label(for="email").control-label First Name
+					.fields
+						input(id="email" placeholder="Email")
+
+				.text-center
+					button(type="submit").btn.btn-primary.btn-lg Request

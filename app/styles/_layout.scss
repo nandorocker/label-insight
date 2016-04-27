@@ -391,6 +391,28 @@
 	}
 }
 
+// Request a Demo Form
+.request-demo {
+	label {
+		@include make-xs-column(12);
+		@include make-sm-column(4,2em);
+		@include make-sm-column-offset(1);
+	}
+
+	.fields {
+		@include make-xs-column(12);
+		@include make-sm-column(4,2em);
+	}
+
+	// Style all inputs in request-demo page
+	input {
+		@extend .input-lg;
+		@extend .form-control;
+		width: 100%;
+
+	}
+}
+
 .about-stlouis {
 	background: url("/images/about_label_stlouis.png") no-repeat center center fixed;
 	background-size: cover;

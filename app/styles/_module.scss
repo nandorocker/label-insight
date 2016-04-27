@@ -8,7 +8,6 @@
 	padding-bottom: $line-height-computed*3;
 
 	@include mq($until: tablet) {
-		// padding-top: $line-height-computed*3;
 		padding-bottom: $line-height-computed*4;
 	}
 
@@ -127,6 +126,7 @@
 
 	&.pane-top {
 		padding-top: $line-height-computed*4;
+		align-items: top;
 
 		@include mq($from: tablet) {
 			padding-top: $line-height-computed*8;
