@@ -34,6 +34,14 @@ config =
   sourceDir: 'app'
   outputDir: '.tmp'
 
+  # Plumber configurations for not crashing gulp on errors
+  plumber: {
+    # this prevents SASS errors from crashing
+    errorHandler: (err) ->
+      console.log(err)
+      this.emit('end')
+  }
+
 # set output dir to 'dist' for production
 if config.production
   config.outputDir = 'dist'
@@ -56,7 +64,7 @@ gulp.task 'html', ->
   gulp.src(config.sourceDir + '/**/*.pug')
 
   # Stop gulp from crashing on errors
-  .pipe(plumber())
+  .pipe(plumber(config.plumber))
 
   # Filters out files and folders starting with underscore
   .pipe(filter((file) ->
@@ -87,7 +95,7 @@ gulp.task 'styles', ->
   gulp.src(config.sourceDir + '/styles/**/*.{scss,sass}')
 
   # Stop gulp from crashing on errors
-  .pipe(plumber())
+  .pipe(plumber(config.plumber))
 
   # Sourcemaps for CSS (step 1)
   .pipe(sourcemaps.init())
@@ -102,7 +110,7 @@ gulp.task 'styles', ->
     ]
 
     outputStyle: outputStyle
-    }))
+  }))
 
   # Combines media queries
   .pipe(cmq())
@@ -136,7 +144,7 @@ gulp.task 'fonts', ->
   ])
 
   # Stop gulp from crashing on errors
-  .pipe(plumber())
+  .pipe(plumber(config.plumber))
   .pipe(gulp.dest(config.outputDir + '/fonts'))
 
   # Send out notification when done
@@ -154,7 +162,7 @@ gulp.task 'scripts', ->
   # gulp.src(config.sourceDir + '/scripts/**/*.js')
 
   # Stop gulp from crashing on errors
-  .pipe(plumber())
+  .pipe(plumber(config.plumber))
 
   # Uglify scripts (production)
   .pipe(gulpIf(config.production, uglify()))
@@ -180,7 +188,7 @@ gulp.task 'images', ->
   gulp.src(config.sourceDir + '/**/*.{jpg,png,svg,ico}')
 
   # Stop gulp from crashing on errors
-  .pipe(plumber())
+  .pipe(plumber(config.plumber))
 
   # Checks output dir for changes
   .pipe(changed(config.outputDir))
