@@ -21,7 +21,7 @@ browserSync = require('browser-sync').create()
 merge = require('merge-stream') 				# merge() command for tasks with multiple sources
 cmq = require('gulp-group-css-media-queries') 	# Combines media queries
 autoprefixer = require('gulp-autoprefixer')     # Autoprefixes CSS for compatibility
-cleanCss = require('gulp-clean-css')
+cleanCss = require('gulp-clean-css')    # minify CSS
 
 #
 # C O N F I G
@@ -91,7 +91,6 @@ gulp.task 'styles', ->
 
   # Sourcemaps for CSS (step 1)
   .pipe(sourcemaps.init())
-
   
   .pipe(sass({
 
@@ -99,6 +98,7 @@ gulp.task 'styles', ->
     includePaths: [
       'bower_components/bootstrap-sass/assets/stylesheets'
       'bower_components/sass-mq'
+      'bower_components/monosocialiconsfont'
     ]
 
     outputStyle: outputStyle
@@ -146,8 +146,11 @@ gulp.task 'fonts', ->
 #
 gulp.task 'scripts', ->
 
+  # Task 1: my scripts
+
   # Minify and copy all JavaScript (except vendor scripts)
   js = gulp.src(config.sourceDir + '/scripts/**/*.js')
+  # gulp.src(config.sourceDir + '/scripts/**/*.js')
 
   # Stop gulp from crashing on errors
   .pipe(plumber())
@@ -156,16 +159,17 @@ gulp.task 'scripts', ->
   .pipe(gulpIf(config.production, uglify()))
   .pipe(gulp.dest(config.outputDir + '/scripts'))
   
+
+  # Task 2: vendor scripts
+
   # Copy vendor files to output dir
   vendor = gulp.src([
     'bower_components/jquery/dist/jquery.min.*'
   ])
 
-  # Stop gulp from crashing on errors
-  .pipe(plumber())
   .pipe(gulp.dest(config.outputDir + '/scripts/vendor'))
 
-  # Merge and return stream
+  # Merge tasks and return stream
   merge js, vendor
 
 #
@@ -191,6 +195,7 @@ gulp.task 'images', ->
 #
 # Watcher
 # =======
+# =====
 #
 
 gulp.task 'watch', ->
