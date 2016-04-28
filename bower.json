@@ -17,8 +17,8 @@
   ],
   "devDependencies": {
     "bootstrap-sass": "~3.3.6",
-    "sass-mq": "^3.2.9",
     "jquery": "^2.2.3",
-    "monosocialiconsfont": "drinchev/monosocialiconsfont"
+    "monosocialiconsfont": "drinchev/monosocialiconsfont",
+    "sass-mq": "mcaskill/sass-mq"
   }
 }
