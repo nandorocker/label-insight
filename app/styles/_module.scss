@@ -20,10 +20,9 @@
 	// For pages with indexes, use this inside <header>
 	.index {
 		@include list-unstyled();
-
-		> li {
-
-		}
+		font-size: 1.5em;
+	    line-height: 2.4em;
+	    font-weight: 100;
 
 		&.inline {
 			@extend .list-inline;
@@ -94,10 +93,6 @@
 			@include mq($from: desktop) {
 				min-height: 16em;
 			}
-		}
-
-		.btn {
-			width: 100%;
 		}
 
 		.icon {

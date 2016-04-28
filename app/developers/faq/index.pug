@@ -17,161 +17,203 @@ block content
 
 	section.pane
 		.container
-			.question#What_Are_Sessions
-				h3 What are Sessions and why are they important to building an app with Label Insight’s API?
-			
-				p
-					| Sessions have been put in place to provide the infrastructure for future product recommendation functionality. In order to make accurate and personalized product recommendations to help users find healthier products we need to record actions to a session.
+			header
+				ul.index.text-left
+					li
+						a.scroll(href='#What_Are_Sessions')
+							| What are Sessions (sid) and why are they important to building an app with Food Essentials API?
+					li
+						a.scroll(href='#What_Are_Dietary_Profiles')
+							| What are Dietary Profiles and why are they important to building an app with Food Essentials API?
+					li
+						a.scroll(href='#What_Is_Product_Score')
+							| What is Product Score and why is it core to building an app with Food Essentials API?
+					li
+						a.scroll(href='#Showing_Serve_Size') How do I display the serving/portion size?
+					li
+						a.scroll(href='#Showing_Nutrients') What if I just want to show a product’s nutrients?
+					li
+						a.scroll(href='#Showing_Ingredients') What if I just want to show a product’s ingredients?
+					li
+						a.scroll(href='#Allergen_Status') How do I show a product’s allergen status?
+					li
+						a.scroll(href='#What_are_Food_Lists')
+							| What are Food Lists and why are they important to building an app with Food Essentials API?
+					li
+						a.scroll(href='#What_is_UID') What is uid/uuid?
+					li
+						a.scroll(href='#What_Is_devid') What is devid and how do i get one?
+					li
+						a.scroll(href='#What_Is_appid') What is appid and how do i get one?
+					li
+						a.scroll(href='#How_Many_Products') How many US products are in your database?
+					li
+						a.scroll(href='#Is_SDK_Required') Is is required to use your SDK? Are just direct requests to API allowed?
+					li
+						a.scroll(href='#How_Up_to_Date') How up to date is your database?
+					li
+						a.scroll(href='#What_Requirements') What requirements need to be met in order to subscribe to the Premium API plan?
+					li
+						a.scroll(href='#Paid_And_Free') Can the Premium API plan be used for both paid and free apps?
+					li
+						a.scroll(href='#Demo') Is there a live demo I can play with?
 
-				+backToTop
-			
-			.question#What_Are_Dietary_Profiles
-				h3 What are Dietary Profiles and why are they important to building an app with Label Insight’s API?
-
-				p
-					| The Label Insight Personalized Dietary Profile is key and core to the Label Insight API. All the product data that is returned via a call is customized in the profile. The profile stores what nutrients, additives, allergens, and ingredients you care about. It also stores which property is used to sort returned product data, and to base personalized recommendations on. Use the Set Profile (setprofile) and Add My Ingredient (addmyingredient) methods to update and customize your profile. Use the Get Profile (getprofile) method to retrieve your existing profile as a JSON or XML string. If one has not been set already, getprofile will provide a default profile.<br>
-					| There is a detailed walk-through of the profile on our 
-					a(href='http://developer.foodessentials.com/Set_Profile') Set Profile
-					|	page.
-
-				+backToTop
-
-			.question#What_Is_Product_Score
-				h3 What is Product Score and why is it core to building an app with Label Insight’s API?
-
-				p
-					| The Label Insight Personalized Product Score (PPS) delivers a product score for a given product based on what an individual considers important. The PPS is designed to provide a specific user with a reference to compare products and product appropriateness to their specific needs. The Personalized Product Score therefore cannot be used to determine or rate the nutritive values of products. It only reflects the appropriateness of a product based on their Label Insight Personalized Dietary Profile The Product Score method (productscore) will return a product score number from -100 to 100 for a given UPC based on a user’s dietary profile settings. Use this to rate or compare any array of products based on the dietary profile. but can be used by developers to display results in any other related visual or alpha numeric scale.	There is a detailed walk-through of the Product Score method (productscore) on our 
-					a(href='http://developer.foodessentials.com/Product_Score') Product Score page
-					| .
-
-				+backToTop
-
-			.question#Showing_Serve_Size
-				h3 How do I display the serving/portion size?
-
-				p
-					| The Label Array method (labelarray) will return the serving size, serving size unit of measurement e.g. “g” or “cup”, and the servings per container. See our 
-					a(href='http://developer.foodessentials.com/api#Label Array') written documentation for labelarray
-					|	to this and more of what product details labelarray returns.
-
-				+backToTop
-			
-			.question#Showing_Nutrients 
-				h3#Showing_Nutrients 
-					| What if I just want to show a product’s nutrients?
-
-				p
-					| The Label Array method (labelarray) and the Product Score method (productscore) are used to return the main details of a given product and it’s nutritive data. There is a detailed walk-through showing a product’s nutrients on our 
-					a(href='http://developer.foodessentials.com/Label_Array') Showing Nutrients page
-					| .
-
-				+backToTop
-
-			.question#Showing_Ingredients 
-				h3 What if I just want to show a product’s ingredients?
-
-				p
-					| The Label method (label) is used to return the ingredient list of a given product. Details for the label method can be found on our 
-					a(href='http://developer.foodessentials.com/api#Label') Written Documentation page
-					| .
-
-				+backToTop
-
-			.question#Allergen_Status 
-				h3 How do I show a product’s allergen status?
-
-				p
-					| The Get Allergen Additive method (getallergenadditive) is used to return the allergen status of a given product. Details for the Get Allergen Additive method can be found on our 
-					a(href='http://developer.foodessentials.com/Allergen_Status') Allergen Status page
-					| .
-
-				+backToTop
-
-			.question#What_are_Food_Lists
-				h3 What are Food Lists and why are they important to building an app with Label Insight’s API?
-
-				p
-					| ‘My List’ is provided as a feature for users to create and save products to a shopping list. This can be used either as an actual shopping list, or as a historic product list, or as any other incarnation of a product list that developers would like.
-
-				+backToTop
-			
-			.question#What_is_UID
-				h3 What is uid/uuid?
-
-				p
-					a(href='http://en.wikipedia.org/wiki/Universally_unique_identifier') Wikipedia can explain
-					|	the nerdity of it best. It’s purpose is to uniquely identify each user. You can use any alpha string but you want make sure that you use something that will be different for every user of your app. This is especially important if your app allows multiple users on the same device or if you want to be sure a user can retrieve their data from another device.
-
-				+backToTop
-			
-			.question#What_Is_devid
-				h3 What is devid and how do i get one?
-
-				p
-					| devid is the device ID. You can get it from android.provider.Settings.System.ANDROID_ID for Android Apps. For iPhone, refer to 
-					a(href='https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIDevice_Class/Reference/UIDevice.html#//apple_ref/doc/uid/TP40006902-Cdt-SW49') this doc
-					| . You can use any alpha string but you want to make sure that you use something that will be different for every installation of your app. This is especially important if your app allows for the same user to use multiple devices.
-
-				+backToTop
-
-			.question#What_Is_appid
-				h3 What is an appid and how do i get one?
-
-				p
-					| Getting an appid is easy. You just need to register. (see: 
-					a(href='http://developer.foodessentials.com/getstarted') GET STARTED
-					| )
-
-				+backToTop
-
-			.question#How_Many_Products
-				h3 How many U.S. products are in your database?
-
-				p
-					| Our database represents 90-95% of the products sold (sales) in the U.S. market. This is pretty much standard with all the leading databases. This does not however mean that this represents the percentage of products 
-					em in 
-					| the UN market as there are many specialty products that are not at this time represented in the database. The result is that for a typical national retailer we may have up to 90% of their products, but for specialty stores we could have less than 50% of their products. To counter this we offer the data collection SDK (beta). This is a data collection API which provides your users the ability to collect photos of products that are not in the database with our commitment being to digitize and make available that data as soon as possible. We have found that users get excited to contribute to the database and that their involvement in the database maintenance builds loyalty to the application.
-
-				+backToTop
-
-			.question#Is_SDK_Required
-				h3 Is is required to use your SDK? Are sole use of direct requests to the API allowed?
-
-				p
-					| We highly recommend the SDK as a solution and developers are having great results. It is still in beta so it is not a requirement but we have found it to increase engagement for apps that implement it. Sole use of direct requests to the API allowed.
-
-				+backToTop
+			.questions
+				.question#What_Are_Sessions
+					h3 What are Sessions and why are they important to building an app with Label Insight’s API?
 				
-			.question#How_Up_to_Date
-				h3 How up to date is your database?
+					p
+						| Sessions have been put in place to provide the infrastructure for future product recommendation functionality. In order to make accurate and personalized product recommendations to help users find healthier products we need to record actions to a session.
 
-				p
-					| We have the most up-to-date, accurate, and powerful database in the industry. We process up to 40,000 new or updated products every month and 90% of our products were updated in the last 12 months.
-
-				+backToTop
-
-			.question#What_Requirements 
-				h3 What requirements need to be met in order to subscribe to the Premium API plan?
-
-				p
-					| There are no requirements. It is a low flat fee of $99 per month. Our aim is to make the data available to the community and cover administrative and maintenance costs. Our main business is working directly with Government, Retailers, and Food Manufacturers.
-
-				+backToTop
+					+backToTop
 				
-			.question#Paid_And_Free 
-				h3 Can the Premium API plan be used for both paid and free apps?
+				.question#What_Are_Dietary_Profiles
+					h3 What are Dietary Profiles and why are they important to building an app with Label Insight’s API?
 
-				p
-					| Yes, provided they are essentially the same application (same name, just a free and paid version). The one monthly fee covers use of the API for both versions of your application.
+					p
+						| The Label Insight Personalized Dietary Profile is key and core to the Label Insight API. All the product data that is returned via a call is customized in the profile. The profile stores what nutrients, additives, allergens, and ingredients you care about. It also stores which property is used to sort returned product data, and to base personalized recommendations on. Use the Set Profile (setprofile) and Add My Ingredient (addmyingredient) methods to update and customize your profile. Use the Get Profile (getprofile) method to retrieve your existing profile as a JSON or XML string. If one has not been set already, getprofile will provide a default profile.<br>
+						| There is a detailed walk-through of the profile on our 
+						a(href='http://developer.foodessentials.com/Set_Profile') Set Profile
+						|	page.
 
-				+backToTop
-			
-			.question#Demo
-				h3 Is there a live demo I can play with?
+					+backToTop
 
-				p
-					| Yes! Feel free to play with our in-house 
-					a(href='http://foodessentials.mobi/') Demo Mobile Application
-					|	to see what might be possible.
+				.question#What_Is_Product_Score
+					h3 What is Product Score and why is it core to building an app with Label Insight’s API?
 
-				+backToTop
+					p
+						| The Label Insight Personalized Product Score (PPS) delivers a product score for a given product based on what an individual considers important. The PPS is designed to provide a specific user with a reference to compare products and product appropriateness to their specific needs. The Personalized Product Score therefore cannot be used to determine or rate the nutritive values of products. It only reflects the appropriateness of a product based on their Label Insight Personalized Dietary Profile The Product Score method (productscore) will return a product score number from -100 to 100 for a given UPC based on a user’s dietary profile settings. Use this to rate or compare any array of products based on the dietary profile. but can be used by developers to display results in any other related visual or alpha numeric scale.	There is a detailed walk-through of the Product Score method (productscore) on our 
+						a(href='http://developer.foodessentials.com/Product_Score') Product Score page
+						| .
+
+					+backToTop
+
+				.question#Showing_Serve_Size
+					h3 How do I display the serving/portion size?
+
+					p
+						| The Label Array method (labelarray) will return the serving size, serving size unit of measurement e.g. “g” or “cup”, and the servings per container. See our 
+						a(href='http://developer.foodessentials.com/api#Label Array') written documentation for labelarray
+						|	to this and more of what product details labelarray returns.
+
+					+backToTop
+				
+				.question#Showing_Nutrients 
+					h3#Showing_Nutrients 
+						| What if I just want to show a product’s nutrients?
+
+					p
+						| The Label Array method (labelarray) and the Product Score method (productscore) are used to return the main details of a given product and it’s nutritive data. There is a detailed walk-through showing a product’s nutrients on our 
+						a(href='http://developer.foodessentials.com/Label_Array') Showing Nutrients page
+						| .
+
+					+backToTop
+
+				.question#Showing_Ingredients 
+					h3 What if I just want to show a product’s ingredients?
+
+					p
+						| The Label method (label) is used to return the ingredient list of a given product. Details for the label method can be found on our 
+						a(href='http://developer.foodessentials.com/api#Label') Written Documentation page
+						| .
+
+					+backToTop
+
+				.question#Allergen_Status 
+					h3 How do I show a product’s allergen status?
+
+					p
+						| The Get Allergen Additive method (getallergenadditive) is used to return the allergen status of a given product. Details for the Get Allergen Additive method can be found on our 
+						a(href='http://developer.foodessentials.com/Allergen_Status') Allergen Status page
+						| .
+
+					+backToTop
+
+				.question#What_are_Food_Lists
+					h3 What are Food Lists and why are they important to building an app with Label Insight’s API?
+
+					p
+						| ‘My List’ is provided as a feature for users to create and save products to a shopping list. This can be used either as an actual shopping list, or as a historic product list, or as any other incarnation of a product list that developers would like.
+
+					+backToTop
+				
+				.question#What_is_UID
+					h3 What is uid/uuid?
+
+					p
+						a(href='http://en.wikipedia.org/wiki/Universally_unique_identifier') Wikipedia can explain
+						|	the nerdity of it best. It’s purpose is to uniquely identify each user. You can use any alpha string but you want make sure that you use something that will be different for every user of your app. This is especially important if your app allows multiple users on the same device or if you want to be sure a user can retrieve their data from another device.
+
+					+backToTop
+				
+				.question#What_Is_devid
+					h3 What is devid and how do i get one?
+
+					p
+						| devid is the device ID. You can get it from android.provider.Settings.System.ANDROID_ID for Android Apps. For iPhone, refer to 
+						a(href='https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIDevice_Class/Reference/UIDevice.html#//apple_ref/doc/uid/TP40006902-Cdt-SW49') this doc
+						| . You can use any alpha string but you want to make sure that you use something that will be different for every installation of your app. This is especially important if your app allows for the same user to use multiple devices.
+
+					+backToTop
+
+				.question#What_Is_appid
+					h3 What is an appid and how do i get one?
+
+					p
+						| Getting an appid is easy. You just need to register. (see: 
+						a(href='http://developer.foodessentials.com/getstarted') GET STARTED
+						| )
+
+					+backToTop
+
+				.question#How_Many_Products
+					h3 How many U.S. products are in your database?
+
+					p
+						| Our database represents 90-95% of the products sold (sales) in the U.S. market. This is pretty much standard with all the leading databases. This does not however mean that this represents the percentage of products 
+						em in 
+						| the UN market as there are many specialty products that are not at this time represented in the database. The result is that for a typical national retailer we may have up to 90% of their products, but for specialty stores we could have less than 50% of their products. To counter this we offer the data collection SDK (beta). This is a data collection API which provides your users the ability to collect photos of products that are not in the database with our commitment being to digitize and make available that data as soon as possible. We have found that users get excited to contribute to the database and that their involvement in the database maintenance builds loyalty to the application.
+
+					+backToTop
+
+				.question#Is_SDK_Required
+					h3 Is is required to use your SDK? Are sole use of direct requests to the API allowed?
+
+					p
+						| We highly recommend the SDK as a solution and developers are having great results. It is still in beta so it is not a requirement but we have found it to increase engagement for apps that implement it. Sole use of direct requests to the API allowed.
+
+					+backToTop
+					
+				.question#How_Up_to_Date
+					h3 How up to date is your database?
+
+					p
+						| We have the most up-to-date, accurate, and powerful database in the industry. We process up to 40,000 new or updated products every month and 90% of our products were updated in the last 12 months.
+
+					+backToTop
+
+				.question#What_Requirements 
+					h3 What requirements need to be met in order to subscribe to the Premium API plan?
+
+					p
+						| There are no requirements. It is a low flat fee of $99 per month. Our aim is to make the data available to the community and cover administrative and maintenance costs. Our main business is working directly with Government, Retailers, and Food Manufacturers.
+
+					+backToTop
+					
+				.question#Paid_And_Free 
+					h3 Can the Premium API plan be used for both paid and free apps?
+
+					p
+						| Yes, provided they are essentially the same application (same name, just a free and paid version). The one monthly fee covers use of the API for both versions of your application.
+
+					+backToTop
+				
+				.question#Demo
+					h3 Is there a live demo I can play with?
+
+					p
+						| Yes! Feel free to play with our in-house 
+						a(href='http://foodessentials.mobi/') Demo Mobile Application
+						|	to see what might be possible.
+
+					+backToTop
