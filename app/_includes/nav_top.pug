@@ -3,17 +3,19 @@
 - var sections = [{"id" : "home", "name" : "home", "url" : "/"},{"id" : "cpg", "name" : "cpg brands", "url" : "/solutions-cpg"}, {"id" : "retailers", "name" : "retailers", "url" : "/solutions-retailers"},{"id" : "smartlabel", "name" : "smartlabel", "url" : "/solutions-cpg/smartspec-smartlabel"},{"id" : "about", "name" : "about", "url" : "/about"},{"id" : "blog", "name" : "blog", "url" : "#"},{"id" : "login", "name" : "login", "url" : "https://app.labelinsight.com/login"}]
 
 //- Topnav
-nav#nav_top
-	.row
-		header
-			figure.logo
-				a(href="/")
-					if current_section === 'home' || current_section === 'about'
-						img(src="/images/li_logo_horizontal_white.svg")
-					else 
-						img(src="/images/li_logo_horizontal.svg")
+nav#nav_top(role="navigation").navbar.navbar-default.navbar-fixed-top
+	.container-fluid
+		//- Navbar header
+		header.navbar-header
+			a(href="/").navbar-brand
+				img(src="/images/li_logo_horizontal.svg")
 
-			.hamburger
-				span(class="glyphicon glyphicon-menu-hamburger" aria-hidden="true")
+			button(type="button" data-toggle="collapse" data-target="#nav_top_items" aria-expanded="false").navbar-toggle.collapsed
+			span.sr-only Toggle navigation
+			span.icon-bar
+			span.icon-bar
+			span.icon-bar
 
-		+navigation(sections, "nav_collapse", "menu menu-collapse")
+		
+		.collapse.navbar-collapse
+			+navigation(sections, "nav_top_items", "nav navbar-nav navbar-right")

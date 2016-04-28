@@ -75,9 +75,30 @@
 }
 
 //
+// Bootstrap Nav overrides
+//
+.navbar-default {
+	background: transparent;
+	border: 0;
+}
+
+//
+// Top Navigation
+//
+#nav_top {
+	.navbar-brand {
+		height: auto;
+		// @include make-xs-column(8);
+
+		img {
+			width: 180px;
+		}
+	}
+}
+
+//
 // Footer
 //
-.nav-footer {
 #nav_footer {
 	background-color: #373D46;
 	color: #fff;
@@ -103,166 +124,6 @@
 		// @include list-unstyled();
 
 		// border-left: 1px solid #555;
-	}
-}
-
-//
-// Navigation Menu
-// ===============
-// This is the top menu bar. It uses classes from the .menu class which is re-used in the about pages.
-// 
-//
-
-#nav_top {
-	@include container-fixed();
-    position: fixed; // menu follows on mobile
-	top: 0;
-	z-index: 999;
-	text-align: center;
-	width: 100%;
-	background: #fff; //rgba(255,255,255,0.96);
-	box-shadow: 0 0.4em 0.8em 0em rgba(0,0,0,0.2);
-
-    @include mq($from: tablet){
-    	top: $line-height-computed*2;
-		position: absolute; // make menu fixed after tablet
-		
-		// Center div horizontally with CSS3
-	    left: 50%;
-	    transform: translate(-50%, 0);
-	    width: $container-sm;
-
-	    background: none;
-	    box-shadow: none;
-    }
-
-    @include mq($from: desktop) {
-	    top: $line-height-computed*3;
-	    width: $container-md;
-	}
-
-	header {
-		min-height: 3.5em;
-		background: url('/images/li_logo_horizontal.svg') 20px 50% no-repeat;
-		background-size: 50%;
-
-		@include mq(mobileLandscape) {
-			background-size: 30%;
-		}
-
-		@include mq($from: tablet) {
-			min-height: 0;
-			margin-bottom: $line-height-computed*3;
-			background: none;
-		}
-
-		@include mq($from: desktop) {
-			margin-bottom: 0;
-		}
-	}
-
-	.logo {
-		@include make-xs-column(6);
-		@include make-sm-column-offset(3);
-		@include make-md-column(3);
-		@include make-md-column-offset(0);
-
-		img {
-			@include img-responsive();
-			display: none;
-			margin-left: auto;
-			margin-right: auto;
-
-			@include mq($from: tablet) {
-				display: block;
-			}
-		}
-
-		@include mq($from: desktop) {
-			margin-top: 0.7em;
-			margin-bottom: 0; // Resets margin on > desktop
-		}
-	}
-
-	//
-	// Hamburger button for mobile nav
-	//
-	.hamburger {
-		font-size: 1.4em;
-		margin-top: 0.4em;
-		text-align: right;
-
-		@include make-xs-column(2);
-		@include make-xs-column-offset(4);
-
-		@include mq($from: tablet) {
-			display: none;
-		}
-	}
-
-	// Customize the top nav-specific menu stuff
-	.menu {
-		margin-bottom: 0;
-		display: none; // begin hidden on mobile
-		
-		@include mq($from: tablet){
-			display: table; // distribute items evenly on tablet screens (step 1)
-			background-color: transparent;
-		}
-
-		// Customize menu items
-		> li {
-			@include mq($from: tablet){
-				display: table-cell; // distribute items evenly on tablet screens (step 2)
-				width: percentage(100/6 * 0.01); // (100 / total menu items)% distribute evenly (step 3)
-				margin-left: 1em;
-				padding-top: 0;
-				padding-left: 5px;
-				padding-right: 5px;
-				border: 0;
-			}
-
-			@include mq($from: desktop) {
-				display: inline-block; // Resets for standard right-alignment
-				width: auto; // Resets for standard right-alignment
-			}
-
-			@include mq(mobileLandscape) {
-				padding-top: 8px;
-				padding-bottom: 8px;
-			}
-
-			a, a:visited {
-				text-decoration: none;
-				color: $menu-link;
-
-				@include mq($from: tablet) {
-					padding-bottom: 1.2em;
-				}
-			}
-
-			a:hover, a:active {
-				text-decoration: none;
-				color: $brand-primary-darker;
-			}
-		}
-		
-
-		@include mq($from: tablet) {
-			display: table; // return to "table" for even distribution of items
-		}
-
-		@include mq($from: desktop) {
-			width: auto; // Resets for standard right-alignment
-			float: right;
-		}
-	}
-
-	// Hide the "home" nav item on everything but mobile
-	.nav-home {
-		@include mq($from: tablet){
-			display: none !important;
-		}
 	}
 }
 

@@ -174,7 +174,8 @@ gulp.task 'scripts', ->
   # Copy vendor files to output dir
   vendor = gulp.src([
     'bower_components/jquery/dist/jquery.min.*'
-    'bower_components/jquery-smooth-scroll/**/*.js'
+    'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.*'
+    # 'bower_components/jquery-smooth-scroll/**/*.js'
   ])
 
   .pipe(gulp.dest(config.outputDir + '/scripts/vendor'))

@@ -39,14 +39,15 @@ mixin partnerBlock(logo, name, description)
 		.description
 			h2= name
 			p!= description
-
+//- 
 //- Navigation
+//- 
 mixin navigation(items, id, classes)
 	ul(id= id, class= classes)
 		each item in items
 			li(class="nav-" + item.id)
 				if current_section === item.id
-					a.selected(href=item.url, title=item.name)= item.name
+					a.active(href=item.url, title=item.name)= item.name
 				else
 					a(href=item.url, title=item.name)= item.name
 
