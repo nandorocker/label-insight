@@ -30,17 +30,34 @@
 	}
 }
 
-// Hack to fix bootstrap's dl-horizontal style; should make my own using the grid
-@include mq($from: tablet) {
-	.dl-horizontal {
-		dt {
-		    white-space: normal;
-		    width: 200px; 
-		}
+// FAQ
+.question {
+	@include make-row();
+	// display: inline-block;
+	padding-bottom: 3em;
+	border-bottom: 1px solid $gray-lighter;
 
-		dd {
-			margin-left: 220px;
-		}
+	&:not(:first-child) {
+		margin-top: 5em;
+	}
+
+
+	@include mq($from: tablet) {
+	    padding-bottom: 3em;
+	}
+
+	h3 {
+		margin-top: 0;
+		display: inline-block;
+		// @include make-sm-column(5);
+		@include make-md-column(5);
+		font-size: $font-size-h4;
+	}
+
+	p {
+		display: inline-block;
+		// @include make-sm-column(6);
+		@include make-md-column(7);
 	}
 }
 

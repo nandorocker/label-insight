@@ -20,11 +20,18 @@
 	// For pages with indexes, use this inside <header>
 	.index {
 		@include list-unstyled();
-		@extend .list-inline;
 
 		> li {
-			padding-left: 2em;
-			padding-right: 2em;
+
+		}
+
+		&.inline {
+			@extend .list-inline;
+
+			> li {
+				padding-left: 2em;
+				padding-right: 2em;
+			}
 		}
 	}
 
