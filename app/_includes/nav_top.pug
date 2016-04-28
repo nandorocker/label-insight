@@ -4,18 +4,16 @@
 
 //- Topnav
 nav#nav_top(role="navigation").navbar.navbar-default.navbar-fixed-top
-	.container-fluid
+	.container
 		//- Navbar header
 		header.navbar-header
 			a(href="/").navbar-brand
 				img(src="/images/li_logo_horizontal.svg")
 
 			button(type="button" data-toggle="collapse" data-target="#nav_top_items" aria-expanded="false").navbar-toggle.collapsed
-			span.sr-only Toggle navigation
-			span.icon-bar
-			span.icon-bar
-			span.icon-bar
+				span.sr-only Toggle navigation
+				span(class="glyphicon glyphicon-menu-hamburger" aria-hidden="true")
 
 		
-		.collapse.navbar-collapse
-			+navigation(sections, "nav_top_items", "nav navbar-nav navbar-right")
+		#nav_top_items.collapse.navbar-collapse
+			+navigation(sections, "", "nav navbar-nav navbar-right")

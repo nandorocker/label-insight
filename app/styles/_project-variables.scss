@@ -27,6 +27,70 @@ $line-height-base:        1.818181818; // 20/11
 
 $menu-link:						#6CB8E1 !default;
 
+//== Navbar
+//
+//##
+// Basics of a navbar
+// $navbar-height:                    100px;
+// $navbar-margin-bottom:             $line-height-computed !default;
+// $navbar-border-radius:             $border-radius-base !default;
+// $navbar-padding-horizontal:        20px;
+// $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
+// $navbar-collapse-max-height:       340px !default;
+
+$navbar-default-color:             #fff;
+// $navbar-default-bg:                #f8f8f8 !default;
+// $navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
+
+// Navbar links
+$navbar-default-link-color:                $brand-primary;
+$navbar-default-link-hover-color:          $brand-primary-dark;
+// $navbar-default-link-hover-bg:             transparent !default;
+$navbar-default-link-active-color:         $brand-primary;
+$navbar-default-link-active-bg:            transparent;
+// $navbar-default-link-disabled-color:       #ccc !default;
+// $navbar-default-link-disabled-bg:          transparent !default;
+
+// Navbar brand label
+// $navbar-default-brand-color:               $navbar-default-link-color !default;
+// $navbar-default-brand-hover-color:         darken($navbar-default-brand-color, 10%) !default;
+// $navbar-default-brand-hover-bg:            transparent !default;
+
+// Navbar toggle
+// $navbar-default-toggle-hover-bg:           #ddd !default;
+// $navbar-default-toggle-icon-bar-bg:        #888 !default;
+// $navbar-default-toggle-border-color:       #ddd !default;
+
+
+//== Navs
+//
+//##
+
+//=== Shared nav styles
+$nav-link-padding:                          0;
+// $nav-link-hover-bg:                         $gray-lighter !default;
+
+// $nav-disabled-link-color:                   $gray-light !default;
+// $nav-disabled-link-hover-color:             $gray-light !default;
+
+//== Tabs
+// $nav-tabs-border-color:                     #ddd !default;
+
+// $nav-tabs-link-hover-border-color:          $gray-lighter !default;
+
+// $nav-tabs-active-link-hover-bg:             $body-bg !default;
+// $nav-tabs-active-link-hover-color:          $gray !default;
+// $nav-tabs-active-link-hover-border-color:   #ddd !default;
+
+// $nav-tabs-justified-link-border-color:            #ddd !default;
+// $nav-tabs-justified-active-link-border-color:     $body-bg !default;
+
+//== Pills
+// $nav-pills-border-radius:                   $border-radius-base !default;
+// $nav-pills-active-link-hover-bg:            $component-active-bg !default;
+// $nav-pills-active-link-hover-color:         $component-active-color !default;
+
+
 //== Container sizes
 //
 //## Define the maximum width of `.container` for different screen sizes.
