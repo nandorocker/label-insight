@@ -243,11 +243,11 @@ span.avoid-wrap {
 			width: auto; // Resets for standard right-alignment
 		}
 
-		a {
-			&:hover, &:active {
-				text-decoration: none;
-			}
-		}
+		// a {
+		// 	&:hover, &:active {
+		// 		text-decoration: none;
+		// 	}
+		// }
 	}
 }
 
@@ -262,17 +262,40 @@ span.avoid-wrap {
 		margin: 0;
 		padding: 0;
 
-		// Mobile gets them stacked menus
-		padding-top: $line-height-computed*0.75;
-		padding-bottom: $line-height-computed*0.75;
-		border-top: 1px solid lighten($menu-link, 28%);
-
 		@include mq($from: tablet){
 			margin-left: 1em;
 			padding-top: 0;
 			padding-left: 5px;
 			padding-right: 5px;
 			border: 0;
+		}
+
+		a {
+			// Mobile gets them stacked menus
+			display: block;
+			width: 100%;
+			padding-top: $line-height-computed*0.75;
+			padding-bottom: $line-height-computed*0.75;
+			border-top: 1px solid lighten($menu-link, 28%);
+
+			@include mq($from: tablet){
+				display: inline;
+				width: auto;
+				border-top: 0;
+			}
+
+			// Selected menu item
+			&.selected {
+				// Mobile
+				background: $brand-primary;
+				color: #fff !important; // The stack got a bit messy... this needs improved
+
+				@include mq($from: tablet){
+					background: transparent;
+					color: $brand-primary !important;
+					border-bottom: $menu-link solid 3px;
+				}
+			}
 		}
 	}
 }

@@ -5,6 +5,9 @@ $font-family-sans-serif:		 "Open Sans", Helvetica, Arial, sans-serif;
 
 $brand-primary:         #5DBDF2; // #337ab7
 $brand-primary-dark:    darken($brand-primary, 10%);
+$brand-primary-darker:    darken($brand-primary, 25%);
+$brand-primary-light:    lighten($brand-primary, 15%);
+$brand-primary-lighter:    lighten($brand-primary, 35%);
 $brand-green:			#52BEAC;
 $brand-light-green:		lighten($brand-green, 25%);
 $brand-success:         #5cb85c;
@@ -23,7 +26,6 @@ $headings-line-height:			1.4;
 $line-height-base:        1.818181818; // 20/11
 
 $menu-link:						#6CB8E1 !default;
-$menu-link-hover:				lighten($menu-link, 15%) !default;
 
 //== Container sizes
 //
