@@ -143,6 +143,7 @@
 
 					@include mq($from: tablet) {
 						// border at the bottom of active
+						padding-bottom: 1.6em;
 						border-bottom: 2px solid $brand-primary;
 						background: transparent;
 					}
