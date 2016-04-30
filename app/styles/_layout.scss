@@ -79,15 +79,14 @@
 //
 .navbar-default {
 	border: 0;
+	box-shadow: 0px 3px 10px -4px rgba(0,0,0,0.61);
 
 	@include mq($from: tablet) {
-		margin-top: 2em;
+		position: absolute;
 		background: transparent;
+		margin-top: 2em;
+		box-shadow: none;
 	}
-}
-
-.navbar-toggle {
-	padding: 2px 12px;
 }
 
 .navbar-right {
@@ -96,14 +95,30 @@
 	}
 }
 
-.navbar-brand {
-	@include mq($from: tablet){
-		margin-top: 12px;
-	}
-}
-
 .navbar {
+	// Customizes logo
+	.navbar-brand {
+		@include mq($from: tablet){
+			margin-top: 12px;
+		}
+	}
+
+	// Customizes hamburger button
+	.navbar-toggle {
+		padding: 2px 0;
+		border: 0;
+		color: $brand-primary;
+		
+		// focused state
+		&:focus {
+			background: none;
+			color: $brand-primary-dark;
+		}
+	}
+
+	// Customizes navigation
 	.nav {
+		margin-top: 0;
 		text-align: center;
 		text-transform: uppercase;
 		font-weight: 600;

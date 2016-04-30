@@ -161,9 +161,9 @@
 		padding-top: $line-height-computed*4;
 		align-items: top;
 
-		@include mq($from: desktop) {
+		@include mq($from: tablet) {
 			padding-top: $line-height-computed*6;
-		}
+		}		
 	}
 }
 
