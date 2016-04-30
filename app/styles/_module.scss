@@ -41,7 +41,6 @@
 			@include img-responsive();
 			margin-left: auto;
 		    margin-right: auto;
-			// margin-bottom: $line-height-computed*2;
 		}
 	}
 
@@ -49,21 +48,37 @@
 	&.huge {
 		min-height: 94%;	/* Fallback for browsers do NOT support vh unit */
 		min-height: 94vh;
+
+		@media screen and (min-height: 900px) {
+			min-height: 768px;
+		}
 	}
 
 	&.tall {
 		min-height: 86%;	/* Fallback for browsers do NOT support vh unit */
 		min-height: 86vh;
+
+		@media screen and (min-height: 700px) {
+			min-height: 768px;
+		}
 	}
 
 	&.medium {
 		min-height: 65%;
 		min-height: 65vh;
+
+		@media screen and (min-height: 600px) {
+			min-height: 768px;
+		}
 	}
 
 	&.short {
 		min-height: 50%;	/* Fallback for browsers do NOT support vh unit */
 		min-height: 50vh;
+
+		@media screen and (min-height: 400px) {
+			min-height: 768px;
+		}		
 	}
 
 	/* Re-usable classes for 2-column and 3-column layouts */
