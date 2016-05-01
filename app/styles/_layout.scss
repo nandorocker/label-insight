@@ -104,8 +104,22 @@
 .navbar {
 	// Customizes logo
 	.navbar-brand {
+	    background: url('/images/li_logo_horizontal.svg') no-repeat;
+	    background-size: 180px auto;
+	    background-position: 20px;
+	    width: 200px;
+	    display: block;
+	    text-indent: 100%;
+	    white-space: nowrap;
+	    overflow: hidden;
+
 		@include mq($from: tablet){
 			margin-top: 12px;
+
+			// Make logo white on dark backgrounds
+			.about &, .developers & {
+				background-image: url('/images/li_logo_horizontal_white.svg');
+			}
 		}
 	}
 
