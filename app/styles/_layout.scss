@@ -192,6 +192,7 @@
 // Subnavigation
 //
 .subnav {
+	text-align: center;
 
 	.container-fluid {
 		padding: 0;
@@ -199,24 +200,14 @@
 
 	.nav {
 		margin-bottom: $line-height-computed*2;
-		
-		@include mq($from: tablet) {
-			// Spread items evenly
-			display: flex;
-			justify-content: space-between;
-
-			&:before {
-				content: none;
-			}
-
-			> li a {
-				padding: 0;
-				margin: 0;
-			}
-		}
 
 		> li {
+			display: inline-block;
+
 			a {
+				padding-left: 1.2em;
+				padding-right: 1.2em;
+
 				&:hover, &:active, &:visited {
 					background-color: transparent;
 				}
@@ -227,10 +218,6 @@
 		
 				&:hover {
 					color: #bbb;
-				}
-	
-				&:first-child {
-					padding-left: 0;
 				}
 			}
 		}
