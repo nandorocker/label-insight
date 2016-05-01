@@ -67,7 +67,7 @@ $navbar-default-link-active-bg:            transparent;
 //##
 
 //=== Shared nav styles
-$nav-link-padding:                          0;
+// $nav-link-padding:                          0;
 // $nav-link-hover-bg:                         $gray-lighter !default;
 
 // $nav-disabled-link-color:                   $gray-light !default;
@@ -87,7 +87,7 @@ $nav-link-padding:                          0;
 
 //== Pills
 // $nav-pills-border-radius:                   $border-radius-base !default;
-// $nav-pills-active-link-hover-bg:            $component-active-bg !default;
+$nav-pills-active-link-hover-bg:            none;
 // $nav-pills-active-link-hover-color:         $component-active-color !default;
 
 
