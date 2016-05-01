@@ -116,7 +116,7 @@
 		color: $brand-primary;
 		
 		// focused state
-		&:focus {
+		&:focus, &:hover {
 			background: none;
 			color: $brand-primary-dark;
 		}
@@ -198,13 +198,20 @@
 	}
 
 	.nav {
+		margin-bottom: $line-height-computed*2;
 		
 		@include mq($from: tablet) {
+			// Spread items evenly
 			display: flex;
 			justify-content: space-between;
 
 			&:before {
 				content: none;
+			}
+
+			> li a {
+				padding: 0;
+				margin: 0;
 			}
 		}
 
