@@ -120,7 +120,7 @@
 	    overflow: hidden;
 
 		@include mq($from: tablet){
-			margin-top: 12px;
+			margin-top: 9px;
 
 			// Make logo white on dark backgrounds
 			.home &, .about &, .developers & {
