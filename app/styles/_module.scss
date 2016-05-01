@@ -1,7 +1,7 @@
 // Panes (custom version of jumbotron)
 .pane {
 	@extend .jumbotron;
-	@extend .vertical-center;
+	// @extend .vertical-center;
 	background: #fff;
 	margin-bottom: 0;
 	padding-top: $line-height-computed*3;
@@ -58,8 +58,8 @@
 		min-height: 86%;	/* Fallback for browsers do NOT support vh unit */
 		min-height: 86vh;
 
-		@media screen and (min-height: 700px) {
-			min-height: 768px;
+		@media screen and (min-height: 900px) {
+			min-height: 640px;
 		}
 	}
 
@@ -67,17 +67,18 @@
 		min-height: 65%;
 		min-height: 65vh;
 
-		@media screen and (min-height: 600px) {
-			min-height: 768px;
+		@media screen and (min-height: 900px) {
+			min-height: 480px;
 		}
 	}
 
 	&.short {
-		min-height: 50%;	/* Fallback for browsers do NOT support vh unit */
-		min-height: 50vh;
+		min-height: 40%;	/* Fallback for browsers do NOT support vh unit */
+		min-height: 40vh;
+		@extend .vertical-center;
 
-		@media screen and (min-height: 400px) {
-			min-height: 768px;
+		@media screen and (min-height: 900px) {
+			min-height: 320px;
 		}		
 	}
 
