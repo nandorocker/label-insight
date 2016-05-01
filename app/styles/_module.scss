@@ -138,11 +138,13 @@
 
 	&.blue-grid {
 		background: #373D46 url("/images/bgGridBlue.png") repeat;
+		background-attachment: fixed;
 		color: #fff;
 	}
 
 	&.green-grid {
 		background: #373D46 url("/images/bgGridGreen.png") repeat;
+		background-attachment: fixed;
 		color: #fff;
 	}
 

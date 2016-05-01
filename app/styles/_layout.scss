@@ -282,16 +282,17 @@
 // Home
 .home {
 	.pane-top {
-		@include mq($until: tablet){
-			background:
-				linear-gradient(
-				  rgba(55, 60, 70, 0.55), 
-				  rgba(55, 60, 70, 0.55)
-				),
-				url("/images/illustration_1A.png") center bottom / 200% no-repeat,
-				url("/images/bgGridBlue.png") repeat,
-				#373D46;
-		}
+		background:
+			linear-gradient(
+			  rgba(55, 60, 70, 0.55), 
+			  rgba(55, 60, 70, 0.55)
+			),
+			url("/images/illustration_1A.png") center bottom / 200% no-repeat,
+			url("/images/bgGridBlue.png") repeat,
+			#373D46;
+
+		background-attachment: fixed;
+
 		@include mq($from: tablet){
 			background:
 				linear-gradient(
@@ -299,19 +300,19 @@
 				  rgba(55, 60, 70, 0.55)
 				),
 				url("/images/illustration_1A.png") center bottom / 80% no-repeat,
-				url("/images/bgGridBlue.png") repeat,
+				url("/images/bgGridBlue.png") repeat fixed,
 				#373D46;
 		}
 		@include mq($from: desktop){
 			background:
 				url("/images/illustration_1A.png") left 0 bottom 0 / 60% no-repeat,
-				url("/images/bgGridBlue.png") repeat,
+				url("/images/bgGridBlue.png") repeat fixed,
 				#373D46;
 		}
 		@include mq($from: wide){
 			background:
 				url("/images/illustration_1A.png") left 0 bottom 0 / 50% no-repeat,
-				url("/images/bgGridBlue.png") repeat,
+				url("/images/bgGridBlue.png") repeat fixed,
 				#373D46;
 
 			h1 {
@@ -569,6 +570,7 @@
 .careers {
 	&.pane-top {
 		background: url("/images/about_careers_top_bg.png");
+		background-attachment: fixed;
 	}
 }
 
