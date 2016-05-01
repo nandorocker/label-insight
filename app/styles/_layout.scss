@@ -222,6 +222,10 @@
 				padding-left: 1.2em;
 				padding-right: 1.2em;
 
+				@include mq($from: desktop) {
+					font-size: 15px;
+				}
+
 				&:hover, &:active, &:visited {
 					background-color: transparent;
 				}
