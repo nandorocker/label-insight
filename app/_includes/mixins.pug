@@ -15,7 +15,8 @@ mixin productDetailPaneTop(imgID, productName, title, paragraph, btn, btn_url, s
 						if btn
 							a(href= btn_url ).btn.btn-primary.btn-lg #{btn}
 						if sublink
-							a(href= sublink_url).btn #{sublink}
+							br
+							a(href= sublink_url).btn.learn-more= sublink
 
 
 //- Common pane: "request a demo"

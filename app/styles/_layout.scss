@@ -2,7 +2,7 @@
 // Global
 //
 
-// Customize Buttons
+// Customize Bootstrap Buttons
 .btn {
 	margin-top: $line-height-computed;
 	border-radius: 100px;
@@ -19,7 +19,7 @@
 		padding-left: 3em;
 		padding-right: 3em;
 		width: auto;
-		min-width: 16em;
+		min-width: 17.5em;
 	}
 
 	@include mq($from: desktop) {
@@ -29,6 +29,12 @@
 
 	&.btn-primary {
 		margin-top: $line-height-computed*2;
+	}
+
+	&.learn-more {
+		@include mq($from: tablet) {
+			padding-left: 0;
+		}
 	}
 }
 
