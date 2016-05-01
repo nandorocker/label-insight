@@ -123,7 +123,7 @@
 			margin-top: 12px;
 
 			// Make logo white on dark backgrounds
-			.about &, .developers & {
+			.home &, .about &, .developers & {
 				background-image: url('/images/li_logo_horizontal_white.svg');
 			}
 		}
