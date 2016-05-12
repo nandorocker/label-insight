@@ -6,6 +6,8 @@ block title
 block vars
 	- var current_section = 'about'
 	- var page_type = 'page'
+	- var leadership = [{'name':'Paul Schaut','title':'Interim CEO','path':'Paul_Schaut.png'},{'name':'Anton Xavier','title':'CPO and Co-Founder','path':'Anton_Xavier.png'},{'name':'Dheeraj Patri','title':'CTO and Co-Founder','path':'Dheeraj_Patri.png'},{'name':'Dagan Xavier','title':'Director of Data and Co-Founder','path':'Dagan1.png'},{'name':'Ronak Sheth','title':'Chief Customer Officer ','path':'Ronak-Sheth-headshot.png'},{'name':'Jordan Ho','title':'VP, Product','path':'Jordan_Ho.png'},{'name':'Kira Karapetian','title':'VP, Marketing','path':'Kira_Karapetian.png'},{'name':'Luke Forbing','title':'Director Finance and Operations ','path':'Luke_Forbing.png'},{'name':'Annie Geile','title':'Director of Customer Success','path':'Annie_Geile.png'},{'name':'Dave Byman','title':'VP, Sales ','path':'dave_byman.png'}]
+	- var employees = [{"name": "Abbie_Bys.png", "path": "Abbie_Bys.png"}, {"name": "alex_boldt.png", "path": "alex_boldt.png"}, {"name": "Alexis_Yezbick.png", "path": "Alexis_Yezbick.png"}, {"name": "Anfield_Forbing.png", "path": "Anfield_Forbing.png"}, {"name": "Angie_Ciluffo.png", "path": "Angie_Ciluffo.png"}, {"name": "Annie_Geile.png", "path": "Annie_Geile.png"}, {"name": "Anton_Xavier.png", "path": "Anton_Xavier.png"}, {"name": "Barney_Smith.png", "path": "Barney_Smith.png"}, {"name": "beth_siesener.png", "path": "beth_siesener.png"}, {"name": "Brooke_Bright.png", "path": "Brooke_Bright.png"}, {"name": "Captain_Apollo_Bates.png", "path": "Captain_Apollo_Bates.png"}, {"name": "Cassandra_Bates.png", "path": "Cassandra_Bates.png"}, {"name": "Colonel_Nguyen.png", "path": "Colonel_Nguyen.png"}, {"name": "Corinne_Wilger.png", "path": "Corinne_Wilger.png"}, {"name": "Dagan1.png", "path": "Dagan1.png"}, {"name": "Dan_Lutger.png", "path": "Dan_Lutger.png"}, {"name": "dave_byman.png", "path": "dave_byman.png"}, {"name": "Dheeraj_Patri.png", "path": "Dheeraj_Patri.png"}, {"name": "donald_cook.png", "path": "donald_cook.png"}, {"name": "Doug_Siesener.png", "path": "Doug_Siesener.png"}, {"name": "grace_and_amy_trollinger.png", "path": "grace_and_amy_trollinger.png"}, {"name": "harrison_nguyen.png", "path": "harrison_nguyen.png"}, {"name": "IMG_0085.png", "path": "IMG_0085.png"}, {"name": "Jacob_Childerson.png", "path": "Jacob_Childerson.png"}, {"name": "Jason-Website-Head-Shot.png", "path": "Jason-Website-Head-Shot.png"}, {"name": "jeffrey_williams.png", "path": "jeffrey_williams.png"}, {"name": "john_huntley.png", "path": "john_huntley.png"}, {"name": "Jordan_Ho.png", "path": "Jordan_Ho.png"}, {"name": "Kali_Bright.png", "path": "Kali_Bright.png"}, {"name": "Kalvin_lim.png", "path": "Kalvin_lim.png"}, {"name": "Kelly_Jezierski.png", "path": "Kelly_Jezierski.png"}, {"name": "Kira_Karapetian.png", "path": "Kira_Karapetian.png"}, {"name": "Kristin_Smith.png", "path": "Kristin_Smith.png"}, {"name": "Leland_Shanle.png", "path": "Leland_Shanle.png"}, {"name": "Luke_Forbing.png", "path": "Luke_Forbing.png"}, {"name": "Madalyn-Allen.png", "path": "Madalyn-Allen.png"}, {"name": "Maeby_Childerson.png", "path": "Maeby_Childerson.png"}, {"name": "Marley_Byman.png", "path": "Marley_Byman.png"}, {"name": "mochi_daneko_ho.png", "path": "mochi_daneko_ho.png"}, {"name": "Moose_Childerson.png", "path": "Moose_Childerson.png"}, {"name": "Mowgli_Olsen.png", "path": "Mowgli_Olsen.png"}, {"name": "Nadya-Primak.png", "path": "Nadya-Primak.png"}, {"name": "NICHOLAS_LAU.png", "path": "NICHOLAS_LAU.png"}, {"name": "Paul_Hutchinson.png", "path": "Paul_Hutchinson.png"}, {"name": "Paul_Schaut.png", "path": "Paul_Schaut.png"}, {"name": "Peter_Burmester.png", "path": "Peter_Burmester.png"}, {"name": "Piotr_Przerwa.png", "path": "Piotr_Przerwa.png"}, {"name": "Ronak-Sheth-headshot.png", "path": "Ronak-Sheth-headshot.png"}, {"name": "rupert_trollinger.png", "path": "rupert_trollinger.png"}, {"name": "sherman_dog.png", "path": "sherman_dog.png"}, {"name": "SKIP.png", "path": "SKIP.png"}, {"name": "Stella_Blue.png", "path": "Stella_Blue.png"}, {"name": "Tyler_Fickas.png", "path": "Tyler_Fickas.png"}, {"name": "Tyler_Olsen.png", "path": "Tyler_Olsen.png"}, {"name": "tyler_trollinger.png", "path": "tyler_trollinger.png"}, {"name": "Yisi_Wang.png", "path": "Yisi_Wang.png"}, {"name": "Yuna.png", "path": "Yuna.png"}, {"name": "Zoe_Watt.png", "path": "Zoe_Watt.png"}]
 
 block content
 	section.pane.pane-top.blue-grid.huge
@@ -13,7 +15,7 @@ block content
 			header
 				include /_includes/about_nav.pug
 
-				h1 The people who work at Label Insight share a common set of values that make us unique. 
+				h1 The people who work at Label Insight share a common set of values that make us unique.
 				p.
 					We are innovative problem solvers. We believe in transparency, both in our product and in our work. We have curious minds and aren’t afraid to challenge the status quo. We value scientific inquiry. We aren’t afraid to take risks, and fail fast to learn fast and improve fast. We embrace uniqueness. We are lifelong learners.
 
@@ -23,21 +25,20 @@ block content
 				h1 Leadership
 
 			ul.leadership
-				each i in new Array(10)
+				each item in leadership
 					li.leader
-						img(src="http://placehold.it/300x300")
+						img(src="/images/team/" + item.path)
 						.description
-							h3 Paul Schaut
-							p Interim CEO
+							h3= item.name
+							p= item.title
 
 	section.pane.green-grid
 		.container
 			header
 				h1 The Brains Behind The Data
 			ul.brainship
-				each i in new Array(40)
+				each item in employees
 					li.brain
-						img(src="http://placehold.it/160x160")
+						img(src="/images/team/" + item.path)
 						.description
-							h3 Nando Rossi
-							p Designer
+							h3= item.name
