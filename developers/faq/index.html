@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Label Insight: FAQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <script type="text/javascript" src="/scripts/vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/vendor/bootstrap.min.js" defer="defer"></script>
+  </head>
+  <body class="page developers">
+    <nav class="navbar navbar-default navbar-fixed-top" id="nav_top" role="navigation">
+      <div class="container">
+        <header class="navbar-header"><a class="navbar-brand" href="/">Label Insight</a>
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#nav_top_items" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button>
+        </header>
+        <div class="collapse navbar-collapse" id="nav_top_items">
+          <ul class="nav navbar-nav navbar-right" id="">
+            <li class=" nav-home"><a href="/" title="home">home</a></li>
+            <li class=" nav-cpg"><a href="/solutions-cpg" title="cpg brands">cpg brands</a></li>
+            <li class=" nav-retailers"><a href="/solutions-retailers" title="retailers">retailers</a></li>
+            <li class=" nav-smartlabel"><a href="/solutions-cpg/smartspec-smartlabel" title="smartlabel">smartlabel</a></li>
+            <li class=" nav-about"><a href="/about" title="about">about</a></li>
+            <li class=" nav-blog"><a href="#" title="blog">blog</a></li>
+            <li class=" nav-login"><a href="https://app.labelinsight.com/login" title="login">login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="pane pane-top blue-grid short">
+      <div class="container">
+        <header>
+          <nav class="subnav" role="navigation" id="dev_nav">
+            <div class="container-fluid">
+              <ul class="nav" id="dev_nav">
+                <li class="active nav-developers"><a href="/developers" title="Developers">Developers</a></li>
+                <li class=" nav-getting-started"><a href="/developers/getting-started" title="Getting Started">Getting Started</a></li>
+                <li class=" nav-pricing"><a href="/developers/pricing" title="Pricing">Pricing</a></li>
+                <li class=" nav-faq"><a href="/developers/faq" title="FAQ">FAQ</a></li>
+                <li class=" nav-api status"><a href="http://status.io.watchmouse.com/14044/273528/FoodEssentials" title="API">API</a></li>
+                <li class=" nav-terms-of-service"><a href="http://developer.foodessentials.com/files/FoodEssentials_API_License_template.pdf" title="Terms of Service">Terms of Service</a></li>
+              </ul>
+            </div>
+          </nav>
+          <h1>Frequently Asked Questions</h1>
+        </header>
+      </div>
+    </section>
+    <section class="pane">
+      <div class="container">
+        <header>
+          <ul class="index text-left">
+            <li><a class="scroll" href="#What_Are_Sessions">What are Sessions (sid) and why are they important to building an app with Food Essentials API?</a></li>
+            <li><a class="scroll" href="#What_Are_Dietary_Profiles">What are Dietary Profiles and why are they important to building an app with Food Essentials API?</a></li>
+            <li><a class="scroll" href="#What_Is_Product_Score">What is Product Score and why is it core to building an app with Food Essentials API?</a></li>
+            <li><a class="scroll" href="#Showing_Serve_Size">How do I display the serving/portion size?</a></li>
+            <li><a class="scroll" href="#Showing_Nutrients">What if I just want to show a product’s nutrients?</a></li>
+            <li><a class="scroll" href="#Showing_Ingredients">What if I just want to show a product’s ingredients?</a></li>
+            <li><a class="scroll" href="#Allergen_Status">How do I show a product’s allergen status?</a></li>
+            <li><a class="scroll" href="#What_are_Food_Lists">What are Food Lists and why are they important to building an app with Food Essentials API?</a></li>
+            <li><a class="scroll" href="#What_is_UID">What is uid/uuid?</a></li>
+            <li><a class="scroll" href="#What_Is_devid">What is devid and how do i get one?</a></li>
+            <li><a class="scroll" href="#What_Is_appid">What is appid and how do i get one?</a></li>
+            <li><a class="scroll" href="#How_Many_Products">How many US products are in your database?</a></li>
+            <li><a class="scroll" href="#Is_SDK_Required">Is is required to use your SDK? Are just direct requests to API allowed?</a></li>
+            <li><a class="scroll" href="#How_Up_to_Date">How up to date is your database?</a></li>
+            <li><a class="scroll" href="#What_Requirements">What requirements need to be met in order to subscribe to the Premium API plan?</a></li>
+            <li><a class="scroll" href="#Paid_And_Free">Can the Premium API plan be used for both paid and free apps?</a></li>
+            <li><a class="scroll" href="#Demo">Is there a live demo I can play with?</a></li>
+          </ul>
+        </header>
+        <div class="questions">
+          <div class="question" id="What_Are_Sessions">
+            <h3>What are Sessions and why are they important to building an app with Label Insight’s API?</h3>
+            <p>Sessions have been put in place to provide the infrastructure for future product recommendation functionality. In order to make accurate and personalized product recommendations to help users find healthier products we need to record actions to a session.</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="What_Are_Dietary_Profiles">
+            <h3>What are Dietary Profiles and why are they important to building an app with Label Insight’s API?</h3>
+            <p>
+              The Label Insight Personalized Dietary Profile is key and core to the Label Insight API. All the product data that is returned via a call is customized in the profile. The profile stores what nutrients, additives, allergens, and ingredients you care about. It also stores which property is used to sort returned product data, and to base personalized recommendations on. Use the Set Profile (setprofile) and Add My Ingredient (addmyingredient) methods to update and customize your profile. Use the Get Profile (getprofile) method to retrieve your existing profile as a JSON or XML string. If one has not been set already, getprofile will provide a default profile.<br>
+              There is a detailed walk-through of the profile on our <a href="http://developer.foodessentials.com/Set_Profile">Set Profile</a>	page.
+            </p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="What_Is_Product_Score">
+            <h3>What is Product Score and why is it core to building an app with Label Insight’s API?</h3>
+            <p>The Label Insight Personalized Product Score (PPS) delivers a product score for a given product based on what an individual considers important. The PPS is designed to provide a specific user with a reference to compare products and product appropriateness to their specific needs. The Personalized Product Score therefore cannot be used to determine or rate the nutritive values of products. It only reflects the appropriateness of a product based on their Label Insight Personalized Dietary Profile The Product Score method (productscore) will return a product score number from -100 to 100 for a given UPC based on a user’s dietary profile settings. Use this to rate or compare any array of products based on the dietary profile. but can be used by developers to display results in any other related visual or alpha numeric scale.	There is a detailed walk-through of the Product Score method (productscore) on our <a href="http://developer.foodessentials.com/Product_Score">Product Score page</a>.</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="Showing_Serve_Size">
+            <h3>How do I display the serving/portion size?</h3>
+            <p>The Label Array method (labelarray) will return the serving size, serving size unit of measurement e.g. “g” or “cup”, and the servings per container. See our <a href="http://developer.foodessentials.com/api#Label Array">written documentation for labelarray</a>	to this and more of what product details labelarray returns.</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="Showing_Nutrients"> 
+            <h3 id="Showing_Nutrients">
+               What if I just want to show a product’s nutrients?</h3>
+            <p>The Label Array method (labelarray) and the Product Score method (productscore) are used to return the main details of a given product and it’s nutritive data. There is a detailed walk-through showing a product’s nutrients on our <a href="http://developer.foodessentials.com/Label_Array">Showing Nutrients page</a>.</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="Showing_Ingredients"> 
+            <h3>What if I just want to show a product’s ingredients?</h3>
+            <p>The Label method (label) is used to return the ingredient list of a given product. Details for the label method can be found on our <a href="http://developer.foodessentials.com/api#Label">Written Documentation page</a>.</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="Allergen_Status"> 
+            <h3>How do I show a product’s allergen status?</h3>
+            <p>The Get Allergen Additive method (getallergenadditive) is used to return the allergen status of a given product. Details for the Get Allergen Additive method can be found on our <a href="http://developer.foodessentials.com/Allergen_Status">Allergen Status page</a>.</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="What_are_Food_Lists">
+            <h3>What are Food Lists and why are they important to building an app with Label Insight’s API?</h3>
+            <p>‘My List’ is provided as a feature for users to create and save products to a shopping list. This can be used either as an actual shopping list, or as a historic product list, or as any other incarnation of a product list that developers would like.</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="What_is_UID">
+            <h3>What is uid/uuid?</h3>
+            <p><a href="http://en.wikipedia.org/wiki/Universally_unique_identifier">Wikipedia can explain</a>	the nerdity of it best. It’s purpose is to uniquely identify each user. You can use any alpha string but you want make sure that you use something that will be different for every user of your app. This is especially important if your app allows multiple users on the same device or if you want to be sure a user can retrieve their data from another device.</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="What_Is_devid">
+            <h3>What is devid and how do i get one?</h3>
+            <p>devid is the device ID. You can get it from android.provider.Settings.System.ANDROID_ID for Android Apps. For iPhone, refer to <a href="https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIDevice_Class/Reference/UIDevice.html#//apple_ref/doc/uid/TP40006902-Cdt-SW49">this doc</a>. You can use any alpha string but you want to make sure that you use something that will be different for every installation of your app. This is especially important if your app allows for the same user to use multiple devices.</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="What_Is_appid">
+            <h3>What is an appid and how do i get one?</h3>
+            <p>Getting an appid is easy. You just need to register. (see: <a href="http://developer.foodessentials.com/getstarted">GET STARTED</a>)</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="How_Many_Products">
+            <h3>How many U.S. products are in your database?</h3>
+            <p>Our database represents 90-95% of the products sold (sales) in the U.S. market. This is pretty much standard with all the leading databases. This does not however mean that this represents the percentage of products <em>in </em>the UN market as there are many specialty products that are not at this time represented in the database. The result is that for a typical national retailer we may have up to 90% of their products, but for specialty stores we could have less than 50% of their products. To counter this we offer the data collection SDK (beta). This is a data collection API which provides your users the ability to collect photos of products that are not in the database with our commitment being to digitize and make available that data as soon as possible. We have found that users get excited to contribute to the database and that their involvement in the database maintenance builds loyalty to the application.</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="Is_SDK_Required">
+            <h3>Is is required to use your SDK? Are sole use of direct requests to the API allowed?</h3>
+            <p>We highly recommend the SDK as a solution and developers are having great results. It is still in beta so it is not a requirement but we have found it to increase engagement for apps that implement it. Sole use of direct requests to the API allowed.</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="How_Up_to_Date">
+            <h3>How up to date is your database?</h3>
+            <p>We have the most up-to-date, accurate, and powerful database in the industry. We process up to 40,000 new or updated products every month and 90% of our products were updated in the last 12 months.</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="What_Requirements"> 
+            <h3>What requirements need to be met in order to subscribe to the Premium API plan?</h3>
+            <p>There are no requirements. It is a low flat fee of $99 per month. Our aim is to make the data available to the community and cover administrative and maintenance costs. Our main business is working directly with Government, Retailers, and Food Manufacturers.</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="Paid_And_Free"> 
+            <h3>Can the Premium API plan be used for both paid and free apps?</h3>
+            <p>Yes, provided they are essentially the same application (same name, just a free and paid version). The one monthly fee covers use of the API for both versions of your application.</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+          <div class="question" id="Demo">
+            <h3>Is there a live demo I can play with?</h3>
+            <p>Yes! Feel free to play with our in-house <a href="http://foodessentials.mobi/">Demo Mobile Application</a>	to see what might be possible.</p>
+            <div class="to-top"><a href="#" title="To top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="pane separator-inverted" id="nav_footer">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <figure class="logo"><a href="/"><img src="/images/footer_logo.svg"></a></figure>
+          <ul>
+            <li>Social Media</li>
+            <li><a href="https://www.facebook.com/Labelinsight">facebook</a></li>
+            <li><a href="https://twitter.com/labelinsight">twitter</a></li>
+            <li><a href="https://www.linkedin.com/company/labelinsight-inc-">Linkedin</a></li>
+            <li><a href="https://www.pinterest.com/labelinsight">Pinterest</a></li>
+            <li><a href="https://www.instagram.com/labelinsight">Instagram</a></li>
+          </ul>
+          <ul>
+            <li>Solutions</li>
+            <li><a href="/solutions-cpg">For CPG</a></li>
+            <li><a href="/solutions-retailers">For Retailers</a></li>
+            <li><a href="/smartlabel">SmartLabel</a></li>
+          </ul>
+          <ul>
+            <li>About</li>
+            <li><a href="/about/">About Label Insight</a></li>
+            <li><a href="/about/our-team">Our Team</a></li>
+            <li><a href="/about/partners">Partners</a></li>
+            <li><a href="/about/investors">Investors</a></li>
+            <li><a href="/about/newsrooms">Newsrooms</a></li>
+            <li><a href="/about/careers">Careers</a></li>
+            <li><a href="/about/blog">Blog</a></li>
+            <li><a href="/about/contact">Contact</a></li>
+            <li><a href="/about/our-definitions">Our Definitions</a></li>
+          </ul>
+          <ul>
+            <li>Developers</li>
+            <li><a href="/developers/getting-started">Getting Started</a></li>
+            <li><a href="/developers/faqs">FAQs</a></li>
+          </ul>
+          <ul>
+            <li>Contact</li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/contact/request-demo">Request a Demo</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="/scripts/main.js" defer="defer"></script>
+  </body>
+</html>
