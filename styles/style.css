@@ -4474,7 +4474,7 @@ a.symbol:before {
 }
 
 .navbar .navbar-brand {
-  background: url("images/li_logo_horizontal.svg") no-repeat;
+  background: url("../images/li_logo_horizontal.svg") no-repeat;
   background-size: 180px auto;
   background-position: 20px;
   width: 200px;
@@ -4581,7 +4581,7 @@ a.symbol:before {
 }
 
 .home .pane-top {
-  background: linear-gradient(rgba(55,60,70,0.55), rgba(55,60,70,0.55)),url("/images/illustration_1A.png") center bottom/200% no-repeat,url("/images/bgGridBlue.png") repeat,#373D46;
+  background: linear-gradient(rgba(55,60,70,0.55), rgba(55,60,70,0.55)),url("../images/illustration_1A.png") center bottom/200% no-repeat,url("../images/bgGridBlue.png") repeat,#373D46;
   background-attachment: fixed;
 }
 
@@ -4776,7 +4776,7 @@ a.symbol:before {
 }
 
 .about-stlouis {
-  background: url("/images/about_label_stlouis.png") no-repeat center center fixed;
+  background: url("../images/about_label_stlouis.png") no-repeat center center fixed;
   background-size: cover;
   text-align: center;
 }
@@ -4849,7 +4849,7 @@ a.symbol:before {
 }
 
 .careers.pane-top {
-  background: url("/images/about_careers_top_bg.png");
+  background: url("../images/about_careers_top_bg.png");
   background-attachment: fixed;
 }
 
@@ -6556,7 +6556,7 @@ a.symbol:before {
   .home .navbar .navbar-brand,
   .about .navbar .navbar-brand,
   .developers .navbar .navbar-brand {
-    background-image: url("images/li_logo_horizontal_white.svg");
+    background-image: url("../images/li_logo_horizontal_white.svg");
   }
 
   .navbar .nav>li {
@@ -6580,7 +6580,7 @@ a.symbol:before {
   }
 
   .home .pane-top {
-    background: linear-gradient(rgba(55,60,70,0.55), rgba(55,60,70,0.55)),url("/images/illustration_1A.png") center bottom/80% no-repeat,url("/images/bgGridBlue.png") repeat fixed,#373D46;
+    background: linear-gradient(rgba(55,60,70,0.55), rgba(55,60,70,0.55)),url("../images/illustration_1A.png") center bottom/80% no-repeat,url("../images/bgGridBlue.png") repeat fixed,#373D46;
   }
 }
 
@@ -6626,7 +6626,7 @@ a.symbol:before {
   }
 
   .home .pane-top {
-    background: url("/images/illustration_1A.png") left 0 bottom 0/60% no-repeat,url("/images/bgGridBlue.png") repeat fixed,#373D46;
+    background: url("../images/illustration_1A.png") left 0 bottom 0/60% no-repeat,url("../images/bgGridBlue.png") repeat fixed,#373D46;
   }
 }
 
@@ -6680,7 +6680,7 @@ a.symbol:before {
   }
 
   .home .pane-top {
-    background: url("/images/illustration_1A.png") left 0 bottom 0/50% no-repeat,url("/images/bgGridBlue.png") repeat fixed,#373D46;
+    background: url("../images/illustration_1A.png") left 0 bottom 0/50% no-repeat,url("../images/bgGridBlue.png") repeat fixed,#373D46;
   }
 
   .home .pane-top h1 {
