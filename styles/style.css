@@ -4474,7 +4474,7 @@ a.symbol:before {
 }
 
 .navbar .navbar-brand {
-  background: url("/images/li_logo_horizontal.svg") no-repeat;
+  background: url("images/li_logo_horizontal.svg") no-repeat;
   background-size: 180px auto;
   background-position: 20px;
   width: 200px;
@@ -6556,7 +6556,7 @@ a.symbol:before {
   .home .navbar .navbar-brand,
   .about .navbar .navbar-brand,
   .developers .navbar .navbar-brand {
-    background-image: url("/images/li_logo_horizontal_white.svg");
+    background-image: url("images/li_logo_horizontal_white.svg");
   }
 
   .navbar .nav>li {
