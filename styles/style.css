@@ -4470,6 +4470,7 @@ a.symbol:before {
 .nav {
   text-transform: uppercase;
   font-weight: 600;
+  font-size: 12px;
 }
 
 .navbar .navbar-brand {
@@ -6678,6 +6679,15 @@ a.symbol:before {
     background: url("/images/section_separator_inverted.png") right 0px/50% auto no-repeat;
   }
 
+  .nav {
+    font-size: 15px;
+  }
+
+  .navbar .navbar-brand {
+    background-size: 210px auto;
+    width: 230px;
+  }
+
   .home .pane-top {
     background: url("../images/illustration_1A.png") left 0 bottom 0/50% no-repeat,url("../images/bgGridBlue.png") repeat fixed,#373D46;
   }
@@ -6685,12 +6695,6 @@ a.symbol:before {
   .home .pane-top h1 {
     font-size: 48px;
     font-weight: 600;
-  }
-}
-
-@media (max-width: 61.99em) {
-  .nav {
-    font-size: 12px;
   }
 }
 
