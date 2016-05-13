@@ -4474,9 +4474,9 @@ a.symbol:before {
 
 .navbar .navbar-brand {
   background: url("../images/li_logo_horizontal.svg") no-repeat;
-  background-size: 180px auto;
+  background-size: 200px auto;
   background-position: 20px;
-  width: 200px;
+  width: 220px;
   display: block;
   text-indent: 100%;
   white-space: nowrap;
