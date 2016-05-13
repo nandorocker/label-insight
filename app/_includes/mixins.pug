@@ -4,7 +4,7 @@ mixin productDetailPaneTop(imgID, productName, title, paragraph, btn, btn_url, s
 		.container
 			.row
 				figure.illustration
-					img(src="/images/illustration_" + imgID + ".png")
+					img(src="images/illustration_" + imgID + ".png")
 				.description
 					h4= productName
 					h1!= title
@@ -35,7 +35,7 @@ mixin paneFinalCloser(title, paragraph, btn, btn_url)
 mixin partnerBlock(logo, name, description)
 	.partner
 		.logo
-			img(src="/images/logo_" + logo + ".png")
+			img(src="images/logo_" + logo + ".png")
 
 		.description
 			h2= name
