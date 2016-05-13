@@ -4470,7 +4470,6 @@ a.symbol:before {
 .nav {
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 12px;
 }
 
 .navbar .navbar-brand {
@@ -6686,6 +6685,12 @@ a.symbol:before {
   .home .pane-top h1 {
     font-size: 48px;
     font-weight: 600;
+  }
+}
+
+@media (max-width: 61.99em) {
+  .nav {
+    font-size: 12px;
   }
 }
 
