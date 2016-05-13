@@ -4687,22 +4687,38 @@ a.symbol:before {
   margin-top: 0;
 }
 
-.how-it-works .step figure {
-  position: relative;
-  min-height: 1px;
-  padding-left: 20px;
-  padding-right: 20px;
+.how-it-works .step {
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.how-it-works .step:before,
+.how-it-works .step:after {
+  content: " ";
+  display: table;
+}
+
+.how-it-works .step:after {
+  clear: both;
+}
+
+.how-it-works .step>figure {
   position: relative;
   min-height: 1px;
   padding-left: 20px;
   padding-right: 20px;
 }
 
+.how-it-works .step>figure>img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  height: auto;
+}
+
 .how-it-works .step .description {
-  position: relative;
-  min-height: 1px;
-  padding-left: 20px;
-  padding-right: 20px;
   position: relative;
   min-height: 1px;
   padding-left: 20px;
@@ -5497,14 +5513,14 @@ a.symbol:before {
     width: 66.66667%;
   }
 
-  .how-it-works .step figure {
+  .how-it-works .step>figure {
     float: left;
-    width: 33.33333%;
+    width: 25%;
   }
 
   .how-it-works .step .description {
     float: left;
-    width: 66.66667%;
+    width: 75%;
   }
 
   .contact .addresses>ul {
@@ -5855,16 +5871,6 @@ a.symbol:before {
   }
 
   .product-detail .pane-top .description {
-    float: left;
-    width: 58.33333%;
-  }
-
-  .how-it-works .step figure {
-    float: left;
-    width: 41.66667%;
-  }
-
-  .how-it-works .step .description {
     float: left;
     width: 58.33333%;
   }
