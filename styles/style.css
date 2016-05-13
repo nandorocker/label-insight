@@ -4581,7 +4581,7 @@ a.symbol:before {
 }
 
 .home .pane-top {
-  background: linear-gradient(rgba(55,60,70,0.55), rgba(55,60,70,0.55)),url("../images/illustration_1A.png") center bottom/200% no-repeat,url("../images/bgGridBlue.png") repeat,#373D46;
+  background: linear-gradient(rgba(55,60,70,0.55), rgba(55,60,70,0.55)),url("../images/illustration_1A.svg") center bottom/200% no-repeat,url("../images/bgGridBlue.png") repeat,#373D46;
   background-attachment: fixed;
 }
 
@@ -4733,6 +4733,47 @@ a.symbol:before {
   text-align: left;
 }
 
+.how-it-powers .power-item {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.how-it-powers .power-item:before,
+.how-it-powers .power-item:after {
+  content: " ";
+  display: table;
+}
+
+.how-it-powers .power-item:after {
+  clear: both;
+}
+
+.how-it-powers .power-item figure {
+  position: relative;
+  min-height: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.how-it-powers .power-item .description {
+  position: relative;
+  min-height: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.how-it-powers .power-item .description {
+  margin-top: 50px;
+}
+
 .contact .addresses>ul {
   padding-left: 0;
   list-style: none;
@@ -4865,7 +4906,7 @@ a.symbol:before {
 }
 
 .careers.pane-top {
-  background: url("../images/about_careers_top_bg.png");
+  background: url("../images/about_careers_top_bg.svg");
   background-attachment: fixed;
 }
 
@@ -5523,6 +5564,16 @@ a.symbol:before {
     width: 75%;
   }
 
+  .how-it-powers .power-item figure {
+    float: left;
+    width: 25%;
+  }
+
+  .how-it-powers .power-item .description {
+    float: left;
+    width: 75%;
+  }
+
   .contact .addresses>ul {
     float: left;
     width: 50%;
@@ -5873,6 +5924,16 @@ a.symbol:before {
   .product-detail .pane-top .description {
     float: left;
     width: 58.33333%;
+  }
+
+  .how-it-powers .power-item figure {
+    float: left;
+    width: 33.33333%;
+  }
+
+  .how-it-powers .power-item .description {
+    float: left;
+    width: 66.66667%;
   }
 }
 
@@ -6586,7 +6647,7 @@ a.symbol:before {
   }
 
   .home .pane-top {
-    background: linear-gradient(rgba(55,60,70,0.55), rgba(55,60,70,0.55)),url("../images/illustration_1A.png") center bottom/80% no-repeat,url("../images/bgGridBlue.png") repeat fixed,#373D46;
+    background: linear-gradient(rgba(55,60,70,0.55), rgba(55,60,70,0.55)),url("../images/illustration_1A.svg") center bottom/80% no-repeat,url("../images/bgGridBlue.png") repeat fixed,#373D46;
   }
 }
 
@@ -6632,7 +6693,7 @@ a.symbol:before {
   }
 
   .home .pane-top {
-    background: url("../images/illustration_1A.png") left 0 bottom 0/60% no-repeat,url("../images/bgGridBlue.png") repeat fixed,#373D46;
+    background: url("../images/illustration_1A.svg") left 0 bottom 0/60% no-repeat,url("../images/bgGridBlue.png") repeat fixed,#373D46;
   }
 }
 
@@ -6695,7 +6756,7 @@ a.symbol:before {
   }
 
   .home .pane-top {
-    background: url("../images/illustration_1A.png") left 0 bottom 0/50% no-repeat,url("../images/bgGridBlue.png") repeat fixed,#373D46;
+    background: url("../images/illustration_1A.svg") left 0 bottom 0/50% no-repeat,url("../images/bgGridBlue.png") repeat fixed,#373D46;
   }
 
   .home .pane-top h1 {
